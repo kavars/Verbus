@@ -10,7 +10,6 @@ import UIKit
 
 class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     
-    weak var tmpVerb: Verb?
     
     // MARK: - Outlets
     
@@ -32,40 +31,29 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
 
     var presenter: VerbDetailsPresenterProtocol!
     let configurator: VerbDetailsConfiguratorProtocol = VerbDetailsConfigurator()
+    
+    private weak var tmpVerb: Verb?
 
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configurator.configure(with: self)
-        // tmp
-        presenter.setVerb(verb: tmpVerb!)
         presenter.configureView()
     }
-    
-//    deinit {
-//        print("deinit details")
-//    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        // back to the Verbs Table
-        // if let owningNavigationController = navigationController {
-        //     owningNavigationController.popViewController(animated: true)
-        // }
         presenter.dismissDetailsView()
         
     }
+    
+    func configure(verb: Verb) {
+        configurator.configure(with: self, verb: verb)
+    }
 
     // MARK: - VerbDetailsViewProtocol
-    
-    func setVerb(verb: Verb) {
-        // tmp
-        tmpVerb = verb
-//        presenter.setVerb(verb: verb)
-    }
     
     func setInfinitiveForm(with string: String) {
         DispatchQueue.main.async {

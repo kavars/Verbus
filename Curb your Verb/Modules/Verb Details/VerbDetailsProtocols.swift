@@ -9,8 +9,9 @@
 import Foundation
 
 protocol VerbDetailsViewProtocol: class {
-    func setVerb(verb: Verb)
     
+    func configure(verb: Verb)
+        
     func setInfinitiveForm(with string: String)
     func setPastSimpleForm(with string: String)
     func setPastParticipleForm(with string: String)
@@ -28,7 +29,6 @@ protocol VerbDetailsViewProtocol: class {
 }
 
 protocol VerbDetailsInteractorProtocol: class {
-    func setVerb(verb: Verb)
     
     var infinitiveForm: String { get }
     var pastSimpleForm: String { get }
@@ -53,12 +53,10 @@ protocol VerbDetailsPresenterProtocol: class {
     func configureView()
     
     func dismissDetailsView()
-    
-    func setVerb(verb: Verb)
 }
 
 protocol VerbDetailsConfiguratorProtocol: class {
-    func configure(with viewController: VerbDetailsViewController)
+    func configure(with viewController: VerbDetailsViewController, verb: Verb)
 }
 
 protocol VerbDetailsRouterProtocol: class {

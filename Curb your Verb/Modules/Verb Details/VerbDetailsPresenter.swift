@@ -39,7 +39,4 @@ class VerbDetailsPresenter: VerbDetailsPresenterProtocol {
         router.closeCurrentViewController()
     }
     
-    func setVerb(verb: Verb) {
-        interactor.setVerb(verb: verb)
-    }
 }

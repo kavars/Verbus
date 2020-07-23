@@ -9,13 +9,14 @@
 import Foundation
 
 class VerbDetailsConfigurator: VerbDetailsConfiguratorProtocol {
-    func configure(with viewController: VerbDetailsViewController) {
+    func configure(with viewController: VerbDetailsViewController, verb: Verb) {
         let presenter = VerbDetailsPresenter(view: viewController)
-        let interactor = VerbDetailsInteractor(presenter: presenter)
+        let interactor = VerbDetailsInteractor(presenter: presenter, verb: verb)
         let router = VerbDetailsRouter(viewController: viewController)
         
         viewController.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
+        
     }
 }

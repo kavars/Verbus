@@ -12,21 +12,22 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     weak var presenter: VerbDetailsPresenterProtocol!
     
-    var verb: Verb?
+    var verb: Verb
     
-    init(presenter: VerbDetailsPresenterProtocol) {
+    init(presenter: VerbDetailsPresenterProtocol, verb: Verb) {
         self.presenter = presenter
-    }
-    
-    func setVerb(verb: Verb) {
         self.verb = verb
     }
+    
+//    func setVerb(verb: Verb) {
+//        self.verb = verb
+//    }
     
     // MARK: - VerbDetailsInteractorProtocol
     
     var infinitiveForm: String {
         get {
-            guard let infinitive = verb?.infinitive else {
+            guard let infinitive = verb.infinitive else {
                 return ""
             }
             return infinitive
@@ -35,7 +36,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var pastSimpleForm: String {
         get {
-            guard let pastSimple = verb?.pastSimple else {
+            guard let pastSimple = verb.pastSimple else {
                 return ""
             }
             return pastSimple
@@ -44,7 +45,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var pastParticipleForm: String {
         get {
-            guard let pastParticiple = verb?.pastParticiple else {
+            guard let pastParticiple = verb.pastParticiple else {
                 return ""
             }
             return pastParticiple
@@ -53,7 +54,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var infinitiveTranscription: String {
         get {
-            guard let infinitiveTranscription = verb?.infinitiveTranscription else {
+            guard let infinitiveTranscription = verb.infinitiveTranscription else {
                 return ""
             }
             return infinitiveTranscription
@@ -62,7 +63,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var pastSimpleTranscription: String {
         get {
-            guard let pastSimpleTranscription = verb?.pastSimpleTranscription else {
+            guard let pastSimpleTranscription = verb.pastSimpleTranscription else {
                 return ""
             }
             return pastSimpleTranscription
@@ -71,7 +72,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var pastParticipleTranscription: String {
         get {
-            guard let pastParticipleTranscription = verb?.pastParticipleTranscription else {
+            guard let pastParticipleTranscription = verb.pastParticipleTranscription else {
                 return ""
             }
             return pastParticipleTranscription
@@ -80,7 +81,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var translation: String {
         get {
-            guard let translation = verb?.translation else {
+            guard let translation = verb.translation else {
                 return ""
             }
             return translation
@@ -89,7 +90,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var rightAnswersToday: Int32 {
         get {
-            guard let rightAnswersToday = verb?.progress?.rightAnswersToday else {
+            guard let rightAnswersToday = verb.progress?.rightAnswersToday else {
                 return 0
             }
             return rightAnswersToday
@@ -98,7 +99,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var wrongAnswersToday: Int32 {
         get {
-            guard let wrongAnswersToday = verb?.progress?.wrongAnswersToday else {
+            guard let wrongAnswersToday = verb.progress?.wrongAnswersToday else {
                 return 0
             }
             return wrongAnswersToday
@@ -107,7 +108,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var rightAnswersForAllTime: Int32 {
         get {
-            guard let rightAnswersForAllTime = verb?.progress?.rightAnswersForAllTime else {
+            guard let rightAnswersForAllTime = verb.progress?.rightAnswersForAllTime else {
                 return 0
             }
             return rightAnswersForAllTime
@@ -116,7 +117,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     var wrongAnswersForAllTime: Int32 {
         get {
-            guard let wrongAnswersForAllTime = verb?.progress?.wrongAnswersForAllTime else {
+            guard let wrongAnswersForAllTime = verb.progress?.wrongAnswersForAllTime else {
                 return 0
             }
             return wrongAnswersForAllTime
