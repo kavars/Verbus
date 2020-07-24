@@ -44,6 +44,8 @@
 		7E512E8624B74C10006573AF /* CorrectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */; };
 		7E512E8824B77E4C006573AF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8724B77E4C006573AF /* Colors.swift */; };
 		7E750E8224BF9791006CA440 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E750E8124BF9791006CA440 /* SampleData.plist */; };
+		7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410B24CB215600237F44 /* VerbTableViewCell.swift */; };
+		7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410E24CB243100237F44 /* VerbCollectionCell.swift */; };
 		7E8AC91E24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AC91A24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift */; };
 		7E8AC91F24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AC91B24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift */; };
 		7E8AC92024BE21BA00DCC4A2 /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AC91C24BE21BA00DCC4A2 /* Verb+CoreDataClass.swift */; };
@@ -102,6 +104,8 @@
 		7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectIndicatorView.swift; sourceTree = "<group>"; };
 		7E512E8724B77E4C006573AF /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E750E8124BF9791006CA440 /* SampleData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
+		7E84410B24CB215600237F44 /* VerbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbTableViewCell.swift; sourceTree = "<group>"; };
+		7E84410E24CB243100237F44 /* VerbCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCollectionCell.swift; sourceTree = "<group>"; };
 		7E8AC91A24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7E8AC91B24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7E8AC91C24BE21BA00DCC4A2 /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 		7E512E8324B74BBC006573AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7E84410D24CB242900237F44 /* VerbCollectionCell */,
+				7E84410A24CB213400237F44 /* VerbTableViewCell */,
 				7E512E8424B74BEA006573AF /* CorrectIndicatorView */,
 			);
 			path = Views;
@@ -279,6 +285,22 @@
 				7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */,
 			);
 			path = CorrectIndicatorView;
+			sourceTree = "<group>";
+		};
+		7E84410A24CB213400237F44 /* VerbTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7E84410B24CB215600237F44 /* VerbTableViewCell.swift */,
+			);
+			path = VerbTableViewCell;
+			sourceTree = "<group>";
+		};
+		7E84410D24CB242900237F44 /* VerbCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				7E84410E24CB243100237F44 /* VerbCollectionCell.swift */,
+			);
+			path = VerbCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +410,8 @@
 				7E512E7C24B72280006573AF /* LearnConfigurator.swift in Sources */,
 				7E512E6E24B72208006573AF /* VerbsListPresenter.swift in Sources */,
 				7E512E6824B720EC006573AF /* VerbDetailsProtocols.swift in Sources */,
+				7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */,
+				7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */,
 				7E512E4C24B71F9B006573AF /* StoreSevice.swift in Sources */,
 				7E512E7624B72257006573AF /* LearnViewController.swift in Sources */,
 				7E512E6024B720C7006573AF /* VerbDetailsViewController.swift in Sources */,
@@ -510,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -564,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

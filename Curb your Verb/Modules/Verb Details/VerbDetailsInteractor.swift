@@ -19,10 +19,6 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
         self.verb = verb
     }
     
-//    func setVerb(verb: Verb) {
-//        self.verb = verb
-//    }
-    
     // MARK: - VerbDetailsInteractorProtocol
     
     var infinitiveForm: String {

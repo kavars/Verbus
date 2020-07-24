@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Of0-P2-DyX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Of0-P2-DyX">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -50,7 +50,8 @@
                                 <rect key="frame" x="16" y="409" width="343" height="210"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="RHH-cz-x2Y"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="RHH-cz-x2Y"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="210" id="eqA-mA-olW"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gmv-N1-rBR">
                                     <size key="itemSize" width="100" height="100"/>
@@ -59,7 +60,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="verbCell" id="9YZ-SS-Jay" customClass="VerbCell" customModule="Curb_your_Verb" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="verbCell" id="9YZ-SS-Jay" customClass="VerbCollectionCell" customModule="Curb_your_Verb" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HYI-VU-p6e">
@@ -81,6 +82,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.92100000000000004" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="100" height="100"/>
                                         <connections>
                                             <outlet property="variant" destination="Aij-RW-RBw" id="vqE-M4-azF"/>
                                         </connections>
@@ -94,7 +96,7 @@
                                 <rect key="frame" x="125" y="91" width="125" height="10"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="HkN-qL-P1V"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="HkN-qL-P1V"/>
                                     <constraint firstAttribute="height" constant="10" id="gmz-WO-XYp"/>
                                 </constraints>
                             </view>
@@ -125,7 +127,7 @@
                             <constraint firstItem="mlB-eI-SyB" firstAttribute="trailing" secondItem="ltR-hV-Hwm" secondAttribute="trailing" constant="102" id="Idu-Jg-4UW"/>
                             <constraint firstItem="Etw-ko-yYh" firstAttribute="top" secondItem="mlB-eI-SyB" secondAttribute="top" constant="47" id="MPF-Au-5Rx"/>
                             <constraint firstItem="reD-Gk-3BI" firstAttribute="leading" secondItem="mlB-eI-SyB" secondAttribute="leading" constant="147" id="Q0c-eA-iMr"/>
-                            <constraint firstItem="2fE-fY-qYO" firstAttribute="leading" secondItem="8gZ-P6-GsJ" secondAttribute="trailing" constant="70" id="R5p-sn-eRW"/>
+                            <constraint firstItem="2fE-fY-qYO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8gZ-P6-GsJ" secondAttribute="trailing" constant="70" id="R5p-sn-eRW"/>
                             <constraint firstItem="mlB-eI-SyB" firstAttribute="trailing" secondItem="U2b-df-MXb" secondAttribute="trailing" constant="16" id="UuK-7X-p6M"/>
                             <constraint firstItem="2fE-fY-qYO" firstAttribute="top" secondItem="ltR-hV-Hwm" secondAttribute="bottom" constant="52" id="YW7-tu-Sag"/>
                             <constraint firstItem="mlB-eI-SyB" firstAttribute="trailing" secondItem="reD-Gk-3BI" secondAttribute="trailing" constant="148" id="aI2-0h-mVC"/>
@@ -377,7 +379,7 @@
                             <constraint firstItem="qC7-uv-CUS" firstAttribute="leading" secondItem="Z94-wV-pVl" secondAttribute="trailing" constant="21" id="8PO-50-bUq"/>
                             <constraint firstItem="7Gd-ax-JSb" firstAttribute="top" secondItem="EBJ-8t-j9H" secondAttribute="bottom" constant="55" id="9pa-pz-fMa"/>
                             <constraint firstItem="TwK-FX-vPI" firstAttribute="top" secondItem="Bb7-Xb-Wmi" secondAttribute="bottom" constant="26" id="B8E-yl-gC5"/>
-                            <constraint firstItem="emk-uj-MaB" firstAttribute="leading" secondItem="JCZ-bV-d4N" secondAttribute="leading" constant="14" id="DZX-6j-wbZ"/>
+                            <constraint firstItem="emk-uj-MaB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JCZ-bV-d4N" secondAttribute="leading" constant="14" id="DZX-6j-wbZ"/>
                             <constraint firstItem="Aas-NP-ol6" firstAttribute="leading" secondItem="EBJ-8t-j9H" secondAttribute="trailing" constant="-4" id="Gao-Os-X2i"/>
                             <constraint firstItem="TwK-FX-vPI" firstAttribute="leading" secondItem="JCZ-bV-d4N" secondAttribute="leading" constant="16" id="HIc-nk-WRQ"/>
                             <constraint firstItem="emk-uj-MaB" firstAttribute="top" secondItem="JCZ-bV-d4N" secondAttribute="top" constant="103" id="HKf-rD-Gjg"/>
@@ -390,16 +392,18 @@
                             <constraint firstItem="jUU-E3-mZ6" firstAttribute="top" secondItem="emk-uj-MaB" secondAttribute="bottom" constant="22" id="Ro2-CW-be0"/>
                             <constraint firstItem="APM-Kx-fKI" firstAttribute="top" secondItem="Z94-wV-pVl" secondAttribute="bottom" constant="22" id="SWx-WX-fnL"/>
                             <constraint firstItem="DOy-dP-VJP" firstAttribute="leading" secondItem="8Fh-wU-dAP" secondAttribute="trailing" constant="9" id="U1V-NW-agx"/>
-                            <constraint firstItem="jUU-E3-mZ6" firstAttribute="leading" secondItem="JCZ-bV-d4N" secondAttribute="leading" constant="14" id="Vw7-pC-3uN"/>
+                            <constraint firstItem="jUU-E3-mZ6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JCZ-bV-d4N" secondAttribute="leading" constant="14" id="Vw7-pC-3uN"/>
+                            <constraint firstItem="EBJ-8t-j9H" firstAttribute="leading" secondItem="JCZ-bV-d4N" secondAttribute="leading" constant="113" id="W8a-cS-0J0"/>
                             <constraint firstItem="EBJ-8t-j9H" firstAttribute="leading" secondItem="jUU-E3-mZ6" secondAttribute="trailing" constant="-2" id="Zar-aL-A8Y"/>
-                            <constraint firstItem="JCZ-bV-d4N" firstAttribute="trailing" secondItem="qC7-uv-CUS" secondAttribute="trailing" constant="15" id="apF-Ws-27g"/>
+                            <constraint firstItem="JCZ-bV-d4N" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qC7-uv-CUS" secondAttribute="trailing" constant="15" id="apF-Ws-27g"/>
+                            <constraint firstItem="JCZ-bV-d4N" firstAttribute="trailing" secondItem="EBJ-8t-j9H" secondAttribute="trailing" constant="112" id="c9K-LH-mrH"/>
                             <constraint firstItem="JCZ-bV-d4N" firstAttribute="trailing" secondItem="DJN-AI-FWG" secondAttribute="trailing" constant="16" id="cok-hR-ij9"/>
                             <constraint firstItem="DJN-AI-FWG" firstAttribute="leading" secondItem="TwK-FX-vPI" secondAttribute="trailing" constant="28" id="dlI-EG-ZGa"/>
                             <constraint firstItem="JCZ-bV-d4N" firstAttribute="bottom" secondItem="8Fh-wU-dAP" secondAttribute="bottom" constant="86" id="dt5-iJ-FUS"/>
                             <constraint firstItem="Z94-wV-pVl" firstAttribute="leading" secondItem="emk-uj-MaB" secondAttribute="trailing" constant="22" id="dyG-HU-LdZ"/>
                             <constraint firstItem="7Gd-ax-JSb" firstAttribute="leading" secondItem="aQf-Yc-Y8y" secondAttribute="trailing" constant="67" id="gW3-Du-cia"/>
                             <constraint firstItem="8Fh-wU-dAP" firstAttribute="top" secondItem="TwK-FX-vPI" secondAttribute="bottom" constant="16" id="hWq-7m-7B3"/>
-                            <constraint firstItem="JCZ-bV-d4N" firstAttribute="trailing" secondItem="Aas-NP-ol6" secondAttribute="trailing" constant="15" id="iHO-hZ-uLe"/>
+                            <constraint firstItem="JCZ-bV-d4N" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Aas-NP-ol6" secondAttribute="trailing" constant="15" id="iHO-hZ-uLe"/>
                             <constraint firstItem="Bb7-Xb-Wmi" firstAttribute="top" secondItem="aQf-Yc-Y8y" secondAttribute="bottom" constant="16" id="kRp-bp-6iQ"/>
                             <constraint firstItem="JCZ-bV-d4N" firstAttribute="bottom" secondItem="DOy-dP-VJP" secondAttribute="bottom" constant="86" id="l7v-mh-f5B"/>
                             <constraint firstItem="Y9g-Ps-7Dq" firstAttribute="top" secondItem="7Gd-ax-JSb" secondAttribute="bottom" constant="16" id="maM-lI-zFa"/>

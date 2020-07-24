@@ -18,4 +18,3 @@ class Colors {
     
     static let orangeCheckButton = UIColor.systemOrange
 }
-

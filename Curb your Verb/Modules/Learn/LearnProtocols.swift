@@ -16,11 +16,11 @@ protocol LearnViewProtocol: class {
     func performSuccessVibration()
     func performUnsuccessVibration()
     
-    func getCell(at index: IndexPath) -> VerbCellProtocol? // ?
+    func getCell(at index: IndexPath) -> VerbCollectionCellProtocol? // ?
     
     func performErrorAnimate()
     
-    func getVisibleCells() -> [VerbCellProtocol]?
+    func getVisibleCells() -> [VerbCollectionCellProtocol]?
 }
 
 protocol LearnInteractorProtocol: class {
@@ -57,9 +57,9 @@ protocol LearnPresenterProtocol: class {
     var pastParticipleCheck: Bool { set get }
     
     // change to protocol
-    func pastSimpleCellSelected(_ cell: VerbCellProtocol?, at indexPath: IndexPath)
-    func pastParticipleCellSetected(_ cell: VerbCellProtocol?, at indexPath: IndexPath)
-    func selectedPressedCell(_ cell: VerbCellProtocol?, at indexPath: IndexPath)
+    func pastSimpleCellSelected(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath)
+    func pastParticipleCellSetected(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath)
+    func selectedPressedCell(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath)
     
     var pastSimpleIndex: IndexPath { set get }
     var pastParticipleIndex: IndexPath { set get }

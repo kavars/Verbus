@@ -17,6 +17,5 @@ class VerbDetailsConfigurator: VerbDetailsConfiguratorProtocol {
         viewController.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
-        
     }
 }

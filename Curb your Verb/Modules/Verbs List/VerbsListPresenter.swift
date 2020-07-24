@@ -19,7 +19,8 @@ import Foundation
     }
     
     func configureView() {
-        
+        tableView.setUpSearchController()
+        tableView.setUpTableView()
     }
     
     func getVerbsCount() -> Int {

@@ -59,7 +59,7 @@ class LearnPresenter: LearnPresenterProtocol {
         }
     }
     
-    func pastSimpleCellSelected(_ cell: VerbCellProtocol?, at indexPath: IndexPath) {
+    func pastSimpleCellSelected(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath) {
         if let cell = cell {
             cell.bgColor = Colors.yellowVariant
             cell.isPressed = true
@@ -72,7 +72,7 @@ class LearnPresenter: LearnPresenterProtocol {
         }
     }
     
-    func pastParticipleCellSetected(_ cell: VerbCellProtocol?, at indexPath: IndexPath) {
+    func pastParticipleCellSetected(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath) {
         if let cell = cell {
             cell.bgColor = Colors.yellowVariant
             cell.isPressed = true
@@ -85,7 +85,7 @@ class LearnPresenter: LearnPresenterProtocol {
         }
     }
     
-    func selectedPressedCell(_ cell: VerbCellProtocol?, at indexPath: IndexPath) {
+    func selectedPressedCell(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath) {
         if let cell = cell {
             cell.bgColor = Colors.grayVariant
             cell.isPressed = false

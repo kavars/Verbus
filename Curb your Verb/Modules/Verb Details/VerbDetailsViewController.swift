@@ -46,7 +46,6 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
         super.viewDidDisappear(animated)
         
         presenter.dismissDetailsView()
-        
     }
     
     func configure(verb: Verb) {

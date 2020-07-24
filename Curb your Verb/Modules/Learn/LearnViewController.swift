@@ -73,8 +73,8 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         feedback.notificationOccurred(.error)
     }
     
-    func getCell(at index: IndexPath) -> VerbCellProtocol? {
-        if let cell = collectionView.cellForItem(at: index) as? VerbCellProtocol {
+    func getCell(at index: IndexPath) -> VerbCollectionCellProtocol? {
+        if let cell = collectionView.cellForItem(at: index) as? VerbCollectionCellProtocol {
             return cell
         }
         return nil
@@ -84,7 +84,12 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         animate(label: infinitiveLabel)
     }
     
-    // ?
+    func getVisibleCells() -> [VerbCollectionCellProtocol]? {
+        return collectionView.visibleCells as? [VerbCollectionCellProtocol]
+    }
+    
+    // MARK: - Animation
+    
     func animate(label: UILabel) {
         
         let changeColor = CATransition()
@@ -101,44 +106,11 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         CATransaction.commit()
     }
     
-    func getVisibleCells() -> [VerbCellProtocol]? {
-        return collectionView.visibleCells as? [VerbCellProtocol]
-    }
-}
 
-// MARK: - Verb Cell
-
-protocol VerbCellProtocol: class {
-    var isPressed: Bool { set get }
-    var text: String? { set get }
-    var bgColor: UIColor? { set get }
-}
-
-class VerbCell: UICollectionViewCell, VerbCellProtocol {
-    @IBOutlet weak var variant: UILabel!
-    
-    var isPressed = false
-    
-    var text: String? {
-        set {
-            variant.text = newValue
-        }
-        get {
-            return variant.text
-        }
-    }
-    
-    var bgColor: UIColor? {
-        set {
-            self.backgroundColor = newValue
-        }
-        get {
-            return self.backgroundColor
-        }
-    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+
 extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -147,7 +119,7 @@ extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "verbCell", for: indexPath) as! VerbCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "verbCell", for: indexPath) as! VerbCollectionCell
         
         cell.variant.lineBreakMode = .byWordWrapping
         cell.variant.numberOfLines = 0
@@ -158,7 +130,7 @@ extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.cellForItem(at: indexPath) as? VerbCellProtocol
+        let cell = collectionView.cellForItem(at: indexPath) as? VerbCollectionCellProtocol
         
         if let isPressed = cell?.isPressed {
             if !isPressed {

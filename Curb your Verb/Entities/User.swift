@@ -97,9 +97,7 @@ class User: UserProtocol {
     func rightAswer() {
         currentVerb?.progress?.rightAnswersToday += 1
         currentVerb?.progress?.rightAnswersForAllTime += 1
-        
-//        print(currentVerb?.progress?.rightAnswersToday)
-        
+                
         storeService.saveContext()
     }
     
@@ -116,17 +114,12 @@ class User: UserProtocol {
         }
         
         let count = progress.rightAnswersToday - progress.wrongAnswersToday
-        
-//        print("Actual Count: \(count)")
-        
+                
         if count < 0 {
-//            print("Return 0")
             return 0
         } else if count > 6 {
-//            print("Return 6")
             return 6
         } else {
-//            print("Return Actual Count: \(count)")
             return Int(count)
         }
     }

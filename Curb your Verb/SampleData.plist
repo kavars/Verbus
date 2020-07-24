@@ -17,8 +17,6 @@
 		<string>[bi:n]</string>
 		<key>translation</key>
 		<string>быть, находиться</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>be</string>
@@ -28,14 +26,6 @@
 			<string>ben</string>
 			<string>bi</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -52,8 +42,6 @@
 		<string>[bɪˈkʌm]</string>
 		<key>translation</key>
 		<string>становиться</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>became</string>
@@ -63,14 +51,6 @@
 			<string>bacome</string>
 			<string>bacomn</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -87,8 +67,6 @@
 		<string>[bɪˈgʌn]</string>
 		<key>translation</key>
 		<string>начинать(ся)</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>begunen</string>
@@ -98,14 +76,6 @@
 			<string>begun</string>
 			<string>begining</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -122,8 +92,6 @@
 		<string>[bloʊn]</string>
 		<key>translation</key>
 		<string>дуть</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>blow</string>
@@ -133,14 +101,6 @@
 			<string>blown</string>
 			<string>blewn</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -157,8 +117,6 @@
 		<string>[broʊkən]</string>
 		<key>translation</key>
 		<string>ломать</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>broke</string>
@@ -168,14 +126,6 @@
 			<string>brown</string>
 			<string>brake</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -192,8 +142,6 @@
 		<string>[brɔ:t]</string>
 		<key>translation</key>
 		<string>принести</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>brohgt</string>
@@ -203,14 +151,56 @@
 			<string>brought</string>
 			<string>braugth</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>build</string>
+		<key>pastSimple</key>
+		<string>built</string>
+		<key>pastParticiple</key>
+		<string>built</string>
+		<key>infinitiveTranscription</key>
+		<string>[bɪld]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[bɪlt]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[bɪlt]</string>
+		<key>translation</key>
+		<string>строить</string>
+		<key>variants</key>
+		<array>
+			<string>build</string>
+			<string>bold</string>
+			<string>built</string>
+			<string>built</string>
+			<string>biuld</string>
+			<string>bailt</string>
+		</array>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>buy</string>
+		<key>pastSimple</key>
+		<string>bought</string>
+		<key>pastParticiple</key>
+		<string>bought</string>
+		<key>infinitiveTranscription</key>
+		<string>[baɪ]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[bɔ:t]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[bɔ:t]</string>
+		<key>translation</key>
+		<string>покупать</string>
+		<key>variants</key>
+		<array>
+			<string>bought</string>
+			<string>buy</string>
+			<string>boy</string>
+			<string>bought</string>
+			<string>baugth</string>
+			<string>boutgh</string>
+		</array>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -227,8 +217,6 @@
 		<string>[kɔ:t]</string>
 		<key>translation</key>
 		<string>ловить</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>catch</string>
@@ -238,14 +226,31 @@
 			<string>cauhtg</string>
 			<string>cught</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>choose</string>
+		<key>pastSimple</key>
+		<string>chose</string>
+		<key>pastParticiple</key>
+		<string>chosen</string>
+		<key>infinitiveTranscription</key>
+		<string>[tʃu:z]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[tʃoʊz]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[tʃoʊzn]</string>
+		<key>translation</key>
+		<string>выбирать</string>
+		<key>variants</key>
+		<array>
+			<string>choose</string>
+			<string>chasen</string>
+			<string>chosen</string>
+			<string>chose</string>
+			<string>cheso</string>
+			<string>chose</string>
+		</array>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -262,8 +267,6 @@
 		<string>[kʌm]</string>
 		<key>translation</key>
 		<string>приходить</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>come</string>
@@ -273,14 +276,31 @@
 			<string>comon</string>
 			<string>cammn</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>cut</string>
+		<key>pastSimple</key>
+		<string>cut</string>
+		<key>pastParticiple</key>
+		<string>cut</string>
+		<key>infinitiveTranscription</key>
+		<string>[kʌt]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[kʌt]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[kʌt]</string>
+		<key>translation</key>
+		<string>резать</string>
+		<key>variants</key>
+		<array>
+			<string>cut</string>
+			<string>cat</string>
+			<string>cut</string>
+			<string>cit</string>
+			<string>cut</string>
+			<string>cutten</string>
+		</array>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -297,8 +317,6 @@
 		<string>[dʌn]</string>
 		<key>translation</key>
 		<string>делать</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>did</string>
@@ -308,14 +326,131 @@
 			<string>do</string>
 			<string>dane</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>draw</string>
+		<key>pastSimple</key>
+		<string>drew</string>
+		<key>pastParticiple</key>
+		<string>drawn</string>
+		<key>infinitiveTranscription</key>
+		<string>[drɔ:]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[dru:]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[drɔ:n]</string>
+		<key>translation</key>
+		<string>рисовать</string>
+		<key>variants</key>
+		<array>
+			<string>draw</string>
+			<string>drawn</string>
+			<string>drew</string>
+			<string>drown</string>
+			<string>drow</string>
+			<string>derw</string>
+		</array>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>drive</string>
+		<key>pastSimple</key>
+		<string>drove</string>
+		<key>pastParticiple</key>
+		<string>driven</string>
+		<key>infinitiveTranscription</key>
+		<string>[draɪv]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[droʊv]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[drɪvn]</string>
+		<key>translation</key>
+		<string>вести машину</string>
+		<key>variants</key>
+		<array>
+			<string>drive</string>
+			<string>dravn</string>
+			<string>drove</string>
+			<string>driven</string>
+			<string>droven</string>
+			<string>driev</string>
+		</array>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>fall</string>
+		<key>pastSimple</key>
+		<string>fell</string>
+		<key>pastParticiple</key>
+		<string>fallen</string>
+		<key>infinitiveTranscription</key>
+		<string>[fɔ:l]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[fɛl]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[fɔ:lən]</string>
+		<key>translation</key>
+		<string>падать</string>
+		<key>variants</key>
+		<array>
+			<string>fall</string>
+			<string>falt</string>
+			<string>fault</string>
+			<string>fell</string>
+			<string>fallen</string>
+			<string>feel</string>
+		</array>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>feel</string>
+		<key>pastSimple</key>
+		<string>felt</string>
+		<key>pastParticiple</key>
+		<string>felt</string>
+		<key>infinitiveTranscription</key>
+		<string>[fi:l]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[fɛlt]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[fɛlt]</string>
+		<key>translation</key>
+		<string>чувствовать</string>
+		<key>variants</key>
+		<array>
+			<string>felt</string>
+			<string>falt</string>
+			<string>faal</string>
+			<string>felt</string>
+			<string>fallen</string>
+			<string>feel</string>
+		</array>
+	</dict>
+	<dict>
+		<key>infinitive</key>
+		<string>find</string>
+		<key>pastSimple</key>
+		<string>found</string>
+		<key>pastParticiple</key>
+		<string>found</string>
+		<key>infinitiveTranscription</key>
+		<string>[faɪnd]</string>
+		<key>pastSimpleTranscription</key>
+		<string>[faʊnd]</string>
+		<key>pastParticipleTranscription</key>
+		<string>[faʊnd]</string>
+		<key>translation</key>
+		<string>находить</string>
+		<key>variants</key>
+		<array>
+			<string>find</string>
+			<string>fund</string>
+			<string>found</string>
+			<string>found</string>
+			<string>founded</string>
+			<string>finded</string>
+		</array>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -332,8 +467,6 @@
 		<string>[wʌn]</string>
 		<key>translation</key>
 		<string>выигрывать</string>
-		<key>isLearn</key>
-		<true/>
 		<key>variants</key>
 		<array>
 			<string>win</string>
@@ -343,14 +476,6 @@
 			<string>winn</string>
 			<string>wan</string>
 		</array>
-		<key>rightAnswersToday</key>
-		<integer>0</integer>
-		<key>wrongAnswersToday</key>
-		<integer>0</integer>
-		<key>rightAnswersAllTime</key>
-		<integer>0</integer>
-		<key>wrongAnswersAllTime</key>
-		<integer>0</integer>
 	</dict>
 </array>
 </plist>

@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 protocol VerbsListTableViewProtocol: class {
-    
+    func setUpSearchController()
+    func setUpTableView()
 }
 
 protocol VerbsListInteractorProtocol: class {
