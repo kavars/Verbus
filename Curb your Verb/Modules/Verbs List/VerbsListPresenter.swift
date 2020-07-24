@@ -31,19 +31,40 @@ import Foundation
         return interactor.getVerb(at: index)
     }
     
-    func updateVerbs() {
+    func selectToLearnClicked() {
+        if !tableView.isTableEditing {
+            tableView.startEditing()
+            
+            // select all verbs which on learning
+            let indexs = interactor.getOnLearningVerbsIndexs()
+            for index in indexs {
+                tableView.selectVerb(at: index)
+            }
+        } else {
+            if let selectedIndexes = tableView.indexPathsForSelectedRows {
+                interactor.applySelectedToLearn(selectedIndexes)
+                
+                interactor.updateVerbs()
+                
+                tableView.updateList()
+            }
+            
+            tableView.endEditing()
+        }
+    }
+    
+    func viewWillAppear() {
         interactor.updateVerbs()
+        
+        tableView.updateList()
+        tableView.endEditing()
     }
     
-    func searchVerbs(infinitive: String) {
-        interactor.searchVerbs(infinitive: infinitive)
-    }
-    
-    func getOnLearningVerbsIndexs() -> [IndexPath] {
-        return interactor.getOnLearningVerbsIndexs()
-    }
-    
-    func applySelectedToLearn(_ indexes: [IndexPath]) {
-        interactor.applySelectedToLearn(indexes)
+    func updateSearchResults() {
+        if let searchText = tableView.searchText {
+            interactor.searchVerbs(infinitive: searchText)
+        }
+        
+        tableView.updateList()
     }
  }

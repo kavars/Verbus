@@ -12,6 +12,19 @@ import UIKit
 protocol VerbsListTableViewProtocol: class {
     func setUpSearchController()
     func setUpTableView()
+    
+    var isTableEditing: Bool { get }
+    
+    func startEditing()
+    func selectVerb(at index: IndexPath)
+    
+    func endEditing()
+    
+    func updateList()
+    
+    var indexPathsForSelectedRows: [IndexPath]? { get }
+    
+    var searchText: String? { get }
 }
 
 protocol VerbsListInteractorProtocol: class {
@@ -32,16 +45,14 @@ protocol VerbsListPresenterProtocol: class {
     
     func configureView()
     
-    func updateVerbs()
-    
     func getVerbsCount() -> Int
     func getVerb(at index: Int) -> Verb
+                
+    func selectToLearnClicked()
     
-    func searchVerbs(infinitive: String)
+    func viewWillAppear()
     
-    func getOnLearningVerbsIndexs() -> [IndexPath]
-    
-    func applySelectedToLearn(_ indexes: [IndexPath])
+    func updateSearchResults()
 }
 
 protocol VerbsListConfiguratorProtocol: class {

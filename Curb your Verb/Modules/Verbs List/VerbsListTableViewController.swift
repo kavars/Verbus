@@ -15,6 +15,18 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     
     var searchController: UISearchController!
     
+    var isTableEditing: Bool {
+        get {
+            return tableView.isEditing
+        }
+    }
+    
+    var indexPathsForSelectedRows: [IndexPath]? {
+        get {
+            return tableView.indexPathsForSelectedRows
+        }
+    }
+    
     // MARK: - View Life cycle
     
     override func viewDidLoad() {
@@ -27,8 +39,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        updateList()
-        endEdit()
+        presenter.viewWillAppear()
     }
 
     // MARK: - Table view data source
@@ -56,30 +67,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     // MARK: - Actions
     
     @IBAction func selectToLearn(_ sender: UIBarButtonItem) {
-        
-        if !self.tableView.isEditing {
-            self.tableView.setEditing(true, animated: true)
-            self.navigationItem.leftBarButtonItem?.title = "Done"
-            
-            // select all verbs which on learning
-            let indexs = presenter.getOnLearningVerbsIndexs()
-            for index in indexs {
-                self.tableView.selectRow(at: index, animated: true, scrollPosition: .none)
-            }
-            
-        } else {
-            
-            if let selectedIndexes = tableView.indexPathsForSelectedRows {
-                presenter.applySelectedToLearn(selectedIndexes)
-                
-                updateList()
-            }
-            
-            endEdit()
-        }
-        
-        
-        
+        presenter.selectToLearnClicked()
     }
     
     // MARK: - VerbsListTableViewProtocol
@@ -104,6 +92,34 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
         }
     }
     
+    func startEditing() {
+        DispatchQueue.main.async {
+            self.tableView.setEditing(true, animated: true)
+            self.navigationItem.leftBarButtonItem?.title = "Done"
+        }
+    }
+    
+    func selectVerb(at index: IndexPath) {
+        DispatchQueue.main.async {
+            self.tableView.selectRow(at: index, animated: true, scrollPosition: .none)
+        }
+    }
+    
+    func endEditing() {
+        DispatchQueue.main.async {
+            self.tableView.setEditing(false, animated: true)
+            self.navigationItem.leftBarButtonItem?.title = "Select To Learn"
+        }
+    }
+    
+    func updateList() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
+
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,18 +131,6 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return !tableView.isEditing
     }
-
-    // MARK: - Private methods
-    
-    private func updateList() {
-        presenter.updateVerbs()
-        tableView.reloadData()
-    }
-    
-    private func endEdit() {
-        self.tableView.setEditing(false, animated: true)
-        self.navigationItem.leftBarButtonItem?.title = "Select To Learn"
-    }
 }
 
 // MARK: - UISearchResultsUpdating
@@ -135,10 +139,12 @@ extension VerbsListTableViewController: UISearchResultsUpdating {
     
     // add fetch predicate by search text
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            presenter.searchVerbs(infinitive: searchText)
+        presenter.updateSearchResults()
+    }
+    
+    var searchText: String? {
+        get {
+            return searchController.searchBar.text
         }
-        
-        tableView.reloadData()
     }
 }
