@@ -130,10 +130,10 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         return nil
     }
     
+    // MARK: - Sample Verbs
     func insertSampleData() {
         
         let fetch: NSFetchRequest<Verb> = Verb.fetchRequest()
-//        fetch.predicate = NSPredicate(format: "searchKey != nil")
         
         let count = try! managedContext.count(for: fetch)
         
@@ -191,7 +191,7 @@ protocol StoreServiceSettingsProtocol {
     func saveVibration(with value: Bool)
 }
 
-class StoreService: StoreServiceSettingsProtocol {
+class StoreSettingsService: StoreServiceSettingsProtocol {
     
     private let kSavedVibrationState = "CurbYourVerb.savedVibrationState"
         

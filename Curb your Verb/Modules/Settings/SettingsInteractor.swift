@@ -28,6 +28,6 @@ class SettingsInteractor: SettingsInteractorProtocol {
     
     func resetStatistic() {
         // reset all verbs progress
-        print("reset all verbs progress")
+        settingsService.resetAllStats()
     }
 }

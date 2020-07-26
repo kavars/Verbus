@@ -10,19 +10,39 @@ import Foundation
 
 protocol SettingsServiceProtocol: class {
     var isVibration: Bool { set get }
+    
+    func resetAllStats()
 }
 
 class SettingsService: SettingsServiceProtocol {
     
-    var storeService: StoreServiceSettingsProtocol = StoreService()
+    lazy var storeSettingsService: StoreServiceSettingsProtocol = StoreSettingsService()
+    lazy var storeServiceVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
     
     var isVibration: Bool {
         set {
-            storeService.saveVibration(with: newValue)
+            storeSettingsService.saveVibration(with: newValue)
         }
         get {
-            return storeService.savedVibration()
+            return storeSettingsService.savedVibration()
         }
     }
     
+    func resetAllStats() {
+        storeServiceVerbs = StoreServiceCoreData(modelName: "Curb_your_Verb")
+        
+        guard let verbs = storeServiceVerbs.verbsFetchAll() else {
+            return
+        }
+        
+        for verb in verbs {
+            verb.isLearn = true
+            verb.progress?.rightAnswersToday = 0
+            verb.progress?.rightAnswersForAllTime = 0
+            verb.progress?.wrongAnswersToday = 0
+            verb.progress?.wrongAnswersForAllTime = 0
+        }
+        
+        storeServiceVerbs.saveContext()
+    }
 }

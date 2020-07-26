@@ -31,7 +31,16 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
     }
     
     @IBAction func resetButtonClicked(_ sender: UIButton) {
-        presenter.resetButtonClicked()
+        let alert = UIAlertController(title: "Reset statistic", message: "Are you shure?", preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "OK", style: .default) { action in
+            self.presenter.resetButtonClicked()
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(actionOK)
+        alert.addAction(actionCancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - SettingsViewProtocol
