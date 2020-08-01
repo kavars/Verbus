@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        dailyUpdater()
+        
         return true
     }
 
@@ -35,3 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    func dailyUpdater() {
+        let storeDayService: StoreServiceSettingsProtocol = StoreSettingsService()
+        
+        let now = Date()
+        let previousDate = storeDayService.savedDay()
+        
+        if Calendar.current.isDate(now, inSameDayAs: previousDate) {
+            print("To day")
+            storeDayService.saveDay(with: now)
+            return
+        }
+        
+        print("Not to day")
+        storeDayService.saveDay(with: now)
+        
+        let storeVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+        
+        storeVerbs.newDayUpdate()
+    }
+}
