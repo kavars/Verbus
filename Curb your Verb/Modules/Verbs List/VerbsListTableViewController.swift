@@ -71,6 +71,16 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     }
     
     // MARK: - VerbsListTableViewProtocol
+    func toggleSearchController() {
+        DispatchQueue.main.async {
+            if self.tableView.tableHeaderView == nil {
+                self.tableView.tableHeaderView = self.searchController.searchBar
+            } else {
+                self.tableView.tableHeaderView = nil
+            }
+        }
+    }
+    
     func setUpSearchController() {
         DispatchQueue.main.async {
             self.searchController = UISearchController(searchResultsController: nil)

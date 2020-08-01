@@ -21,17 +21,25 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
     init(presenter: VerbsListPresenterProtocol) {
         self.presenter = presenter
         
-        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+//        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+//            self.verbs = verbs
+//        }
+        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
             self.verbs = verbs
         }
     }
     
     func updateVerbs() {
         // update store?
+//        storeService.updateContext()
         storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
-        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+        
+        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
             self.verbs = verbs
         }
+//        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+//            self.verbs = verbs
+//        }
     }
     
     func getVerbsCount() -> Int {
@@ -47,7 +55,10 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
         
         self.search = infinitive
         
-        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+//        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+//            self.verbs = verbs
+//        }
+        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
             self.verbs = verbs
         }
     }

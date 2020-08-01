@@ -53,7 +53,7 @@ class User: UserProtocol {
     
     init() {
         
-        if let verbs = storeService.verbsFetch() {
+        if let verbs = storeService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
         }
         
@@ -126,8 +126,9 @@ class User: UserProtocol {
     
     func updateStogeContext() {
         storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
+//        storeService.updateContext()
         
-        if let verbs = storeService.verbsFetch() {
+        if let verbs = storeService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
         }
         

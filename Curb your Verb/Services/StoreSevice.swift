@@ -16,11 +16,11 @@ protocol StoreServiceVerbsProtocol {
     
     var managedContext: NSManagedObjectContext { get }
     
-    func verbsFetch() -> [Verb]?
+    func updateContext()
     
-    func verbsFetchAll() -> [Verb]?
+    func verbsFetch(of type: FetchType) -> [Verb]?
     
-    func verbsSearchInfinitiveFetch(infinitive: String) -> [Verb]?
+    func resetStats()
 }
 
 class StoreServiceCoreData: StoreServiceVerbsProtocol {
@@ -46,6 +46,18 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         return container
     }()
     
+    func updateContext() {
+        let container = NSPersistentContainer(name: self.modelName)
+        
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
+        self.storeContainer = container
+    }
+    
     func saveContext() {
         guard managedContext.hasChanges else {
             return
@@ -58,69 +70,36 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         }
     }
     
-    func verbsFetch() -> [Verb]? {
+    func verbsFetch(of type: FetchType) -> [Verb]? {
         
         var verbs: [Verb] = []
-        
-        insertSampleData()
-
-        
-        let fetch: NSFetchRequest<Verb> = Verb.fetchRequest()
-        fetch.predicate = NSPredicate(format: "%K == %@", argumentArray: [#keyPath(Verb.isLearn), true]
-        )
-        
-        
-        do {
-            verbs = try self.managedContext.fetch(fetch)
-            
-            
-            return verbs
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        return nil
-    }
-    
-    func verbsFetchAll() -> [Verb]? {
-        var verbs: [Verb] = []
-        
         insertSampleData()
         
         let fetch: NSFetchRequest<Verb> = Verb.fetchRequest()
+        var predicate: NSPredicate?
+        var sortDescriptor: NSSortDescriptor?
         
+        switch type {
+        case .all:
+            predicate = nil
+            sortDescriptor = NSSortDescriptor(key: #keyPath(Verb.infinitive), ascending: true)
+        case .onLearning:
+            predicate = NSPredicate(format: "%K == %@", argumentArray: [#keyPath(Verb.isLearn), true])
+            sortDescriptor = nil
+        case.search(let infinitive):
+            if !infinitive.isEmpty {
+                predicate = NSPredicate(format: "%K CONTAINS[c] %@", argumentArray: [#keyPath(Verb.infinitive), infinitive])
+            }
+            sortDescriptor = NSSortDescriptor(key: #keyPath(Verb.infinitive), ascending: true)
+        }
+        
+        fetch.predicate = predicate
+        if let sr = sortDescriptor {
+            fetch.sortDescriptors = [sr]
+        }
         
         do {
             verbs = try self.managedContext.fetch(fetch)
-            
-            verbs.sort(by: {$0.infinitive! < $1.infinitive!})
-            
-            return verbs
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        return nil
-    }
-    
-    func verbsSearchInfinitiveFetch(infinitive: String) -> [Verb]? {
-        
-        var verbs: [Verb] = []
-        
-        insertSampleData()
-        
-        let fetch: NSFetchRequest<Verb> = Verb.fetchRequest()
-        
-        if !infinitive.isEmpty {
-            fetch.predicate = NSPredicate(format: "%K CONTAINS[c] %@", argumentArray: [#keyPath(Verb.infinitive), infinitive]
-            )
-        }
-        
-        
-        do {
-            verbs = try self.managedContext.fetch(fetch)
-            
-            verbs.sort(by: {$0.infinitive! < $1.infinitive!})
             
             return verbs
         } catch {
@@ -181,6 +160,39 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         try! managedContext.save()
         
     }
+    
+    func resetStats() {
+        let batchUpdateVerb = NSBatchUpdateRequest(entityName: "Verb")
+        batchUpdateVerb.propertiesToUpdate = [
+            #keyPath(Verb.isLearn): true
+        ]
+        
+        batchUpdateVerb.affectedStores = managedContext.persistentStoreCoordinator?.persistentStores
+        batchUpdateVerb.resultType = .updatedObjectsCountResultType
+        
+        do {
+            _ = try managedContext.execute(batchUpdateVerb) as! NSBatchUpdateResult
+        } catch let error as NSError {
+            print("Could not update \(error), \(error.userInfo)")
+        }
+        
+        let batchUpdateVerbProgress = NSBatchUpdateRequest(entityName: "VerbProgress")
+        batchUpdateVerbProgress.propertiesToUpdate = [
+            #keyPath(VerbProgress.rightAnswersToday): 0,
+            #keyPath(VerbProgress.rightAnswersForAllTime): 0,
+            #keyPath(VerbProgress.wrongAnswersToday): 0,
+            #keyPath(VerbProgress.wrongAnswersForAllTime): 0
+        ]
+        
+        batchUpdateVerbProgress.affectedStores = managedContext.persistentStoreCoordinator?.persistentStores
+        batchUpdateVerbProgress.resultType = .updatedObjectsCountResultType
+        
+        do {
+            _ = try managedContext.execute(batchUpdateVerbProgress) as! NSBatchUpdateResult
+        } catch let error as NSError {
+            print("Could not update \(error), \(error.userInfo)")
+        }
+    }
 }
 
 
@@ -194,7 +206,7 @@ protocol StoreServiceSettingsProtocol {
 class StoreSettingsService: StoreServiceSettingsProtocol {
     
     private let kSavedVibrationState = "CurbYourVerb.savedVibrationState"
-        
+    
     func savedVibration() -> Bool {
         if UserDefaults.standard.object(forKey: kSavedVibrationState) != nil {
             return UserDefaults.standard.bool(forKey: kSavedVibrationState)

@@ -25,6 +25,8 @@ protocol VerbsListTableViewProtocol: class {
     var indexPathsForSelectedRows: [IndexPath]? { get }
     
     var searchText: String? { get }
+    
+    func toggleSearchController()
 }
 
 protocol VerbsListInteractorProtocol: class {

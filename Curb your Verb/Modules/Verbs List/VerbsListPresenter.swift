@@ -35,6 +35,7 @@ import Foundation
         if !tableView.isTableEditing {
             tableView.startEditing()
             
+            tableView.toggleSearchController()
             // select all verbs which on learning
             let indexs = interactor.getOnLearningVerbsIndexs()
             for index in indexs {
@@ -49,6 +50,7 @@ import Foundation
                 tableView.updateList()
             }
             
+            tableView.toggleSearchController()
             tableView.endEditing()
         }
     }

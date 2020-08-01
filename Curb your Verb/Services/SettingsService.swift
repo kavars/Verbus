@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol SettingsServiceProtocol: class {
     var isVibration: Bool { set get }
@@ -29,20 +30,9 @@ class SettingsService: SettingsServiceProtocol {
     }
     
     func resetAllStats() {
+//        storeServiceVerbs.updateContext()
         storeServiceVerbs = StoreServiceCoreData(modelName: "Curb_your_Verb")
         
-        guard let verbs = storeServiceVerbs.verbsFetchAll() else {
-            return
-        }
-        
-        for verb in verbs {
-            verb.isLearn = true
-            verb.progress?.rightAnswersToday = 0
-            verb.progress?.rightAnswersForAllTime = 0
-            verb.progress?.wrongAnswersToday = 0
-            verb.progress?.wrongAnswersForAllTime = 0
-        }
-        
-        storeServiceVerbs.saveContext()
+        storeServiceVerbs.resetStats()
     }
 }

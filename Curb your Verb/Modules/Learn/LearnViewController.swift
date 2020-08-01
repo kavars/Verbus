@@ -106,7 +106,6 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         CATransaction.commit()
     }
     
-
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
