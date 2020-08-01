@@ -12,21 +12,19 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
     
     weak var presenter: VerbsListPresenterProtocol!
     
-    var storeService: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    var storeService: StoreServiceVerbsFetchedResultsControllerProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
     
-    var verbs: [Verb] = []
+//    var verbs: [Verb] = []
     
     var search: String = ""
     
     init(presenter: VerbsListPresenterProtocol) {
         self.presenter = presenter
         
-//        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+        storeService.fetchResultsController()
+//        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
 //            self.verbs = verbs
 //        }
-        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
-            self.verbs = verbs
-        }
     }
     
     func updateVerbs() {
@@ -34,20 +32,32 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
 //        storeService.updateContext()
         storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
         
-        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
-            self.verbs = verbs
-        }
-//        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+        storeService.fetchResultsController()
+        
+//        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
 //            self.verbs = verbs
 //        }
     }
     
-    func getVerbsCount() -> Int {
-        return verbs.count
+    func numberOfSections() -> Int {
+        return storeService.fetchedResultsController.sections?.count ?? 0
     }
     
-    func getVerb(at index: Int) -> Verb {
-        return verbs[index]
+    func titleForHeader(in section: Int) -> String? {
+        let selectionInfo = storeService.fetchedResultsController.sections?[section]
+        return selectionInfo?.name
+    }
+    
+    func getVerbsCount(in section: Int) -> Int {
+        guard let sectionInfo = storeService.fetchedResultsController.sections?[section] else {
+          return 0
+        }
+        
+        return sectionInfo.numberOfObjects
+    }
+    
+    func getVerb(at indexPath: IndexPath) -> Verb {
+        return storeService.fetchedResultsController.object(at: indexPath)
     }
     
     func searchVerbs(infinitive: String) {
@@ -55,35 +65,49 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
         
         self.search = infinitive
         
-//        if let verbs = storeService.verbsSearchInfinitiveFetch(infinitive: self.search) {
+        storeService.fetchResultsController()
+//        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
 //            self.verbs = verbs
 //        }
-        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
-            self.verbs = verbs
-        }
     }
     
     func getOnLearningVerbsIndexs() -> [IndexPath] {
         var indexs: [IndexPath] = []
         
-        for (i, verb) in verbs.enumerated() {
-            if verb.isLearn {
-                let index = IndexPath(row: i, section: 0)
-                indexs.append(index)
+        guard let sectionsCount = storeService.fetchedResultsController.sections?.count else {
+            fatalError()
+        }
+        
+        for section in 0..<sectionsCount {
+            let sectionInfo = storeService.fetchedResultsController.sections?[section]
+            
+            guard let verbs = sectionInfo?.objects as? [Verb] else {
+                fatalError()
             }
+            
+            for (i, verb) in verbs.enumerated() {
+                if verb.isLearn {
+                    let index = IndexPath(row: i, section: section)
+                    indexs.append(index)
+                }
+            }
+            
         }
         
         return indexs
     }
     
     func applySelectedToLearn(_ indexes: [IndexPath]) {
+        guard let verbs = storeService.fetchedResultsController.fetchedObjects else {
+            return
+        }
+        
         verbs.forEach {
             $0.isLearn = false
         }
         
         for index in indexes {
-            let verb = verbs[index.row]
-            
+            let verb = storeService.fetchedResultsController.object(at: index)
             verb.isLearn = true
         }
         storeService.saveContext()

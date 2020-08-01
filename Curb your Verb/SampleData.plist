@@ -26,6 +26,8 @@
 			<string>ben</string>
 			<string>bi</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -51,6 +53,8 @@
 			<string>bacome</string>
 			<string>bacomn</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -76,6 +80,8 @@
 			<string>begun</string>
 			<string>begining</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -101,6 +107,8 @@
 			<string>blown</string>
 			<string>blewn</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -126,6 +134,8 @@
 			<string>brown</string>
 			<string>brake</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -151,6 +161,8 @@
 			<string>brought</string>
 			<string>braugth</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -176,6 +188,8 @@
 			<string>biuld</string>
 			<string>bailt</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -201,6 +215,8 @@
 			<string>baugth</string>
 			<string>boutgh</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -226,6 +242,8 @@
 			<string>cauhtg</string>
 			<string>cught</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -251,6 +269,8 @@
 			<string>cheso</string>
 			<string>chose</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -276,6 +296,8 @@
 			<string>comon</string>
 			<string>cammn</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -301,6 +323,8 @@
 			<string>cut</string>
 			<string>cutten</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -326,6 +350,8 @@
 			<string>do</string>
 			<string>dane</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -351,6 +377,8 @@
 			<string>drow</string>
 			<string>derw</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -376,6 +404,8 @@
 			<string>droven</string>
 			<string>driev</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -401,6 +431,8 @@
 			<string>fallen</string>
 			<string>feel</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -426,6 +458,8 @@
 			<string>fallen</string>
 			<string>feel</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -451,6 +485,8 @@
 			<string>founded</string>
 			<string>finded</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 	<dict>
 		<key>infinitive</key>
@@ -476,6 +512,8 @@
 			<string>winn</string>
 			<string>wan</string>
 		</array>
+		<key>section</key>
+		<string>Top 50</string>
 	</dict>
 </array>
 </plist>

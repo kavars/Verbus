@@ -51,6 +51,8 @@ class SampleLoader: SampleLoaderProtocol {
             
             verb.translation = verbDict["translation"] as? String
             
+            verb.section = verbDict["section"] as? String
+            
             let variants: [String]? = verbDict["variants"] as? [String]
             
             verb.variants = variants as NSObject?

@@ -45,11 +45,15 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return presenter.numberOfSections()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.getVerbsCount()
+        return presenter.getVerbsCount(in: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return presenter.titleForHeader(in: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,7 +62,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             fatalError()
         }
         
-        let verb = presenter.getVerb(at: indexPath.item)
+        let verb = presenter.getVerb(at: indexPath)
         cell.configureCellView(infinitive: verb.infinitive, translate: verb.translation)
         
         return cell

@@ -41,13 +41,13 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
         let startPoint = sender.location(in: view)
         
-        if (startPoint.x > view.frame.width / 2) && sender.direction == .left {
+        let width = view.frame.width / 3
+        
+        if (startPoint.x > view.frame.width - width) && sender.direction == .left {
             if sender.state == .ended {
                 presenter.skipVerb()
             }
         }
-        
-
     }
     
     @IBAction func checkButtonClicked(_ sender: UIButton) {
@@ -71,6 +71,24 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     func setPastParticipateForm(with string: String) {
         DispatchQueue.main.async {
             self.pastParticipateLabel.text = string
+        }
+    }
+    
+    func setSwipeRecognizerDirection() {
+        DispatchQueue.main.async {
+            self.gestureRecognizer.direction = .left
+        }
+    }
+    
+    func setCheckButton() {
+        DispatchQueue.main.async {
+            self.checkButton.layer.cornerRadius = 10
+        }
+    }
+    
+    func setCollectionViewDelegate() {
+        DispatchQueue.main.async {
+            self.collectionView.delegate = self
         }
     }
     
@@ -100,17 +118,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         return collectionView.visibleCells as? [VerbCollectionCellProtocol]
     }
     
-    func setSwipeRecognizerDirection() {
-        gestureRecognizer.direction = .left
-    }
-    
-    func setCheckButton() {
-        checkButton.layer.cornerRadius = 10
-    }
-    
-    func setCollectionViewDelegate() {
-        self.collectionView.delegate = self
-    }
+
     
     // MARK: - Animation
     

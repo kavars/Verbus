@@ -23,12 +23,20 @@ import Foundation
         tableView.setUpTableView()
     }
     
-    func getVerbsCount() -> Int {
-        return interactor.getVerbsCount()
+    func getVerbsCount(in section: Int) -> Int {
+        return interactor.getVerbsCount(in: section)
     }
     
-    func getVerb(at index: Int) -> Verb {
-        return interactor.getVerb(at: index)
+    func getVerb(at indexPath: IndexPath) -> Verb {
+        return interactor.getVerb(at: indexPath)
+    }
+    
+    func numberOfSections() -> Int {
+        return interactor.numberOfSections()
+    }
+    
+    func titleForHeader(in section: Int) -> String? {
+        return interactor.titleForHeader(in: section)
     }
     
     func selectToLearnClicked() {

@@ -15,7 +15,7 @@ protocol StoreServiceVerbsProtocol {
     func saveContext()
     
     var managedContext: NSManagedObjectContext { get }
-    
+        
     func updateContext() // ?
     
     func verbsFetch(of type: FetchType) -> [Verb]?
@@ -23,6 +23,16 @@ protocol StoreServiceVerbsProtocol {
     func resetStats()
     
     func newDayUpdate()
+}
+
+// MARK: - StoreServiceVerbsFetchedResultsControllerProtocol
+
+protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
+    var fetchedResultsController: NSFetchedResultsController<Verb> { get }
+    
+    func fetchResultsController()
+    func saveContext()
+
 }
 
 class StoreServiceCoreData: StoreServiceVerbsProtocol {
@@ -166,6 +176,33 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
             _ = try managedContext.execute(batchUpdateVerbProgress) as! NSBatchUpdateResult
         } catch let error as NSError {
             print("Could not update \(error), \(error.userInfo)")
+        }
+    }
+    
+    // MARK: - NSFetchedResultsController
+
+    lazy var fetchedResultsController: NSFetchedResultsController<Verb> = {
+        let fetchRequest: NSFetchRequest<Verb> = Verb.fetchRequest()
+        
+        
+        
+        let topSort = NSSortDescriptor(key: #keyPath(Verb.section), ascending: true)
+        let nameSort = NSSortDescriptor(key: #keyPath(Verb.infinitive), ascending: true)
+        fetchRequest.sortDescriptors = [topSort, nameSort]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedContext, sectionNameKeyPath: #keyPath(Verb.section), cacheName: "verbsCache")
+        
+        return fetchedResultsController
+    }()
+}
+
+extension StoreServiceCoreData: StoreServiceVerbsFetchedResultsControllerProtocol {
+
+    func fetchResultsController() {
+        do {
+          try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+          print("Fetching error: \(error), \(error.userInfo)")
         }
     }
 }

@@ -34,7 +34,7 @@ class VerbsListRouter: VerbsListRouterProtocol {
             //? add method to tableViewController get verb by indexPath
             // remove verb from cell
             // let selectedVerb = tableViewController.findVerb(by: indexPath)
-            let selectedVerb = tableViewController.presenter.getVerb(at: indexPath.row)
+            let selectedVerb = tableViewController.presenter.getVerb(at: indexPath)
             verbDetailsViewController.configure(verb: selectedVerb)
         default:
             fatalError()
