@@ -77,6 +77,11 @@ class LearnInteractor: LearnInteractorProtocol {
         
     }
     
+    func skipVerb() {
+        user.nextVerb()
+        presenter.resetView()
+    }
+    
     var correctIndex: Int {
         get {
             return user.getIndicatorCount()

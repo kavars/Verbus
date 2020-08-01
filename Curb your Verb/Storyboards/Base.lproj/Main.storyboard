@@ -115,6 +115,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="U2b-df-MXb" firstAttribute="top" secondItem="8gZ-P6-GsJ" secondAttribute="bottom" constant="30" id="6td-1W-taL"/>
                             <constraint firstItem="mlB-eI-SyB" firstAttribute="bottom" secondItem="reD-Gk-3BI" secondAttribute="bottom" constant="23" id="7kE-KC-pdk"/>
@@ -137,18 +138,27 @@
                             <constraint firstItem="reD-Gk-3BI" firstAttribute="top" secondItem="U2b-df-MXb" secondAttribute="bottom" constant="57" id="zjv-lb-suW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mlB-eI-SyB"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vav-9N-JxO" appends="YES" id="mgl-nU-ku5"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Learn" image="book" catalog="system" id="Jb1-Qd-y2s"/>
                     <connections>
                         <outlet property="checkButton" destination="reD-Gk-3BI" id="BiB-H6-S7a"/>
                         <outlet property="collectionView" destination="U2b-df-MXb" id="myT-th-K6Z"/>
                         <outlet property="correctIndicatorView" destination="Etw-ko-yYh" id="cdO-oZ-ZrQ"/>
+                        <outlet property="gestureRecognizer" destination="Vav-9N-JxO" id="VAd-IL-xyI"/>
                         <outlet property="infinitiveLabel" destination="ltR-hV-Hwm" id="6BD-hX-YrP"/>
                         <outlet property="pastParticipateLabel" destination="2fE-fY-qYO" id="StW-mq-ddC"/>
                         <outlet property="pastSimpleLabel" destination="8gZ-P6-GsJ" id="sPT-EQ-KUQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHu-7y-8al" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Vav-9N-JxO">
+                    <connections>
+                        <action selector="swiped:" destination="ABm-mD-O09" id="uie-hm-CoU"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1544.8" y="-492.11822660098522"/>
         </scene>

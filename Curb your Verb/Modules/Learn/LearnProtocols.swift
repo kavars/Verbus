@@ -21,6 +21,10 @@ protocol LearnViewProtocol: class {
     func performErrorAnimate()
     
     func getVisibleCells() -> [VerbCollectionCellProtocol]?
+    
+    func setSwipeRecognizerDirection()
+    func setCheckButton()
+    func setCollectionViewDelegate()
 }
 
 protocol LearnInteractorProtocol: class {
@@ -43,8 +47,11 @@ protocol LearnInteractorProtocol: class {
     var correctIndex: Int { get } //?
     
     func updateStogeContext()
+    
+    func skipVerb()
 }
 
+// MARK: - LearnPresenterProtocol
 protocol LearnPresenterProtocol: class {
     var router: LearnRouterProtocol! { set get }
     
@@ -79,6 +86,8 @@ protocol LearnPresenterProtocol: class {
     func changeCorrectIndicator(to: Int)
     
     func updateStogeContext()
+    
+    func skipVerb()
 }
 
 protocol LearnConfiguratorProtocol: class {

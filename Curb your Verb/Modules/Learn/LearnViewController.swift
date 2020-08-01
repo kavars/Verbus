@@ -19,6 +19,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     @IBOutlet weak var checkButton: UIButton!
     
+    @IBOutlet weak var gestureRecognizer: UISwipeGestureRecognizer!
     
     var presenter: LearnPresenterProtocol!
     let configurator: LearnConfiguratorProtocol = LearnConfigurator()
@@ -28,16 +29,27 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         
         configurator.configure(with: self)
         presenter.configureView()
-        
-        self.collectionView.delegate = self
-        
-        checkButton.layer.cornerRadius = 10
     }
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.updateStogeContext()
     }
+    
+    // MARK: - IBAction
+    
+    
+    @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
+        let startPoint = sender.location(in: view)
+        
+        if (startPoint.x > view.frame.width / 2) && sender.direction == .left {
+            if sender.state == .ended {
+                presenter.skipVerb()
+            }
+        }
+        
 
+    }
+    
     @IBAction func checkButtonClicked(_ sender: UIButton) {
         presenter.checkButtonClicked()
     }
@@ -86,6 +98,18 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     func getVisibleCells() -> [VerbCollectionCellProtocol]? {
         return collectionView.visibleCells as? [VerbCollectionCellProtocol]
+    }
+    
+    func setSwipeRecognizerDirection() {
+        gestureRecognizer.direction = .left
+    }
+    
+    func setCheckButton() {
+        checkButton.layer.cornerRadius = 10
+    }
+    
+    func setCollectionViewDelegate() {
+        self.collectionView.delegate = self
     }
     
     // MARK: - Animation
