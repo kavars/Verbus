@@ -15,7 +15,7 @@
 		7E512E2D24B71F16006573AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E512E2C24B71F16006573AF /* Assets.xcassets */; };
 		7E512E3024B71F16006573AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E512E2E24B71F16006573AF /* LaunchScreen.storyboard */; };
 		7E512E3B24B71F16006573AF /* Curb_your_VerbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E3A24B71F16006573AF /* Curb_your_VerbTests.swift */; };
-		7E512E4C24B71F9B006573AF /* StoreSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E4B24B71F9B006573AF /* StoreSevice.swift */; };
+		7E512E4C24B71F9B006573AF /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E4B24B71F9B006573AF /* StoreService.swift */; };
 		7E512E5224B72018006573AF /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5124B72018006573AF /* SettingsConfigurator.swift */; };
 		7E512E5424B72025006573AF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5324B72025006573AF /* SettingsViewController.swift */; };
 		7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5524B7202F006573AF /* SettingsInteractor.swift */; };
@@ -44,6 +44,7 @@
 		7E512E8624B74C10006573AF /* CorrectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */; };
 		7E512E8824B77E4C006573AF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8724B77E4C006573AF /* Colors.swift */; };
 		7E70059924D5A87700256089 /* FetchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059824D5A87700256089 /* FetchType.swift */; };
+		7E70059C24D5B0E100256089 /* SampleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059B24D5B0E100256089 /* SampleLoader.swift */; };
 		7E750E8224BF9791006CA440 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E750E8124BF9791006CA440 /* SampleData.plist */; };
 		7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410B24CB215600237F44 /* VerbTableViewCell.swift */; };
 		7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410E24CB243100237F44 /* VerbCollectionCell.swift */; };
@@ -76,7 +77,7 @@
 		7E512E3624B71F16006573AF /* Curb your VerbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curb your VerbTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E512E3A24B71F16006573AF /* Curb_your_VerbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curb_your_VerbTests.swift; sourceTree = "<group>"; };
 		7E512E3C24B71F16006573AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E512E4B24B71F9B006573AF /* StoreSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSevice.swift; sourceTree = "<group>"; };
+		7E512E4B24B71F9B006573AF /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		7E512E5124B72018006573AF /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
 		7E512E5324B72025006573AF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E512E5524B7202F006573AF /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectIndicatorView.swift; sourceTree = "<group>"; };
 		7E512E8724B77E4C006573AF /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E70059824D5A87700256089 /* FetchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchType.swift; sourceTree = "<group>"; };
+		7E70059B24D5B0E100256089 /* SampleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLoader.swift; sourceTree = "<group>"; };
 		7E750E8124BF9791006CA440 /* SampleData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		7E84410B24CB215600237F44 /* VerbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbTableViewCell.swift; sourceTree = "<group>"; };
 		7E84410E24CB243100237F44 /* VerbCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCollectionCell.swift; sourceTree = "<group>"; };
@@ -242,10 +244,8 @@
 		7E512E4A24B71F5B006573AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7E70059A24D5B08600256089 /* Store Service */,
 				7E512E8124B72DCD006573AF /* SettingsService.swift */,
-				7E512E4B24B71F9B006573AF /* StoreSevice.swift */,
-				7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */,
-				7E70059824D5A87700256089 /* FetchType.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -288,6 +288,17 @@
 				7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */,
 			);
 			path = CorrectIndicatorView;
+			sourceTree = "<group>";
+		};
+		7E70059A24D5B08600256089 /* Store Service */ = {
+			isa = PBXGroup;
+			children = (
+				7E512E4B24B71F9B006573AF /* StoreService.swift */,
+				7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */,
+				7E70059824D5A87700256089 /* FetchType.swift */,
+				7E70059B24D5B0E100256089 /* SampleLoader.swift */,
+			);
+			path = "Store Service";
 			sourceTree = "<group>";
 		};
 		7E84410A24CB213400237F44 /* VerbTableViewCell */ = {
@@ -414,8 +425,9 @@
 				7E512E6E24B72208006573AF /* VerbsListPresenter.swift in Sources */,
 				7E512E6824B720EC006573AF /* VerbDetailsProtocols.swift in Sources */,
 				7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */,
+				7E70059C24D5B0E100256089 /* SampleLoader.swift in Sources */,
 				7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */,
-				7E512E4C24B71F9B006573AF /* StoreSevice.swift in Sources */,
+				7E512E4C24B71F9B006573AF /* StoreService.swift in Sources */,
 				7E512E7624B72257006573AF /* LearnViewController.swift in Sources */,
 				7E512E6024B720C7006573AF /* VerbDetailsViewController.swift in Sources */,
 				7E512E5E24B720BA006573AF /* VerbDetailsInteractor.swift in Sources */,
