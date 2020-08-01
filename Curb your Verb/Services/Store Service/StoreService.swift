@@ -30,9 +30,10 @@ protocol StoreServiceVerbsProtocol {
 protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
     var fetchedResultsController: NSFetchedResultsController<Verb> { get }
     
-    func fetchResultsController()
+    func fetchResultsController(of search: String)
     func saveContext()
 
+    func deleteCache()
 }
 
 class StoreServiceCoreData: StoreServiceVerbsProtocol {
@@ -198,12 +199,22 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
 
 extension StoreServiceCoreData: StoreServiceVerbsFetchedResultsControllerProtocol {
 
-    func fetchResultsController() {
+    func fetchResultsController(of search: String) {
+        
+        if !search.isEmpty {
+            fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "%K CONTAINS[c] %@", argumentArray: [#keyPath(Verb.infinitive), search])
+            deleteCache()
+        }
+        
         do {
           try fetchedResultsController.performFetch()
         } catch let error as NSError {
           print("Fetching error: \(error), \(error.userInfo)")
         }
+    }
+    
+    func deleteCache() {
+        NSFetchedResultsController<Verb>.deleteCache(withName: "verbsCache")
     }
 }
 

@@ -13,18 +13,13 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
     weak var presenter: VerbsListPresenterProtocol!
     
     var storeService: StoreServiceVerbsFetchedResultsControllerProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
-    
-//    var verbs: [Verb] = []
-    
+        
     var search: String = ""
     
     init(presenter: VerbsListPresenterProtocol) {
         self.presenter = presenter
-        
-        storeService.fetchResultsController()
-//        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
-//            self.verbs = verbs
-//        }
+
+        storeService.fetchResultsController(of: search)
     }
     
     func updateVerbs() {
@@ -32,11 +27,7 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
 //        storeService.updateContext()
         storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
         
-        storeService.fetchResultsController()
-        
-//        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
-//            self.verbs = verbs
-//        }
+        storeService.fetchResultsController(of: search)
     }
     
     func numberOfSections() -> Int {
@@ -65,10 +56,7 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
         
         self.search = infinitive
         
-        storeService.fetchResultsController()
-//        if let verbs = storeService.verbsFetch(of: .search(infinitive: self.search)){
-//            self.verbs = verbs
-//        }
+        storeService.fetchResultsController(of: search)
     }
     
     func getOnLearningVerbsIndexs() -> [IndexPath] {
