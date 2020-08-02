@@ -10,23 +10,20 @@ import Foundation
 import CoreData
 
 // MARK: - StoreServiceVerbs
-
 protocol StoreServiceVerbsProtocol {
     func saveContext()
     
     var managedContext: NSManagedObjectContext { get }
         
-    func updateContext() // ?
+    func updateContext()
     
     func verbsFetch(of type: FetchType) -> [Verb]?
     
     func resetStats()
-    
     func newDayUpdate()
 }
 
 // MARK: - StoreServiceVerbsFetchedResultsControllerProtocol
-
 protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
     var fetchedResultsController: NSFetchedResultsController<Verb> { get }
     
@@ -39,6 +36,8 @@ protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
 }
 
 class StoreServiceCoreData: StoreServiceVerbsProtocol {
+    
+    // MARK: - Core Data Stack
     private let modelName: String
     
     init(modelName: String) {
@@ -65,22 +64,9 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         return container
     }()
     
-    // ?
     func updateContext() {
-        
         managedContext.refreshAllObjects()
-        
-//        let container = NSPersistentContainer(name: self.modelName)
-//        
-//        container.loadPersistentStores { (storeDescription, error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            }
-//        }
-//
-//        self.storeContainer = container
     }
-    //
     
     func saveContext() {
         guard managedContext.hasChanges else {
@@ -93,6 +79,8 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
             print(error.localizedDescription)
         }
     }
+    
+    // MARK: - Fetch
     
     func verbsFetch(of type: FetchType) -> [Verb]? {
         
@@ -135,51 +123,44 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         return nil
     }
     
+    // MARK: - Batch Update
     func resetStats() {
-        let batchUpdateVerb = NSBatchUpdateRequest(entityName: "Verb")
-        batchUpdateVerb.propertiesToUpdate = [
-            #keyPath(Verb.isLearn): true
+        
+        let entityToUpdate = [
+            "Verb": [
+                #keyPath(Verb.isLearn): true
+            ],
+            "VerbProgress": [
+                #keyPath(VerbProgress.rightAnswersToday): 0,
+                #keyPath(VerbProgress.rightAnswersForAllTime): 0,
+                #keyPath(VerbProgress.wrongAnswersToday): 0,
+                #keyPath(VerbProgress.wrongAnswersForAllTime): 0
+            ]
         ]
         
-        batchUpdateVerb.affectedStores = managedContext.persistentStoreCoordinator?.persistentStores
-        batchUpdateVerb.resultType = .updatedObjectsCountResultType
-        
-        do {
-            _ = try managedContext.execute(batchUpdateVerb) as! NSBatchUpdateResult
-        } catch let error as NSError {
-            print("Could not update \(error), \(error.userInfo)")
-        }
-        
-        let batchUpdateVerbProgress = NSBatchUpdateRequest(entityName: "VerbProgress")
-        batchUpdateVerbProgress.propertiesToUpdate = [
-            #keyPath(VerbProgress.rightAnswersToday): 0,
-            #keyPath(VerbProgress.rightAnswersForAllTime): 0,
-            #keyPath(VerbProgress.wrongAnswersToday): 0,
-            #keyPath(VerbProgress.wrongAnswersForAllTime): 0
-        ]
-        
-        batchUpdateVerbProgress.affectedStores = managedContext.persistentStoreCoordinator?.persistentStores
-        batchUpdateVerbProgress.resultType = .updatedObjectsCountResultType
-        
-        do {
-            _ = try managedContext.execute(batchUpdateVerbProgress) as! NSBatchUpdateResult
-        } catch let error as NSError {
-            print("Could not update \(error), \(error.userInfo)")
+        for entity in entityToUpdate {
+            batchUpdate(entityName: entity.key, with: entity.value)
         }
     }
     
     func newDayUpdate() {
-        let batchUpdateVerbProgress = NSBatchUpdateRequest(entityName: "VerbProgress")
-        batchUpdateVerbProgress.propertiesToUpdate = [
+        let propToUpdate = [
             #keyPath(VerbProgress.rightAnswersToday): 0,
             #keyPath(VerbProgress.wrongAnswersToday): 0
         ]
         
-        batchUpdateVerbProgress.affectedStores = managedContext.persistentStoreCoordinator?.persistentStores
-        batchUpdateVerbProgress.resultType = .updatedObjectsCountResultType
+        batchUpdate(entityName: "VerbProgress", with: propToUpdate)
+    }
+    
+    private func batchUpdate(entityName: String, with propertiesToUpdate: [AnyHashable : Any]?) {
+        let batchUpdate = NSBatchUpdateRequest(entityName: entityName)
+        batchUpdate.propertiesToUpdate = propertiesToUpdate
+        
+        batchUpdate.affectedStores = managedContext.persistentStoreCoordinator?.persistentStores
+        batchUpdate.resultType = .updatedObjectsCountResultType
         
         do {
-            _ = try managedContext.execute(batchUpdateVerbProgress) as! NSBatchUpdateResult
+            _ = try managedContext.execute(batchUpdate) as! NSBatchUpdateResult
         } catch let error as NSError {
             print("Could not update \(error), \(error.userInfo)")
         }
