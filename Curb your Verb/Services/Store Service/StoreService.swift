@@ -15,7 +15,7 @@ protocol StoreServiceVerbsProtocol {
     
     var managedContext: NSManagedObjectContext { get }
         
-    func updateContext()
+    func refreshContext()
     
     func verbsFetch(of type: FetchType) -> [Verb]?
     
@@ -32,7 +32,7 @@ protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
 
     func deleteCache()
     
-    func updateContext()
+    func refreshContext()
 }
 
 class StoreServiceCoreData: StoreServiceVerbsProtocol {
@@ -64,7 +64,7 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         return container
     }()
     
-    func updateContext() {
+    func refreshContext() {
         managedContext.refreshAllObjects()
     }
     
@@ -213,12 +213,16 @@ protocol StoreServiceSettingsProtocol {
     
     func savedDay() -> Date
     func saveDay(with value: Date)
+    
+    func savedTutorial() -> Bool
+    func saveTutorial(with value: Bool)
 }
 
 class StoreSettingsService: StoreServiceSettingsProtocol {
     
     private let kSavedVibrationState = "CurbYourVerb.savedVibrationState"
     private let kSavedDay = "CurbYourVerb.savedDay"
+    private let kSavedTutorial = "CurbYourVerb.savedTutorial"
     
     func savedVibration() -> Bool {
         if UserDefaults.standard.object(forKey: kSavedVibrationState) != nil {
@@ -243,4 +247,50 @@ class StoreSettingsService: StoreServiceSettingsProtocol {
         UserDefaults.standard.set(value, forKey: kSavedDay)
         UserDefaults.standard.synchronize()
     }
+    
+    func savedTutorial() -> Bool {
+        if UserDefaults.standard.object(forKey: kSavedTutorial) != nil {
+            return UserDefaults.standard.bool(forKey: kSavedTutorial)
+        }
+        return true
+    }
+    
+    func saveTutorial(with value: Bool) {
+        UserDefaults.standard.set(value, forKey: kSavedTutorial)
+        UserDefaults.standard.synchronize()
+    }
+}
+
+// MARK: - DailyStrikeProtocol
+
+protocol DailyStrikeProtocol: class {
+    func savedDailyStrike() -> Int
+    func saveDailyStrike(with value: Int)
+}
+
+class DailyStrike: DailyStrikeProtocol {
+    
+    private let kSavedDay = "CurbYourVerb.DailyStrike"
+    
+    func savedDailyStrike() -> Int {
+        if UserDefaults.standard.object(forKey: kSavedDay) != nil {
+            return UserDefaults.standard.integer(forKey: kSavedDay)
+        }
+        return 0
+    }
+    
+    func saveDailyStrike(with value: Int) {
+        
+        if value < 0 {
+            UserDefaults.standard.set(0, forKey: kSavedDay)
+        } else if value > 6 {
+            UserDefaults.standard.set(6, forKey: kSavedDay)
+        } else {
+            UserDefaults.standard.set(value, forKey: kSavedDay)
+        }
+        
+        UserDefaults.standard.synchronize()
+    }
+    
+    
 }

@@ -37,7 +37,6 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     // MARK: - IBAction
     
-    
     @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
         let startPoint = sender.location(in: view)
         
@@ -103,6 +102,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         feedback.notificationOccurred(.error)
     }
     
+    //
     func getCell(at index: IndexPath) -> VerbCollectionCellProtocol? {
         if let cell = collectionView.cellForItem(at: index) as? VerbCollectionCellProtocol {
             return cell

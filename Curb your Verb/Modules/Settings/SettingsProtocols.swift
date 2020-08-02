@@ -16,6 +16,7 @@ protocol SettingsInteractorProtocol: class {
     var isVibration: Bool { set get }
 
     func resetStatistic()
+    func resetTutorial()
 }
 
 protocol SettingsPresenterProtocol: class {
@@ -27,6 +28,7 @@ protocol SettingsPresenterProtocol: class {
     
     func vibrationSwitchToggled(to state: Bool)
     func resetButtonClicked()
+    func resetTutorialButtonClicked()
 }
 
 protocol SettingsConfiguratorProtocol: class {

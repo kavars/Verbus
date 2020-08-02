@@ -520,6 +520,27 @@
                                     <action selector="resetButtonClicked:" destination="XEU-w1-efi" eventType="touchUpInside" id="Plh-nN-6xP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset tutorial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rk-vV-Xma">
+                                <rect key="frame" x="20" y="215" width="102" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="102" id="GNz-iz-law"/>
+                                    <constraint firstAttribute="height" constant="21" id="Nc2-mU-EJh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UG-Ke-wh2">
+                                <rect key="frame" x="312" y="210" width="47" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="8UD-Wz-JbX"/>
+                                    <constraint firstAttribute="height" constant="30" id="mR4-Ba-y4U"/>
+                                </constraints>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetTutorialButtonClicked:" destination="XEU-w1-efi" eventType="touchUpInside" id="dRI-kq-qRR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -527,12 +548,15 @@
                             <constraint firstItem="uhx-2V-leM" firstAttribute="leading" secondItem="eHD-rO-oHb" secondAttribute="trailing" constant="223" id="2sr-34-H0h"/>
                             <constraint firstItem="phf-Oe-y8E" firstAttribute="trailing" secondItem="dHL-AC-dWb" secondAttribute="trailing" constant="16" id="3IC-hK-yCp"/>
                             <constraint firstItem="eHD-rO-oHb" firstAttribute="leading" secondItem="phf-Oe-y8E" secondAttribute="leading" constant="20" id="6eR-08-fZm"/>
+                            <constraint firstItem="8rk-vV-Xma" firstAttribute="top" secondItem="cVG-a0-46k" secondAttribute="bottom" constant="32" id="8qz-KH-bZz"/>
                             <constraint firstItem="cVG-a0-46k" firstAttribute="top" secondItem="eHD-rO-oHb" secondAttribute="bottom" constant="48" id="And-de-xdf"/>
                             <constraint firstItem="phf-Oe-y8E" firstAttribute="trailing" secondItem="uhx-2V-leM" secondAttribute="trailing" constant="16" id="IYX-ar-rtn"/>
-                            <constraint firstItem="phf-Oe-y8E" firstAttribute="bottom" secondItem="cVG-a0-46k" secondAttribute="bottom" constant="546" id="T7C-e9-hvq"/>
-                            <constraint firstItem="phf-Oe-y8E" firstAttribute="bottom" secondItem="dHL-AC-dWb" secondAttribute="bottom" constant="542" id="XRL-2a-6ab"/>
+                            <constraint firstItem="8UG-Ke-wh2" firstAttribute="top" secondItem="dHL-AC-dWb" secondAttribute="bottom" constant="23" id="T4i-3V-lmB"/>
                             <constraint firstItem="eHD-rO-oHb" firstAttribute="top" secondItem="phf-Oe-y8E" secondAttribute="top" constant="49" id="eDy-xO-Iof"/>
+                            <constraint firstItem="8rk-vV-Xma" firstAttribute="leading" secondItem="phf-Oe-y8E" secondAttribute="leading" constant="20" id="eLF-ao-C8I"/>
+                            <constraint firstItem="phf-Oe-y8E" firstAttribute="trailing" secondItem="8UG-Ke-wh2" secondAttribute="trailing" constant="16" id="inI-Ub-hwR"/>
                             <constraint firstItem="dHL-AC-dWb" firstAttribute="top" secondItem="uhx-2V-leM" secondAttribute="bottom" constant="38" id="jDF-gj-sFo"/>
+                            <constraint firstItem="8UG-Ke-wh2" firstAttribute="leading" secondItem="8rk-vV-Xma" secondAttribute="trailing" constant="190" id="kXJ-wl-gzb"/>
                             <constraint firstItem="dHL-AC-dWb" firstAttribute="leading" secondItem="cVG-a0-46k" secondAttribute="trailing" constant="184" id="uUr-3i-Bbt"/>
                             <constraint firstItem="cVG-a0-46k" firstAttribute="leading" secondItem="phf-Oe-y8E" secondAttribute="leading" constant="20" id="vUN-gH-FPJ"/>
                         </constraints>

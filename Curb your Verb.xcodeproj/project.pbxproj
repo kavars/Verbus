@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E1B01EB24D5E67F00048AD7 /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B01EA24D5E67F00048AD7 /* Verb+CoreDataProperties.swift */; };
+		7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */; };
+		7E020A1824D6C56D00D120AF /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */; };
+		7E020A1924D6C56D00D120AF /* VerbProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */; };
+		7E020A1A24D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */; };
 		7E440FE724B7A5D400E0C0EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440FE624B7A5D400E0C0EA /* User.swift */; };
 		7E512E2124B71F13006573AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2024B71F13006573AF /* AppDelegate.swift */; };
 		7E512E2324B71F13006573AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2224B71F13006573AF /* SceneDelegate.swift */; };
@@ -49,10 +52,6 @@
 		7E750E8224BF9791006CA440 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E750E8124BF9791006CA440 /* SampleData.plist */; };
 		7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410B24CB215600237F44 /* VerbTableViewCell.swift */; };
 		7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410E24CB243100237F44 /* VerbCollectionCell.swift */; };
-		7E8AC91E24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AC91A24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift */; };
-		7E8AC91F24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AC91B24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift */; };
-		7E8AC92024BE21BA00DCC4A2 /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AC91C24BE21BA00DCC4A2 /* Verb+CoreDataClass.swift */; };
-		7E8AC92324BE234B00DCC4A2 /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AC92224BE234B00DCC4A2 /* Verb+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7E1B01EA24D5E67F00048AD7 /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Verb+CoreDataProperties.swift"; path = "Curb your Verb/Entities/Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7E440FE624B7A5D400E0C0EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7E512E1D24B71F13006573AF /* Curb your Verb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curb your Verb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E512E2024B71F13006573AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,10 +114,6 @@
 		7E750E8124BF9791006CA440 /* SampleData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		7E84410B24CB215600237F44 /* VerbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbTableViewCell.swift; sourceTree = "<group>"; };
 		7E84410E24CB243100237F44 /* VerbCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCollectionCell.swift; sourceTree = "<group>"; };
-		7E8AC91A24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7E8AC91B24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7E8AC91C24BE21BA00DCC4A2 /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7E8AC92224BE234B00DCC4A2 /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +137,6 @@
 		7E512E1424B71F13006573AF = {
 			isa = PBXGroup;
 			children = (
-				7E1B01EA24D5E67F00048AD7 /* Verb+CoreDataProperties.swift */,
 				7E512E1F24B71F13006573AF /* Curb your Verb */,
 				7E512E3924B71F16006573AF /* Curb your VerbTests */,
 				7E512E1E24B71F13006573AF /* Products */,
@@ -256,10 +253,7 @@
 		7E512E4D24B71FA0006573AF /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7E8AC91A24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift */,
-				7E8AC91B24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift */,
-				7E8AC91C24BE21BA00DCC4A2 /* Verb+CoreDataClass.swift */,
-				7E8AC92224BE234B00DCC4A2 /* Verb+CoreDataProperties.swift */,
+				7EECBDF124D6C3E900E388D1 /* NSManagedObjects */,
 				7E440FE624B7A5D400E0C0EA /* User.swift */,
 				7E512E8724B77E4C006573AF /* Colors.swift */,
 			);
@@ -318,6 +312,17 @@
 				7E84410E24CB243100237F44 /* VerbCollectionCell.swift */,
 			);
 			path = VerbCollectionCell;
+			sourceTree = "<group>";
+		};
+		7EECBDF124D6C3E900E388D1 /* NSManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */,
+				7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */,
+				7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */,
+				7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */,
+			);
+			path = NSManagedObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,35 +436,34 @@
 				7E70059C24D5B0E100256089 /* DataLoader.swift in Sources */,
 				7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */,
 				7E512E4C24B71F9B006573AF /* StoreService.swift in Sources */,
+				7E020A1924D6C56D00D120AF /* VerbProgress+CoreDataClass.swift in Sources */,
 				7E512E7624B72257006573AF /* LearnViewController.swift in Sources */,
 				7E512E6024B720C7006573AF /* VerbDetailsViewController.swift in Sources */,
 				7E512E5E24B720BA006573AF /* VerbDetailsInteractor.swift in Sources */,
 				7E512E5424B72025006573AF /* SettingsViewController.swift in Sources */,
-				7E1B01EB24D5E67F00048AD7 /* Verb+CoreDataProperties.swift in Sources */,
 				7E512E2124B71F13006573AF /* AppDelegate.swift in Sources */,
 				7E512E7224B7223A006573AF /* VerbsListRouter.swift in Sources */,
 				7E512E6224B720D3006573AF /* VerbDetailsPresenter.swift in Sources */,
-				7E8AC92024BE21BA00DCC4A2 /* Verb+CoreDataClass.swift in Sources */,
 				7E512E5224B72018006573AF /* SettingsConfigurator.swift in Sources */,
 				7E512E6624B720E5006573AF /* VerbDetailsRouter.swift in Sources */,
 				7E70059924D5A87700256089 /* FetchType.swift in Sources */,
 				7E512E7824B72264006573AF /* LearnInteractor.swift in Sources */,
 				7E512E8024B7228E006573AF /* LearnProtocols.swift in Sources */,
 				7E512E5C24B7205B006573AF /* SettingsProtocols.swift in Sources */,
+				7E020A1824D6C56D00D120AF /* Verb+CoreDataProperties.swift in Sources */,
 				7E512E6A24B721EE006573AF /* VerbsListInteractor.swift in Sources */,
-				7E8AC92324BE234B00DCC4A2 /* Verb+CoreDataProperties.swift in Sources */,
 				7E512E5824B7203F006573AF /* SettingsPresenter.swift in Sources */,
 				7E512E7E24B72287006573AF /* LearnRouter.swift in Sources */,
 				7E512E7024B72234006573AF /* VerbsListConfigurator.swift in Sources */,
 				7E512E8624B74C10006573AF /* CorrectIndicatorView.swift in Sources */,
 				7E512E6424B720DD006573AF /* VerbDetailsConfigurator.swift in Sources */,
 				7E512E8824B77E4C006573AF /* Colors.swift in Sources */,
-				7E8AC91E24BE21BA00DCC4A2 /* VerbProgress+CoreDataClass.swift in Sources */,
+				7E020A1A24D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift in Sources */,
 				7E512E7424B72244006573AF /* VerbsListProtocols.swift in Sources */,
 				7E512E2324B71F13006573AF /* SceneDelegate.swift in Sources */,
 				7E512E2B24B71F13006573AF /* Curb_your_Verb.xcdatamodeld in Sources */,
 				7E512E7A24B72275006573AF /* LearnPresenter.swift in Sources */,
-				7E8AC91F24BE21BA00DCC4A2 /* VerbProgress+CoreDataProperties.swift in Sources */,
+				7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */,
 				7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */,
 				7E512E5A24B7204B006573AF /* SettingsRouter.swift in Sources */,
 				7E440FE724B7A5D400E0C0EA /* User.swift in Sources */,

@@ -38,21 +38,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func dailyUpdater() {
         let storeDayService: StoreServiceSettingsProtocol = StoreSettingsService()
+        let strikeService: DailyStrikeProtocol = DailyStrike()
         
         let now = Date()
         let previousDate = storeDayService.savedDay()
         
         if Calendar.current.isDate(now, inSameDayAs: previousDate) {
-            print("To day")
             storeDayService.saveDay(with: now)
             return
         }
         
-        print("Not to day")
         storeDayService.saveDay(with: now)
         
         let storeVerbService = StoreServiceCoreData(modelName: "Curb_your_Verb")
 
         storeVerbService.newDayUpdate()
+        
+        strikeService.saveDailyStrike(with: 0)
     }
 }

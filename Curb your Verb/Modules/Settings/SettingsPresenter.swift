@@ -41,4 +41,8 @@ class SettingsPresenter: SettingsPresenterProtocol {
     func resetButtonClicked() {
         interactor.resetStatistic()
     }
+    
+    func resetTutorialButtonClicked() {
+        interactor.resetTutorial()
+    }
 }

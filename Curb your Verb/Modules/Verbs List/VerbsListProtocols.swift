@@ -30,7 +30,6 @@ protocol VerbsListTableViewProtocol: class {
 }
 
 protocol VerbsListInteractorProtocol: class {
-//    var storeService: StoreServiceVerbsFetchedResultsControllerProtocol! { get }
     
     func updateVerbs()
     

@@ -2,7 +2,7 @@
 //  Verb+CoreDataProperties.swift
 //  Curb your Verb
 //
-//  Created by Kirill Varshamov on 01.08.2020.
+//  Created by Kirill Varshamov on 02.08.2020.
 //  Copyright © 2020 Kirill Varshamov. All rights reserved.
 //
 //
@@ -24,9 +24,9 @@ extension Verb {
     @NSManaged public var pastParticipleTranscription: String?
     @NSManaged public var pastSimple: String?
     @NSManaged public var pastSimpleTranscription: String?
+    @NSManaged public var section: String?
     @NSManaged public var translation: String?
     @NSManaged public var variants: NSObject?
-    @NSManaged public var section: String?
     @NSManaged public var progress: VerbProgress?
 
 }

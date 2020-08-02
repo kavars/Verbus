@@ -30,18 +30,22 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
         presenter.vibrationSwitchToggled(to: sender.isOn)
     }
     
-    @IBAction func resetButtonClicked(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Reset statistic", message: "Are you shure?", preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "OK", style: .default) { action in
+    @IBAction func resetButtonClicked(_ sender: UIButton) {        
+        let alert = configureResetAlert(for: "statistic") {
             self.presenter.resetButtonClicked()
         }
-        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-        alert.addAction(actionOK)
-        alert.addAction(actionCancel)
         
         present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func resetTutorialButtonClicked(_ sender: UIButton) {
+        let alert = configureResetAlert(for: "tutorial") {
+            self.presenter.resetTutorialButtonClicked()
+        }
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     // MARK: - SettingsViewProtocol
     
@@ -49,5 +53,18 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
         DispatchQueue.main.async {
             self.vibrationSwitch.setOn(state, animated: true)
         }
+    }
+    
+    private func configureResetAlert(for action: String, handler: @escaping () -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: "Reset \(action)", message: "Are you shure?", preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "OK", style: .default) { action in
+            handler()
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(actionOK)
+        alert.addAction(actionCancel)
+        
+        return alert
     }
 }

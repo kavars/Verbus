@@ -8,19 +8,9 @@
 
 import Foundation
 
-import UIKit // ?
-
 class VerbsListInteractor: VerbsListInteractorProtocol {
     
     weak var presenter: VerbsListPresenterProtocol!
-    
-//    lazy var storeService: StoreServiceVerbsFetchedResultsControllerProtocol = {
-//        guard let storeService = (UIApplication.shared.delegate as? AppDelegate)?.storeVerbService else {
-//            fatalError()
-//        }
-//
-//        return storeService
-//    }() //= StoreServiceCoreData(modelName: "Curb_your_Verb")
 
     lazy var storeService: StoreServiceVerbsFetchedResultsControllerProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
     
@@ -33,11 +23,7 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
     }
     
     func updateVerbs() {
-        // update store?
-        storeService.updateContext()
-        
-//        storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
-//
+        storeService.refreshContext()
         storeService.fetchResultsController(of: search)
     }
     
@@ -63,8 +49,7 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
     }
     
     func searchVerbs(infinitive: String) {
-//        storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
-        storeService.updateContext()
+        storeService.refreshContext()
         
         self.search = infinitive
         

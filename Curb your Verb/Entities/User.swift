@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//import UIKit // ?
 
 protocol UserProtocol: class {
     func nextVerb()
@@ -27,14 +26,8 @@ protocol UserProtocol: class {
 
 class User: UserProtocol {
     
-//    lazy var storeService: StoreServiceVerbsProtocol = {
-//        guard let storeService = (UIApplication.shared.delegate as? AppDelegate)?.storeVerbService else {
-//            fatalError()
-//        }
-//
-//        return storeService
-//    }() // StoreServiceCoreData(modelName: "Curb_your_Verb")
     lazy var storeService: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    lazy var strikeSerice: DailyStrikeProtocol = DailyStrike()
     
     private var currentVerb: Verb?
     
@@ -56,11 +49,10 @@ class User: UserProtocol {
             currentVerb = Verb(context: storeService.managedContext)
             currentVerb?.infinitive = "Нет выбранного глагола"
         }
-
     }
     
     init() {
-        storeService.updateContext()
+        storeService.refreshContext()
         
         if let verbs = storeService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
@@ -106,6 +98,9 @@ class User: UserProtocol {
     func rightAswer() {
         currentVerb?.progress?.rightAnswersToday += 1
         currentVerb?.progress?.rightAnswersForAllTime += 1
+        
+        let strike = strikeSerice.savedDailyStrike() + 1
+        strikeSerice.saveDailyStrike(with: strike)
                 
         storeService.saveContext()
     }
@@ -114,28 +109,32 @@ class User: UserProtocol {
         currentVerb?.progress?.wrongAnswersToday += 1
         currentVerb?.progress?.wrongAnswersForAllTime += 1
         
+        let strike = strikeSerice.savedDailyStrike() - 1
+        strikeSerice.saveDailyStrike(with: strike)
+        
         storeService.saveContext()
     }
     
     func getIndicatorCount() -> Int {
-        guard let progress = currentVerb?.progress else {
-            return 0
-        }
+        return strikeSerice.savedDailyStrike()
         
-        let count = progress.rightAnswersToday - progress.wrongAnswersToday
-                
-        if count < 0 {
-            return 0
-        } else if count > 6 {
-            return 6
-        } else {
-            return Int(count)
-        }
+//        guard let progress = currentVerb?.progress else {
+//            return 0
+//        }
+//        
+//        let count = progress.rightAnswersToday - progress.wrongAnswersToday
+//                
+//        if count < 0 {
+//            return 0
+//        } else if count > 6 {
+//            return 6
+//        } else {
+//            return Int(count)
+//        }
     }
     
     func updateStogeContext() {
-//        storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
-        storeService.updateContext()
+        storeService.refreshContext()
         
         if let verbs = storeService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs

@@ -32,8 +32,6 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     var presenter: VerbDetailsPresenterProtocol!
     let configurator: VerbDetailsConfiguratorProtocol = VerbDetailsConfigurator()
     
-    private weak var tmpVerb: Verb?
-
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {

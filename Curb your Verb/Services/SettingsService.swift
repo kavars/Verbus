@@ -9,27 +9,19 @@
 import Foundation
 import CoreData
 
-
-//import UIKit // ?
-
 protocol SettingsServiceProtocol: class {
     var isVibration: Bool { set get }
+    var isTutorial: Bool { set get }
     
     func resetAllStats()
+    
 }
 
 class SettingsService: SettingsServiceProtocol {
     
     lazy var storeSettingsService: StoreServiceSettingsProtocol = StoreSettingsService()
-//    lazy var storeServiceVerbs: StoreServiceVerbsProtocol = {
-//        guard let storeService = (UIApplication.shared.delegate as? AppDelegate)?.storeVerbService else {
-//            fatalError()
-//        }
-//
-//        return storeService
-//    }() //StoreServiceCoreData(modelName: "Curb_your_Verb")
-    
     lazy var storeServiceVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    lazy var strikeService: DailyStrikeProtocol = DailyStrike()
     
     var isVibration: Bool {
         set {
@@ -40,9 +32,21 @@ class SettingsService: SettingsServiceProtocol {
         }
     }
     
-    func resetAllStats() {
-        storeServiceVerbs.updateContext()
-//        storeServiceVerbs = StoreServiceCoreData(modelName: "Curb_your_Verb")
-        storeServiceVerbs.resetStats()
+    var isTutorial: Bool {
+        set {
+            storeSettingsService.saveTutorial(with: newValue)
+        }
+        get {
+            return storeSettingsService.savedTutorial()
+        }
     }
+    
+    func resetAllStats() {
+        storeServiceVerbs.refreshContext()
+        storeServiceVerbs.resetStats()
+        
+        strikeService.saveDailyStrike(with: 0)
+    }
+    
+
 }

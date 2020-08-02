@@ -15,18 +15,6 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     
     var searchController: UISearchController!
     
-    var isTableEditing: Bool {
-        get {
-            return tableView.isEditing
-        }
-    }
-    
-    var indexPathsForSelectedRows: [IndexPath]? {
-        get {
-            return tableView.indexPathsForSelectedRows
-        }
-    }
-    
     // MARK: - View Life cycle
     
     override func viewDidLoad() {
@@ -69,12 +57,23 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     }
     
     // MARK: - Actions
-    
     @IBAction func selectToLearn(_ sender: UIBarButtonItem) {
         presenter.selectToLearnClicked()
     }
     
     // MARK: - VerbsListTableViewProtocol
+    var isTableEditing: Bool {
+        get {
+            return tableView.isEditing
+        }
+    }
+    
+    var indexPathsForSelectedRows: [IndexPath]? {
+        get {
+            return tableView.indexPathsForSelectedRows
+        }
+    }
+    
     func toggleSearchController() {
         DispatchQueue.main.async {
             if self.tableView.tableHeaderView == nil {
