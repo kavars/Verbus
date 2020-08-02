@@ -48,6 +48,10 @@ extension AppDelegate {
             return
         }
         
+        if storeDayService.savedNotifications() {
+            _ = UserNotificationsService()
+        }
+        
         storeDayService.saveDay(with: now)
         
         let storeVerbsService = StoreVerbsService(modelName: "Curb_your_Verb")

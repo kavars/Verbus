@@ -14,7 +14,6 @@ protocol SettingsServiceProtocol: class {
     var isTutorial: Bool { set get }
     
     func resetAllStats()
-    
 }
 
 class SettingsService: SettingsServiceProtocol {

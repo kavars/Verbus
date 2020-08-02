@@ -13,7 +13,7 @@ class LearnInteractor: LearnInteractorProtocol {
     weak var presenter: LearnPresenterProtocol!
     
     let settingsService: SettingsServiceProtocol = SettingsService()
-        
+            
     var user: UserProtocol = User()
     
     init(presenter: LearnPresenterProtocol) {
@@ -58,6 +58,10 @@ class LearnInteractor: LearnInteractorProtocol {
             user.rightAswer()
             
             presenter.changeCorrectIndicator(to: user.getIndicatorCount())
+            
+            if user.getIndicatorCount() == 3 {
+                _ = UserNotificationsService()
+            }
             
             // choose another verb
             user.nextVerb()

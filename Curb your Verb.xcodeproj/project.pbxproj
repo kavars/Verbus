@@ -57,6 +57,7 @@
 		7EB0E8E624D7065E0096DE8E /* Curb_your_Verb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */; };
 		7EB0E8E724D706610096DE8E /* Curb_your_Verb.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */; };
 		7EB0E8E824D706640096DE8E /* Curb_your_Verb.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */; };
+		7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,19 @@
 			remoteInfo = "Curb your Verb";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7EF4ED9124D72C7F0069F295 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -124,6 +138,7 @@
 		7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Curb_your_Verb.sqlite-shm"; sourceTree = "<group>"; };
 		7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Curb_your_Verb.sqlite; path = ../Curb_your_Verb.sqlite; sourceTree = "<group>"; };
 		7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Curb_your_Verb.sqlite-wal"; sourceTree = "<group>"; };
+		7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,8 +269,9 @@
 		7E512E4A24B71F5B006573AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7EB0E8EB24D710FD0096DE8E /* UserNotifications Service */,
+				7EB0E8EA24D710F20096DE8E /* Setting Service */,
 				7E70059A24D5B08600256089 /* Store Service */,
-				7E512E8124B72DCD006573AF /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -337,6 +353,22 @@
 			path = "Verbs seed data";
 			sourceTree = "<group>";
 		};
+		7EB0E8EA24D710F20096DE8E /* Setting Service */ = {
+			isa = PBXGroup;
+			children = (
+				7E512E8124B72DCD006573AF /* SettingsService.swift */,
+			);
+			path = "Setting Service";
+			sourceTree = "<group>";
+		};
+		7EB0E8EB24D710FD0096DE8E /* UserNotifications Service */ = {
+			isa = PBXGroup;
+			children = (
+				7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */,
+			);
+			path = "UserNotifications Service";
+			sourceTree = "<group>";
+		};
 		7EECBDF124D6C3E900E388D1 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +390,7 @@
 				7E512E1924B71F13006573AF /* Sources */,
 				7E512E1A24B71F13006573AF /* Frameworks */,
 				7E512E1B24B71F13006573AF /* Resources */,
+				7EF4ED9124D72C7F0069F295 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -392,7 +425,7 @@
 		7E512E1524B71F13006573AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Kirill Varshamov";
 				TargetAttributes = {
@@ -493,6 +526,7 @@
 				7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */,
 				7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */,
 				7E512E5A24B7204B006573AF /* SettingsRouter.swift in Sources */,
+				7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */,
 				7EB0E8E024D700CF0096DE8E /* StoreStrikeService.swift in Sources */,
 				7E440FE724B7A5D400E0C0EA /* User.swift in Sources */,
 			);
@@ -653,6 +687,7 @@
 		7E512E4024B71F16006573AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 82CJ7XMF7V;
@@ -672,6 +707,7 @@
 		7E512E4124B71F16006573AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 82CJ7XMF7V;
