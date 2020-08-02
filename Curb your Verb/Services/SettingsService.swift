@@ -9,6 +9,9 @@
 import Foundation
 import CoreData
 
+
+//import UIKit // ?
+
 protocol SettingsServiceProtocol: class {
     var isVibration: Bool { set get }
     
@@ -18,6 +21,14 @@ protocol SettingsServiceProtocol: class {
 class SettingsService: SettingsServiceProtocol {
     
     lazy var storeSettingsService: StoreServiceSettingsProtocol = StoreSettingsService()
+//    lazy var storeServiceVerbs: StoreServiceVerbsProtocol = {
+//        guard let storeService = (UIApplication.shared.delegate as? AppDelegate)?.storeVerbService else {
+//            fatalError()
+//        }
+//
+//        return storeService
+//    }() //StoreServiceCoreData(modelName: "Curb_your_Verb")
+    
     lazy var storeServiceVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
     
     var isVibration: Bool {
@@ -30,9 +41,8 @@ class SettingsService: SettingsServiceProtocol {
     }
     
     func resetAllStats() {
-//        storeServiceVerbs.updateContext()
-        storeServiceVerbs = StoreServiceCoreData(modelName: "Curb_your_Verb")
-        
+        storeServiceVerbs.updateContext()
+//        storeServiceVerbs = StoreServiceCoreData(modelName: "Curb_your_Verb")
         storeServiceVerbs.resetStats()
     }
 }

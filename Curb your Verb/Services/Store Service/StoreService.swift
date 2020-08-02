@@ -34,6 +34,8 @@ protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
     func saveContext()
 
     func deleteCache()
+    
+    func updateContext()
 }
 
 class StoreServiceCoreData: StoreServiceVerbsProtocol {
@@ -43,8 +45,8 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         self.modelName = modelName
     }
     
-    lazy var sampleLoader: SampleLoaderProtocol = {
-        return SampleLoader()
+    lazy var dataLoader: DataLoaderProtocol = {
+        return DataLoader()
     }()
     
     lazy var managedContext: NSManagedObjectContext = {
@@ -53,7 +55,7 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
     
     private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
-        
+//        self.dataLoader.seedCoreDataContainerIfFirstLaunch(to: self.modelName)
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -65,15 +67,18 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
     
     // ?
     func updateContext() {
-        let container = NSPersistentContainer(name: self.modelName)
         
-        container.loadPersistentStores { (storeDescription, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        }
+        managedContext.refreshAllObjects()
         
-        self.storeContainer = container
+//        let container = NSPersistentContainer(name: self.modelName)
+//        
+//        container.loadPersistentStores { (storeDescription, error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        self.storeContainer = container
     }
     //
     
@@ -94,7 +99,7 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
         var verbs: [Verb] = []
         
         // Load sample verbs
-        sampleLoader.insertSampleData(to: self.managedContext)
+        dataLoader.insertSampleData(to: self.managedContext)
         
         let fetch: NSFetchRequest<Verb> = Verb.fetchRequest()
         var predicate: NSPredicate?

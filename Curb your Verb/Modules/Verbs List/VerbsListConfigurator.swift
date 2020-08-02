@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//import UIKit
 
 class VerbsListConfigurator: VerbsListConfiguratorProtocol {
     func configure(with tableViewController: VerbsListTableViewController) {
@@ -17,5 +18,9 @@ class VerbsListConfigurator: VerbsListConfiguratorProtocol {
         tableViewController.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
+//        guard let storeService = (UIApplication.shared.delegate as? AppDelegate)?.storeVerbService else {
+//            fatalError()
+//        }
+//        interactor.storeService = storeService
     }
 }

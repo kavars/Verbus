@@ -45,7 +45,7 @@
 		7E512E8624B74C10006573AF /* CorrectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */; };
 		7E512E8824B77E4C006573AF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8724B77E4C006573AF /* Colors.swift */; };
 		7E70059924D5A87700256089 /* FetchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059824D5A87700256089 /* FetchType.swift */; };
-		7E70059C24D5B0E100256089 /* SampleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059B24D5B0E100256089 /* SampleLoader.swift */; };
+		7E70059C24D5B0E100256089 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059B24D5B0E100256089 /* DataLoader.swift */; };
 		7E750E8224BF9791006CA440 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E750E8124BF9791006CA440 /* SampleData.plist */; };
 		7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410B24CB215600237F44 /* VerbTableViewCell.swift */; };
 		7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410E24CB243100237F44 /* VerbCollectionCell.swift */; };
@@ -108,7 +108,7 @@
 		7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectIndicatorView.swift; sourceTree = "<group>"; };
 		7E512E8724B77E4C006573AF /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E70059824D5A87700256089 /* FetchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchType.swift; sourceTree = "<group>"; };
-		7E70059B24D5B0E100256089 /* SampleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLoader.swift; sourceTree = "<group>"; };
+		7E70059B24D5B0E100256089 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		7E750E8124BF9791006CA440 /* SampleData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		7E84410B24CB215600237F44 /* VerbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbTableViewCell.swift; sourceTree = "<group>"; };
 		7E84410E24CB243100237F44 /* VerbCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCollectionCell.swift; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 				7E512E4B24B71F9B006573AF /* StoreService.swift */,
 				7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */,
 				7E70059824D5A87700256089 /* FetchType.swift */,
-				7E70059B24D5B0E100256089 /* SampleLoader.swift */,
+				7E70059B24D5B0E100256089 /* DataLoader.swift */,
 			);
 			path = "Store Service";
 			sourceTree = "<group>";
@@ -428,7 +428,7 @@
 				7E512E6E24B72208006573AF /* VerbsListPresenter.swift in Sources */,
 				7E512E6824B720EC006573AF /* VerbDetailsProtocols.swift in Sources */,
 				7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */,
-				7E70059C24D5B0E100256089 /* SampleLoader.swift in Sources */,
+				7E70059C24D5B0E100256089 /* DataLoader.swift in Sources */,
 				7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */,
 				7E512E4C24B71F9B006573AF /* StoreService.swift in Sources */,
 				7E512E7624B72257006573AF /* LearnViewController.swift in Sources */,

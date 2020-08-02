@@ -10,12 +10,13 @@ import Foundation
 import CoreData
 
 
-protocol SampleLoaderProtocol: class {
+protocol DataLoaderProtocol: class {
     func insertSampleData(to managedContext: NSManagedObjectContext)
+    func seedCoreDataContainerIfFirstLaunch(to modelName: String)
 }
 
-class SampleLoader: SampleLoaderProtocol {
-    // MARK: - Sample Verbs
+class DataLoader: DataLoaderProtocol {
+
     func insertSampleData(to managedContext: NSManagedObjectContext) {
         
         let fetch: NSFetchRequest<Verb> = Verb.fetchRequest()
@@ -67,5 +68,35 @@ class SampleLoader: SampleLoaderProtocol {
         
         try! managedContext.save()
         
+    }
+    
+    func seedCoreDataContainerIfFirstLaunch(to modelName: String) {
+
+      let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
+      if !previouslyLaunched {
+
+        let directory = NSPersistentContainer.defaultDirectoryURL()
+        
+        let extensionArray = ["sqlite", "sqlite-shm", "sqlite-wal"]
+
+        for fileExtension in extensionArray {
+            copyingFile(of: modelName, fileExtension: fileExtension, in: directory)
+        }
+
+        UserDefaults.standard.set(true, forKey: "previouslyLaunched")
+        print("Seeded Core Data")
+      }
+    }
+    
+    private func copyingFile(of modelName: String, fileExtension: String, in directory: URL) {
+        let seededURL = Bundle.main.url(forResource: modelName, withExtension: fileExtension)!
+        let url = directory.appendingPathComponent(modelName + "." + fileExtension)
+        _ = try? FileManager.default.removeItem(at: url)
+        
+        do {
+            try FileManager.default.copyItem(at: seededURL, to: url)
+        } catch let error as NSError {
+            fatalError("Error: \(error.localizedDescription)")
+        }
     }
 }

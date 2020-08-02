@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//import UIKit // ?
 
 protocol UserProtocol: class {
     func nextVerb()
@@ -26,6 +27,13 @@ protocol UserProtocol: class {
 
 class User: UserProtocol {
     
+//    lazy var storeService: StoreServiceVerbsProtocol = {
+//        guard let storeService = (UIApplication.shared.delegate as? AppDelegate)?.storeVerbService else {
+//            fatalError()
+//        }
+//
+//        return storeService
+//    }() // StoreServiceCoreData(modelName: "Curb_your_Verb")
     lazy var storeService: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
     
     private var currentVerb: Verb?
@@ -52,6 +60,7 @@ class User: UserProtocol {
     }
     
     init() {
+        storeService.updateContext()
         
         if let verbs = storeService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
@@ -125,8 +134,8 @@ class User: UserProtocol {
     }
     
     func updateStogeContext() {
-        storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
-//        storeService.updateContext()
+//        storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
+        storeService.updateContext()
         
         if let verbs = storeService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs

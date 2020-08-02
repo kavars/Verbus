@@ -12,8 +12,6 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         dailyUpdater()
@@ -53,8 +51,8 @@ extension AppDelegate {
         print("Not to day")
         storeDayService.saveDay(with: now)
         
-        let storeVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
-        
-        storeVerbs.newDayUpdate()
+        let storeVerbService = StoreServiceCoreData(modelName: "Curb_your_Verb")
+
+        storeVerbService.newDayUpdate()
     }
 }
