@@ -19,7 +19,7 @@
 		7E512E2D24B71F16006573AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E512E2C24B71F16006573AF /* Assets.xcassets */; };
 		7E512E3024B71F16006573AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E512E2E24B71F16006573AF /* LaunchScreen.storyboard */; };
 		7E512E3B24B71F16006573AF /* Curb_your_VerbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E3A24B71F16006573AF /* Curb_your_VerbTests.swift */; };
-		7E512E4C24B71F9B006573AF /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E4B24B71F9B006573AF /* StoreService.swift */; };
+		7E512E4C24B71F9B006573AF /* StoreVerbsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E4B24B71F9B006573AF /* StoreVerbsService.swift */; };
 		7E512E5224B72018006573AF /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5124B72018006573AF /* SettingsConfigurator.swift */; };
 		7E512E5424B72025006573AF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5324B72025006573AF /* SettingsViewController.swift */; };
 		7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5524B7202F006573AF /* SettingsInteractor.swift */; };
@@ -54,6 +54,9 @@
 		7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410E24CB243100237F44 /* VerbCollectionCell.swift */; };
 		7EB0E8E024D700CF0096DE8E /* StoreStrikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8DF24D700CF0096DE8E /* StoreStrikeService.swift */; };
 		7EB0E8E224D700EF0096DE8E /* StoreSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E124D700EF0096DE8E /* StoreSettingsService.swift */; };
+		7EB0E8E624D7065E0096DE8E /* Curb_your_Verb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */; };
+		7EB0E8E724D706610096DE8E /* Curb_your_Verb.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */; };
+		7EB0E8E824D706640096DE8E /* Curb_your_Verb.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +86,7 @@
 		7E512E3624B71F16006573AF /* Curb your VerbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curb your VerbTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E512E3A24B71F16006573AF /* Curb_your_VerbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curb_your_VerbTests.swift; sourceTree = "<group>"; };
 		7E512E3C24B71F16006573AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E512E4B24B71F9B006573AF /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
+		7E512E4B24B71F9B006573AF /* StoreVerbsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVerbsService.swift; sourceTree = "<group>"; };
 		7E512E5124B72018006573AF /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
 		7E512E5324B72025006573AF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E512E5524B7202F006573AF /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
@@ -118,6 +121,9 @@
 		7E84410E24CB243100237F44 /* VerbCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCollectionCell.swift; sourceTree = "<group>"; };
 		7EB0E8DF24D700CF0096DE8E /* StoreStrikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreStrikeService.swift; sourceTree = "<group>"; };
 		7EB0E8E124D700EF0096DE8E /* StoreSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSettingsService.swift; sourceTree = "<group>"; };
+		7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Curb_your_Verb.sqlite-shm"; sourceTree = "<group>"; };
+		7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Curb_your_Verb.sqlite; path = ../Curb_your_Verb.sqlite; sourceTree = "<group>"; };
+		7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Curb_your_Verb.sqlite-wal"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +172,9 @@
 				7E512E4A24B71F5B006573AF /* Services */,
 				7E512E4524B71F24006573AF /* Modules */,
 				7E512E5024B71FCD006573AF /* Storyboards */,
+				7EB0E8E924D709360096DE8E /* Verbs seed data */,
 				7E512E2C24B71F16006573AF /* Assets.xcassets */,
 				7E512E3124B71F16006573AF /* Info.plist */,
-				7E750E8124BF9791006CA440 /* SampleData.plist */,
 			);
 			path = "Curb your Verb";
 			sourceTree = "<group>";
@@ -294,7 +300,7 @@
 		7E70059A24D5B08600256089 /* Store Service */ = {
 			isa = PBXGroup;
 			children = (
-				7E512E4B24B71F9B006573AF /* StoreService.swift */,
+				7E512E4B24B71F9B006573AF /* StoreVerbsService.swift */,
 				7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */,
 				7E70059824D5A87700256089 /* FetchType.swift */,
 				7E70059B24D5B0E100256089 /* DataLoader.swift */,
@@ -318,6 +324,17 @@
 				7E84410E24CB243100237F44 /* VerbCollectionCell.swift */,
 			);
 			path = VerbCollectionCell;
+			sourceTree = "<group>";
+		};
+		7EB0E8E924D709360096DE8E /* Verbs seed data */ = {
+			isa = PBXGroup;
+			children = (
+				7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */,
+				7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */,
+				7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */,
+				7E750E8124BF9791006CA440 /* SampleData.plist */,
+			);
+			path = "Verbs seed data";
 			sourceTree = "<group>";
 		};
 		7EECBDF124D6C3E900E388D1 /* NSManagedObjects */ = {
@@ -412,9 +429,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB0E8E624D7065E0096DE8E /* Curb_your_Verb.sqlite in Resources */,
 				7E512E3024B71F16006573AF /* LaunchScreen.storyboard in Resources */,
+				7EB0E8E824D706640096DE8E /* Curb_your_Verb.sqlite-wal in Resources */,
 				7E512E2D24B71F16006573AF /* Assets.xcassets in Resources */,
 				7E750E8224BF9791006CA440 /* SampleData.plist in Resources */,
+				7EB0E8E724D706610096DE8E /* Curb_your_Verb.sqlite-shm in Resources */,
 				7E512E2824B71F13006573AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +462,7 @@
 				7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */,
 				7E70059C24D5B0E100256089 /* DataLoader.swift in Sources */,
 				7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */,
-				7E512E4C24B71F9B006573AF /* StoreService.swift in Sources */,
+				7E512E4C24B71F9B006573AF /* StoreVerbsService.swift in Sources */,
 				7E020A1924D6C56D00D120AF /* VerbProgress+CoreDataClass.swift in Sources */,
 				7E512E7624B72257006573AF /* LearnViewController.swift in Sources */,
 				7E512E6024B720C7006573AF /* VerbDetailsViewController.swift in Sources */,

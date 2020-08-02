@@ -26,7 +26,7 @@ protocol UserProtocol: class {
 
 class User: UserProtocol {
     
-    lazy var storeService: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    lazy var storeVerbsService: StoreVerbsServiceProtocol = StoreVerbsService(modelName: "Curb_your_Verb")
     lazy var storeStrikeSerice: StoreStrikeServiceProtocol = StoreStrikeService()
     
     private var currentVerb: Verb?
@@ -46,15 +46,15 @@ class User: UserProtocol {
             self.variants = variants
         } else {
             // ?
-            currentVerb = Verb(context: storeService.managedContext)
+            currentVerb = Verb(context: storeVerbsService.managedContext)
             currentVerb?.infinitive = "Нет выбранного глагола"
         }
     }
     
     init() {
-        storeService.refreshContext()
+        storeVerbsService.refreshContext()
         
-        if let verbs = storeService.verbsFetch(of: .onLearning) {
+        if let verbs = storeVerbsService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
         }
         
@@ -102,7 +102,7 @@ class User: UserProtocol {
         let strike = storeStrikeSerice.savedDailyStrike() + 1
         storeStrikeSerice.saveDailyStrike(with: strike)
                 
-        storeService.saveContext()
+        storeVerbsService.saveContext()
     }
     
     func wrongAnswer() {
@@ -112,7 +112,7 @@ class User: UserProtocol {
         let strike = storeStrikeSerice.savedDailyStrike() - 1
         storeStrikeSerice.saveDailyStrike(with: strike)
         
-        storeService.saveContext()
+        storeVerbsService.saveContext()
     }
     
     func getIndicatorCount() -> Int {
@@ -120,9 +120,9 @@ class User: UserProtocol {
     }
     
     func updateStogeContext() {
-        storeService.refreshContext()
+        storeVerbsService.refreshContext()
         
-        if let verbs = storeService.verbsFetch(of: .onLearning) {
+        if let verbs = storeVerbsService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
         }
         

@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-// MARK: - StoreServiceVerbs
-protocol StoreServiceVerbsProtocol {
+// MARK: - StoreVerbsServiceVerbs
+protocol StoreVerbsServiceProtocol {
     func saveContext()
     
     var managedContext: NSManagedObjectContext { get }
@@ -23,8 +23,8 @@ protocol StoreServiceVerbsProtocol {
     func newDayUpdate()
 }
 
-// MARK: - StoreServiceVerbsFetchedResultsControllerProtocol
-protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
+// MARK: - StoreVerbsServiceVerbsFetchedResultsControllerProtocol
+protocol StoreVerbsServiceVerbsFetchedResultsControllerProtocol: class {
     var fetchedResultsController: NSFetchedResultsController<Verb> { get }
     
     func fetchResultsController(of search: String)
@@ -35,7 +35,7 @@ protocol StoreServiceVerbsFetchedResultsControllerProtocol: class {
     func refreshContext()
 }
 
-class StoreServiceCoreData: StoreServiceVerbsProtocol {
+class StoreVerbsService: StoreVerbsServiceProtocol {
     
     // MARK: - Core Data Stack
     private let modelName: String
@@ -54,7 +54,7 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
     
     private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
-//        self.dataLoader.seedCoreDataContainerIfFirstLaunch(to: self.modelName)
+        self.dataLoader.seedCoreDataContainerIfFirstLaunch(to: self.modelName) // seed by sqlite
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -85,9 +85,6 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
     func verbsFetch(of type: FetchType) -> [Verb]? {
         
         var verbs: [Verb] = []
-        
-        // Load sample verbs
-        dataLoader.insertSampleData(to: self.managedContext)
         
         let fetch: NSFetchRequest<Verb> = Verb.fetchRequest()
         var predicate: NSPredicate?
@@ -183,7 +180,7 @@ class StoreServiceCoreData: StoreServiceVerbsProtocol {
     }()
 }
 
-extension StoreServiceCoreData: StoreServiceVerbsFetchedResultsControllerProtocol {
+extension StoreVerbsService: StoreVerbsServiceVerbsFetchedResultsControllerProtocol {
 
     func fetchResultsController(of search: String) {
         

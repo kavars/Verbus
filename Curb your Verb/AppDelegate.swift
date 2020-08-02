@@ -50,9 +50,9 @@ extension AppDelegate {
         
         storeDayService.saveDay(with: now)
         
-        let storeVerbService = StoreServiceCoreData(modelName: "Curb_your_Verb")
+        let storeVerbsService = StoreVerbsService(modelName: "Curb_your_Verb")
 
-        storeVerbService.newDayUpdate()
+        storeVerbsService.newDayUpdate()
         
         storeStrikeService.saveDailyStrike(with: 0)
     }

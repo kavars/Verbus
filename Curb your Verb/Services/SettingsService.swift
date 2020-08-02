@@ -20,7 +20,7 @@ protocol SettingsServiceProtocol: class {
 class SettingsService: SettingsServiceProtocol {
     
     lazy var storeSettingsService: StoreServiceSettingsProtocol = StoreSettingsService()
-    lazy var storeServiceVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    lazy var storeServiceVerbs: StoreVerbsServiceProtocol = StoreVerbsService(modelName: "Curb_your_Verb")
     lazy var storeStrikeService: StoreStrikeServiceProtocol = StoreStrikeService()
     
     var isVibration: Bool {

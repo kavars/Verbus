@@ -11,7 +11,6 @@ import CoreData
 
 
 protocol DataLoaderProtocol: class {
-    func insertSampleData(to managedContext: NSManagedObjectContext)
     func seedCoreDataContainerIfFirstLaunch(to modelName: String)
 }
 

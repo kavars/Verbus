@@ -12,7 +12,7 @@ class VerbsListInteractor: VerbsListInteractorProtocol {
     
     weak var presenter: VerbsListPresenterProtocol!
 
-    lazy var storeService: StoreServiceVerbsFetchedResultsControllerProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    lazy var storeService: StoreVerbsServiceVerbsFetchedResultsControllerProtocol = StoreVerbsService(modelName: "Curb_your_Verb")
     
     var search: String = ""
     
