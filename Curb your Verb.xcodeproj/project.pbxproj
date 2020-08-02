@@ -52,6 +52,8 @@
 		7E750E8224BF9791006CA440 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E750E8124BF9791006CA440 /* SampleData.plist */; };
 		7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410B24CB215600237F44 /* VerbTableViewCell.swift */; };
 		7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84410E24CB243100237F44 /* VerbCollectionCell.swift */; };
+		7EB0E8E024D700CF0096DE8E /* StoreStrikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8DF24D700CF0096DE8E /* StoreStrikeService.swift */; };
+		7EB0E8E224D700EF0096DE8E /* StoreSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E124D700EF0096DE8E /* StoreSettingsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		7E750E8124BF9791006CA440 /* SampleData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		7E84410B24CB215600237F44 /* VerbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbTableViewCell.swift; sourceTree = "<group>"; };
 		7E84410E24CB243100237F44 /* VerbCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCollectionCell.swift; sourceTree = "<group>"; };
+		7EB0E8DF24D700CF0096DE8E /* StoreStrikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreStrikeService.swift; sourceTree = "<group>"; };
+		7EB0E8E124D700EF0096DE8E /* StoreSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSettingsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +298,8 @@
 				7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */,
 				7E70059824D5A87700256089 /* FetchType.swift */,
 				7E70059B24D5B0E100256089 /* DataLoader.swift */,
+				7EB0E8DF24D700CF0096DE8E /* StoreStrikeService.swift */,
+				7EB0E8E124D700EF0096DE8E /* StoreSettingsService.swift */,
 			);
 			path = "Store Service";
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				7E512E6C24B721FF006573AF /* VerbsListTableViewController.swift in Sources */,
 				7E512E7C24B72280006573AF /* LearnConfigurator.swift in Sources */,
 				7E512E6E24B72208006573AF /* VerbsListPresenter.swift in Sources */,
+				7EB0E8E224D700EF0096DE8E /* StoreSettingsService.swift in Sources */,
 				7E512E6824B720EC006573AF /* VerbDetailsProtocols.swift in Sources */,
 				7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */,
 				7E70059C24D5B0E100256089 /* DataLoader.swift in Sources */,
@@ -466,6 +473,7 @@
 				7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */,
 				7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */,
 				7E512E5A24B7204B006573AF /* SettingsRouter.swift in Sources */,
+				7EB0E8E024D700CF0096DE8E /* StoreStrikeService.swift in Sources */,
 				7E440FE724B7A5D400E0C0EA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

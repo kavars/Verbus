@@ -21,7 +21,7 @@ class SettingsService: SettingsServiceProtocol {
     
     lazy var storeSettingsService: StoreServiceSettingsProtocol = StoreSettingsService()
     lazy var storeServiceVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
-    lazy var strikeService: DailyStrikeProtocol = DailyStrike()
+    lazy var storeStrikeService: StoreStrikeServiceProtocol = StoreStrikeService()
     
     var isVibration: Bool {
         set {
@@ -45,7 +45,7 @@ class SettingsService: SettingsServiceProtocol {
         storeServiceVerbs.refreshContext()
         storeServiceVerbs.resetStats()
         
-        strikeService.saveDailyStrike(with: 0)
+        storeStrikeService.saveDailyStrike(with: 0)
     }
     
 

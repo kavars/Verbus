@@ -27,7 +27,7 @@ protocol UserProtocol: class {
 class User: UserProtocol {
     
     lazy var storeService: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
-    lazy var strikeSerice: DailyStrikeProtocol = DailyStrike()
+    lazy var storeStrikeSerice: StoreStrikeServiceProtocol = StoreStrikeService()
     
     private var currentVerb: Verb?
     
@@ -99,8 +99,8 @@ class User: UserProtocol {
         currentVerb?.progress?.rightAnswersToday += 1
         currentVerb?.progress?.rightAnswersForAllTime += 1
         
-        let strike = strikeSerice.savedDailyStrike() + 1
-        strikeSerice.saveDailyStrike(with: strike)
+        let strike = storeStrikeSerice.savedDailyStrike() + 1
+        storeStrikeSerice.saveDailyStrike(with: strike)
                 
         storeService.saveContext()
     }
@@ -109,28 +109,14 @@ class User: UserProtocol {
         currentVerb?.progress?.wrongAnswersToday += 1
         currentVerb?.progress?.wrongAnswersForAllTime += 1
         
-        let strike = strikeSerice.savedDailyStrike() - 1
-        strikeSerice.saveDailyStrike(with: strike)
+        let strike = storeStrikeSerice.savedDailyStrike() - 1
+        storeStrikeSerice.saveDailyStrike(with: strike)
         
         storeService.saveContext()
     }
     
     func getIndicatorCount() -> Int {
-        return strikeSerice.savedDailyStrike()
-        
-//        guard let progress = currentVerb?.progress else {
-//            return 0
-//        }
-//        
-//        let count = progress.rightAnswersToday - progress.wrongAnswersToday
-//                
-//        if count < 0 {
-//            return 0
-//        } else if count > 6 {
-//            return 6
-//        } else {
-//            return Int(count)
-//        }
+        return storeStrikeSerice.savedDailyStrike()
     }
     
     func updateStogeContext() {

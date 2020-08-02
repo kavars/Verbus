@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func dailyUpdater() {
         let storeDayService: StoreServiceSettingsProtocol = StoreSettingsService()
-        let strikeService: DailyStrikeProtocol = DailyStrike()
+        let storeStrikeService: StoreStrikeServiceProtocol = StoreStrikeService()
         
         let now = Date()
         let previousDate = storeDayService.savedDay()
@@ -54,6 +54,6 @@ extension AppDelegate {
 
         storeVerbService.newDayUpdate()
         
-        strikeService.saveDailyStrike(with: 0)
+        storeStrikeService.saveDailyStrike(with: 0)
     }
 }
