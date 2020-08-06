@@ -11,10 +11,12 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    lazy var dailyUpdateService: DailyUpdateServiceProtocol = DailyUpdateService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        dailyUpdater()
+        dailyUpdateService.dailyUpdater()
         
         return true
     }
@@ -33,31 +35,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-}
-
-extension AppDelegate {
-    func dailyUpdater() {
-        let storeDayService: StoreServiceSettingsProtocol = StoreSettingsService()
-        let storeStrikeService: StoreStrikeServiceProtocol = StoreStrikeService()
-        
-        let now = Date()
-        let previousDate = storeDayService.savedDay()
-        
-        if Calendar.current.isDate(now, inSameDayAs: previousDate) {
-            storeDayService.saveDay(with: now)
-            return
-        }
-        
-        if storeDayService.savedNotifications() {
-            _ = UserNotificationsService()
-        }
-        
-        storeDayService.saveDay(with: now)
-        
-        let storeVerbsService = StoreVerbsService(modelName: "Curb_your_Verb")
-
-        storeVerbsService.newDayUpdate()
-        
-        storeStrikeService.saveDailyStrike(with: 0)
-    }
 }

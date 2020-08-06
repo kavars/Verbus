@@ -10,6 +10,7 @@ import Foundation
 
 protocol SettingsViewProtocol: class {
     func setVibrationSwitchState(with state: Bool)
+    func openSystemSettings()
 }
 
 protocol SettingsInteractorProtocol: class {
@@ -29,6 +30,7 @@ protocol SettingsPresenterProtocol: class {
     func vibrationSwitchToggled(to state: Bool)
     func resetButtonClicked()
     func resetTutorialButtonClicked()
+    func systemSettingsButtonClicked()
 }
 
 protocol SettingsConfiguratorProtocol: class {
@@ -36,5 +38,5 @@ protocol SettingsConfiguratorProtocol: class {
 }
 
 protocol SettingsRouterProtocol: class {
-    
+    func openSystemSettings()
 }

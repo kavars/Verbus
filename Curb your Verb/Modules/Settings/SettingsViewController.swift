@@ -46,6 +46,9 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func systemSettingsButtonClicked(_ sender: UIButton) {
+        presenter.systemSettingsButtonClicked()
+    }
     
     // MARK: - SettingsViewProtocol
     
@@ -66,5 +69,17 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
         alert.addAction(actionCancel)
         
         return alert
+    }
+    
+    func openSystemSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl) { (success) in
+                print("Settings opened: \(success)") // Prints true
+            }
+        }
     }
 }

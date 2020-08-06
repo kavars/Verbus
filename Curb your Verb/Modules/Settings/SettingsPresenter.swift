@@ -45,4 +45,8 @@ class SettingsPresenter: SettingsPresenterProtocol {
     func resetTutorialButtonClicked() {
         interactor.resetTutorial()
     }
+    
+    func systemSettingsButtonClicked() {
+        router.openSystemSettings()
+    }
 }
