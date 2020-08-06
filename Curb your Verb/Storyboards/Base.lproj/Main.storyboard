@@ -586,16 +586,17 @@
             </objects>
             <point key="canvasLocation" x="-1546.376811594203" y="991.74107142857133"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="pXU-55-byd">
             <objects>
-                <tabBarController id="Of0-P2-DyX" sceneMemberID="viewController">
+                <tabBarController id="Of0-P2-DyX" customClass="TabBarViewController" customModule="Curb_your_Verb" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6bh-Vu-ae6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBar" destination="6bh-Vu-ae6" id="J1q-UU-YEh"/>
                         <segue destination="ABm-mD-O09" kind="relationship" relationship="viewControllers" id="9uw-ZN-AEo"/>
                         <segue destination="ArL-2g-h9S" kind="relationship" relationship="viewControllers" id="yez-yI-uSV"/>
                         <segue destination="XEU-w1-efi" kind="relationship" relationship="viewControllers" id="DMl-T9-OPF"/>
