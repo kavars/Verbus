@@ -26,7 +26,8 @@ protocol UserProtocol: class {
 
 class User: UserProtocol {
     
-    lazy var storeService: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    lazy var storeVerbsService: StoreVerbsServiceProtocol = StoreVerbsService(modelName: "Curb_your_Verb")
+    lazy var storeStrikeSerice: StoreStrikeServiceProtocol = StoreStrikeService()
     
     private var currentVerb: Verb?
     
@@ -45,15 +46,15 @@ class User: UserProtocol {
             self.variants = variants
         } else {
             // ?
-            currentVerb = Verb(context: storeService.managedContext)
+            currentVerb = Verb(context: storeVerbsService.managedContext)
             currentVerb?.infinitive = "Нет выбранного глагола"
         }
-
     }
     
     init() {
+        storeVerbsService.refreshContext()
         
-        if let verbs = storeService.verbsFetch(of: .onLearning) {
+        if let verbs = storeVerbsService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
         }
         
@@ -97,38 +98,31 @@ class User: UserProtocol {
     func rightAswer() {
         currentVerb?.progress?.rightAnswersToday += 1
         currentVerb?.progress?.rightAnswersForAllTime += 1
+        
+        let strike = storeStrikeSerice.savedDailyStrike() + 1
+        storeStrikeSerice.saveDailyStrike(with: strike)
                 
-        storeService.saveContext()
+        storeVerbsService.saveContext()
     }
     
     func wrongAnswer() {
         currentVerb?.progress?.wrongAnswersToday += 1
         currentVerb?.progress?.wrongAnswersForAllTime += 1
         
-        storeService.saveContext()
+        let strike = storeStrikeSerice.savedDailyStrike() - 1
+        storeStrikeSerice.saveDailyStrike(with: strike)
+        
+        storeVerbsService.saveContext()
     }
     
     func getIndicatorCount() -> Int {
-        guard let progress = currentVerb?.progress else {
-            return 0
-        }
-        
-        let count = progress.rightAnswersToday - progress.wrongAnswersToday
-                
-        if count < 0 {
-            return 0
-        } else if count > 6 {
-            return 6
-        } else {
-            return Int(count)
-        }
+        return storeStrikeSerice.savedDailyStrike()
     }
     
     func updateStogeContext() {
-        storeService = StoreServiceCoreData(modelName: "Curb_your_Verb")
-//        storeService.updateContext()
+        storeVerbsService.refreshContext()
         
-        if let verbs = storeService.verbsFetch(of: .onLearning) {
+        if let verbs = storeVerbsService.verbsFetch(of: .onLearning) {
             arrayWithVerbs = verbs
         }
         

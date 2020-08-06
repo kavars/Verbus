@@ -11,6 +11,7 @@ import CoreData
 
 protocol SettingsServiceProtocol: class {
     var isVibration: Bool { set get }
+    var isTutorial: Bool { set get }
     
     func resetAllStats()
 }
@@ -18,7 +19,8 @@ protocol SettingsServiceProtocol: class {
 class SettingsService: SettingsServiceProtocol {
     
     lazy var storeSettingsService: StoreServiceSettingsProtocol = StoreSettingsService()
-    lazy var storeServiceVerbs: StoreServiceVerbsProtocol = StoreServiceCoreData(modelName: "Curb_your_Verb")
+    lazy var storeServiceVerbs: StoreVerbsServiceProtocol = StoreVerbsService(modelName: "Curb_your_Verb")
+    lazy var storeStrikeService: StoreStrikeServiceProtocol = StoreStrikeService()
     
     var isVibration: Bool {
         set {
@@ -29,10 +31,21 @@ class SettingsService: SettingsServiceProtocol {
         }
     }
     
-    func resetAllStats() {
-//        storeServiceVerbs.updateContext()
-        storeServiceVerbs = StoreServiceCoreData(modelName: "Curb_your_Verb")
-        
-        storeServiceVerbs.resetStats()
+    var isTutorial: Bool {
+        set {
+            storeSettingsService.saveTutorial(with: newValue)
+        }
+        get {
+            return storeSettingsService.savedTutorial()
+        }
     }
+    
+    func resetAllStats() {
+        storeServiceVerbs.refreshContext()
+        storeServiceVerbs.resetStats()
+        
+        storeStrikeService.saveDailyStrike(with: 0)
+    }
+    
+
 }

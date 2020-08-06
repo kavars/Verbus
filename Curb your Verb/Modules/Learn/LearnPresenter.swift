@@ -38,6 +38,10 @@ class LearnPresenter: LearnPresenterProtocol {
         view.setInfinitiveForm(with: interactor.infinitiveForm)
         
         changeCorrectIndicator(to: interactor.correctIndex) // ?
+        
+        view.setSwipeRecognizerDirection()
+        view.setCheckButton()
+        view.setCollectionViewDelegate()
     }
     
     // Work with cells
@@ -138,6 +142,10 @@ class LearnPresenter: LearnPresenterProtocol {
     
     func checkButtonClicked() {
         interactor.checkAnswer()
+    }
+    
+    func skipVerb() {
+        interactor.skipVerb()
     }
     
     func resetView() {

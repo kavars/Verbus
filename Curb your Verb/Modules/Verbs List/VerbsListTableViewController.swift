@@ -15,18 +15,6 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     
     var searchController: UISearchController!
     
-    var isTableEditing: Bool {
-        get {
-            return tableView.isEditing
-        }
-    }
-    
-    var indexPathsForSelectedRows: [IndexPath]? {
-        get {
-            return tableView.indexPathsForSelectedRows
-        }
-    }
-    
     // MARK: - View Life cycle
     
     override func viewDidLoad() {
@@ -45,11 +33,15 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return presenter.numberOfSections()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.getVerbsCount()
+        return presenter.getVerbsCount(in: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return presenter.titleForHeader(in: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,19 +50,30 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             fatalError()
         }
         
-        let verb = presenter.getVerb(at: indexPath.item)
+        let verb = presenter.getVerb(at: indexPath)
         cell.configureCellView(infinitive: verb.infinitive, translate: verb.translation)
         
         return cell
     }
     
     // MARK: - Actions
-    
     @IBAction func selectToLearn(_ sender: UIBarButtonItem) {
         presenter.selectToLearnClicked()
     }
     
     // MARK: - VerbsListTableViewProtocol
+    var isTableEditing: Bool {
+        get {
+            return tableView.isEditing
+        }
+    }
+    
+    var indexPathsForSelectedRows: [IndexPath]? {
+        get {
+            return tableView.indexPathsForSelectedRows
+        }
+    }
+    
     func toggleSearchController() {
         DispatchQueue.main.async {
             if self.tableView.tableHeaderView == nil {

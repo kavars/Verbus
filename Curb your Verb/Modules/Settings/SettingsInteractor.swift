@@ -30,4 +30,9 @@ class SettingsInteractor: SettingsInteractorProtocol {
         // reset all verbs progress
         settingsService.resetAllStats()
     }
+    
+    func resetTutorial() {
+        settingsService.isTutorial = true
+        print("Reset tutorial")
+    }
 }

@@ -30,17 +30,24 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
         presenter.vibrationSwitchToggled(to: sender.isOn)
     }
     
-    @IBAction func resetButtonClicked(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Reset statistic", message: "Are you shure?", preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "OK", style: .default) { action in
+    @IBAction func resetButtonClicked(_ sender: UIButton) {        
+        let alert = configureResetAlert(for: "statistic") {
             self.presenter.resetButtonClicked()
         }
-        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-        alert.addAction(actionOK)
-        alert.addAction(actionCancel)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func resetTutorialButtonClicked(_ sender: UIButton) {
+        let alert = configureResetAlert(for: "tutorial") {
+            self.presenter.resetTutorialButtonClicked()
+        }
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func systemSettingsButtonClicked(_ sender: UIButton) {
+        presenter.systemSettingsButtonClicked()
     }
     
     // MARK: - SettingsViewProtocol
@@ -48,6 +55,31 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
     func setVibrationSwitchState(with state: Bool) {
         DispatchQueue.main.async {
             self.vibrationSwitch.setOn(state, animated: true)
+        }
+    }
+    
+    private func configureResetAlert(for action: String, handler: @escaping () -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: "Reset \(action)", message: "Are you shure?", preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "OK", style: .default) { action in
+            handler()
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(actionOK)
+        alert.addAction(actionCancel)
+        
+        return alert
+    }
+    
+    func openSystemSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl) { (success) in
+                print("Settings opened: \(success)") // Prints true
+            }
         }
     }
 }

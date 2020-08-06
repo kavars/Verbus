@@ -15,4 +15,8 @@ class SettingsRouter: SettingsRouterProtocol {
     init(viewController: SettingsViewController) {
         self.viewController = viewController
     }
+    
+    func openSystemSettings() {
+        viewController.openSystemSettings()
+    }
 }

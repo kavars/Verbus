@@ -11,11 +11,13 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    lazy var dailyUpdateService: DailyUpdateServiceProtocol = DailyUpdateService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        dailyUpdateService.dailyUpdater()
+        
         return true
     }
 
@@ -34,4 +36,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

@@ -19,6 +19,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     @IBOutlet weak var checkButton: UIButton!
     
+    @IBOutlet weak var gestureRecognizer: UISwipeGestureRecognizer!
     
     var presenter: LearnPresenterProtocol!
     let configurator: LearnConfiguratorProtocol = LearnConfigurator()
@@ -28,16 +29,26 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         
         configurator.configure(with: self)
         presenter.configureView()
-        
-        self.collectionView.delegate = self
-        
-        checkButton.layer.cornerRadius = 10
     }
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.updateStogeContext()
     }
-
+    
+    // MARK: - IBAction
+    
+    @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
+        let startPoint = sender.location(in: view)
+        
+        let width = view.frame.width / 3
+        
+        if (startPoint.x > view.frame.width - width) && sender.direction == .left {
+            if sender.state == .ended {
+                presenter.skipVerb()
+            }
+        }
+    }
+    
     @IBAction func checkButtonClicked(_ sender: UIButton) {
         presenter.checkButtonClicked()
     }
@@ -62,6 +73,24 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         }
     }
     
+    func setSwipeRecognizerDirection() {
+        DispatchQueue.main.async {
+            self.gestureRecognizer.direction = .left
+        }
+    }
+    
+    func setCheckButton() {
+        DispatchQueue.main.async {
+            self.checkButton.layer.cornerRadius = 10
+        }
+    }
+    
+    func setCollectionViewDelegate() {
+        DispatchQueue.main.async {
+            self.collectionView.delegate = self
+        }
+    }
+    
     // Vibration
     func performSuccessVibration() {
         let feedback = UINotificationFeedbackGenerator()
@@ -73,6 +102,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         feedback.notificationOccurred(.error)
     }
     
+    //
     func getCell(at index: IndexPath) -> VerbCollectionCellProtocol? {
         if let cell = collectionView.cellForItem(at: index) as? VerbCollectionCellProtocol {
             return cell
@@ -87,6 +117,8 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     func getVisibleCells() -> [VerbCollectionCellProtocol]? {
         return collectionView.visibleCells as? [VerbCollectionCellProtocol]
     }
+    
+
     
     // MARK: - Animation
     

@@ -30,16 +30,21 @@ protocol VerbsListTableViewProtocol: class {
 }
 
 protocol VerbsListInteractorProtocol: class {
+    
     func updateVerbs()
     
-    func getVerbsCount() -> Int
-    func getVerb(at index: Int) -> Verb
+    func getVerbsCount(in section: Int) -> Int
+    func getVerb(at indexPath: IndexPath) -> Verb
     
     func searchVerbs(infinitive: String)
     
     func getOnLearningVerbsIndexs() -> [IndexPath]
     
     func applySelectedToLearn(_ indexes: [IndexPath])
+    
+    func numberOfSections() -> Int
+
+    func titleForHeader(in section: Int) -> String?
 }
 
 protocol VerbsListPresenterProtocol: class {
@@ -47,14 +52,18 @@ protocol VerbsListPresenterProtocol: class {
     
     func configureView()
     
-    func getVerbsCount() -> Int
-    func getVerb(at index: Int) -> Verb
+    func getVerbsCount(in section: Int) -> Int
+    func getVerb(at indexPath: IndexPath) -> Verb
                 
     func selectToLearnClicked()
     
     func viewWillAppear()
     
     func updateSearchResults()
+    
+    func numberOfSections() -> Int
+    
+    func titleForHeader(in section: Int) -> String?
 }
 
 protocol VerbsListConfiguratorProtocol: class {
