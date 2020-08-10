@@ -47,17 +47,18 @@ protocol CorrectIndicatorViewProtocol: class {
         for _ in 0..<cellCount {
             let cell = UIView()
             
-            let cellSize = CGSize(width: frame.width / CGFloat(cellCount) - 1, height: frame.height)
-
-            cell.backgroundColor = Colors.grayIndicator
+            cell.backgroundColor = .white
             cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.borderColor = Colors.borderGreyColor.cgColor
+            
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 3
             
             cell.translatesAutoresizingMaskIntoConstraints = false
-            cell.heightAnchor.constraint(equalToConstant: cellSize.height).isActive = true
-            cell.widthAnchor.constraint(equalToConstant: cellSize.width).isActive = true
+            cell.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
             
             addArrangedSubview(cell)
+            
             cells.append(cell)
             
         }
@@ -66,13 +67,15 @@ protocol CorrectIndicatorViewProtocol: class {
     
     func changeCells(at index: Int) {
         for cell in cells {
-            cell.backgroundColor = Colors.grayIndicator
+            cell.backgroundColor = .white
+            cell.layer.borderColor = Colors.borderGreyColor.cgColor
         }
         
         for i in 0..<index {
             let cell = cells[i]
 
-            cell.backgroundColor = Colors.greenIndicator
+            cell.backgroundColor = Colors.darkRedColor
+            cell.layer.borderColor = Colors.darkRedColor.cgColor
         }
     }
 }

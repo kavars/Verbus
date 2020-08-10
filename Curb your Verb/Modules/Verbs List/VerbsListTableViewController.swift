@@ -43,6 +43,10 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return presenter.titleForHeader(in: section)
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Colors.darkSandYellowColor
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -52,6 +56,12 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
         
         let verb = presenter.getVerb(at: indexPath)
         cell.configureCellView(infinitive: verb.infinitive, translate: verb.translation)
+        
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = Colors.cellSelectedColor
+        cell.selectedBackgroundView = bgColorView
+        
+        cell.tintColor = Colors.darkRedColor
         
         return cell
     }
@@ -91,6 +101,12 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             
             self.searchController.obscuresBackgroundDuringPresentation = false
             self.searchController.searchBar.sizeToFit()
+            
+            self.searchController.searchBar.searchBarStyle = .minimal
+            self.searchController.searchBar.tintColor = Colors.darkRedColor
+            self.searchController.searchBar.placeholder = "Поиск"
+            
+            self.searchController.searchBar.keyboardAppearance = .dark
         }
     }
     
@@ -108,7 +124,8 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     func startEditing() {
         DispatchQueue.main.async {
             self.tableView.setEditing(true, animated: true)
-            self.navigationItem.leftBarButtonItem?.title = "Done"
+            self.navigationItem.leftBarButtonItem?.title = "Готово"
+            self.navigationItem.leftBarButtonItem?.image = nil
         }
     }
     
@@ -121,7 +138,8 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     func endEditing() {
         DispatchQueue.main.async {
             self.tableView.setEditing(false, animated: true)
-            self.navigationItem.leftBarButtonItem?.title = "Select To Learn"
+            self.navigationItem.leftBarButtonItem?.title = nil
+            self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: "book")
         }
     }
     

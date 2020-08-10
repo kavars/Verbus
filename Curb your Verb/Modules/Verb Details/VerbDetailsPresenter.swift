@@ -39,4 +39,16 @@ class VerbDetailsPresenter: VerbDetailsPresenterProtocol {
         router.closeCurrentViewController()
     }
     
+    // MARK: - Speech
+    func infinitiveSpeechButtonClicked() {
+        interactor.activateInfinitiveSpeech()
+    }
+    
+    func pastSimpleSpeechButtonClicked() {
+        interactor.activatePastSimpleSpeech()
+    }
+    
+    func pastParticipleSpeechButtonClicked() {
+        interactor.activatePastParticipleSpeech()
+    }
 }

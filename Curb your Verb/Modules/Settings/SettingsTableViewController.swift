@@ -33,12 +33,6 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
         configurator.configure(with: self)
         presenter.configureView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        presenter.configureView()
-    }
 
     // MARK: - Table view data source
     
@@ -49,16 +43,16 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
         
         switch cell {
         case resetTutorialCell:
-            let alert = configureAlert(for: "Reset tutorial", with: "Are you shure?", handler: {
+            let alert = configureAlert(for: "Сброс обучения", with: "Вы уверены?", okStyle: .default) {
                 self.presenter.resetTutorialButtonClicked()
-            })
+            }
             
             present(alert, animated: true, completion: nil)
             resetTutorialCell.isSelected = false
         case resetProgressCell:
-            let alert = configureAlert(for: "Reset statistic", with: "Are you shure?", handler: {
+            let alert = configureAlert(for: "Сброс прогресса", with: "Вы уверены?", okStyle: .destructive) {
                 self.presenter.resetProgressButtonClicked()
-            })
+            }
             
             present(alert, animated: true, completion: nil)
             resetProgressCell.isSelected = false
@@ -75,14 +69,18 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
         }
     }
     
-    private func configureAlert(for action: String, with message: String, handler: @escaping () -> Void, handlerCancel: (() -> Void)? = nil) -> UIAlertController {
+    private func configureAlert(for action: String, with message: String, okStyle: UIAlertAction.Style, handler: @escaping () -> Void) -> UIAlertController {
         let alert = UIAlertController(title: action, message: message, preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "OK", style: .default) { action in
+        
+        alert.view.layer.backgroundColor = Colors.sandYellowColor.cgColor
+        alert.view.layer.cornerRadius = 10
+        alert.view.layer.masksToBounds = true
+        alert.view.tintColor = Colors.darkRedColor
+        
+        let actionOK = UIAlertAction(title: "ОК", style: okStyle) { action in
             handler()
         }
-        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel) { action in
-            handlerCancel?()
-        }
+        let actionCancel = UIAlertAction(title: "Отмена", style: .cancel)
 
         alert.addAction(actionOK)
         alert.addAction(actionCancel)

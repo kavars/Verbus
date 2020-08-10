@@ -45,6 +45,9 @@ protocol VerbDetailsInteractorProtocol: class {
     var rightAnswersForAllTime: Int32 { get }
     var wrongAnswersForAllTime: Int32 { get }
     
+    func activateInfinitiveSpeech()
+    func activatePastSimpleSpeech()
+    func activatePastParticipleSpeech()
 }
 
 protocol VerbDetailsPresenterProtocol: class {
@@ -53,6 +56,11 @@ protocol VerbDetailsPresenterProtocol: class {
     func configureView()
     
     func dismissDetailsView()
+    
+    func infinitiveSpeechButtonClicked()
+    func pastSimpleSpeechButtonClicked()
+    func pastParticipleSpeechButtonClicked()
+
 }
 
 protocol VerbDetailsConfiguratorProtocol: class {

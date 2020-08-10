@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     
@@ -28,7 +29,22 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     @IBOutlet weak var rightAnswersForAllTime: UILabel!
     @IBOutlet weak var wrongAnswersForAllTime: UILabel!
     
-
+    
+    // MARK: - IBActions
+    
+    @IBAction func speechInfinitiveClicked(_ sender: UIButton) {
+        presenter.infinitiveSpeechButtonClicked()
+    }
+    
+    @IBAction func speechPastSimpleClicked(_ sender: UIButton) {
+        presenter.pastSimpleSpeechButtonClicked()
+    }
+    
+    @IBAction func speechPastParticipleClicked(_ sender: UIButton) {
+        presenter.pastParticipleSpeechButtonClicked()
+    }
+    
+    
     var presenter: VerbDetailsPresenterProtocol!
     let configurator: VerbDetailsConfiguratorProtocol = VerbDetailsConfigurator()
     
@@ -36,7 +52,7 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         presenter.configureView()
     }
     
@@ -49,7 +65,7 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     func configure(verb: Verb) {
         configurator.configure(with: self, verb: verb)
     }
-
+    
     // MARK: - VerbDetailsViewProtocol
     
     func setInfinitiveForm(with string: String) {
@@ -104,6 +120,7 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
         DispatchQueue.main.async {
             self.wrongAnswersToday.text = string
         }
+        
     }
     
     func setRightAnswersForAllTime(with string: String) {

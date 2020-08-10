@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
@@ -117,6 +118,53 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
                 return 0
             }
             return wrongAnswersForAllTime
+        }
+    }
+    
+    // MARK: - Speech
+    // mem leak?
+    lazy var speechSynthesizer = AVSpeechSynthesizer()
+    
+    func createSpeechUtterance(string: String) -> AVSpeechUtterance {
+        let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
+        speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 3.0
+        
+        return speechUtterance
+    }
+    
+    func activateInfinitiveSpeech() {
+        guard let infinitive = verb.infinitive else {
+            return
+        }
+        
+        let speechUtterance = createSpeechUtterance(string: infinitive)
+        
+        DispatchQueue.global().async {
+            self.speechSynthesizer.speak(speechUtterance)
+        }
+    }
+    
+    func activatePastSimpleSpeech() {
+        guard let pastSimple = verb.pastSimple else {
+            return
+        }
+        
+        let speechUtterance = createSpeechUtterance(string: pastSimple)
+        
+        DispatchQueue.global().async {
+            self.speechSynthesizer.speak(speechUtterance)
+        }
+    }
+    
+    func activatePastParticipleSpeech() {
+        guard let pastParticiple = verb.pastParticiple else {
+            return
+        }
+        
+        let speechUtterance = self.createSpeechUtterance(string: pastParticiple)
+        
+        DispatchQueue.global().async {
+            self.speechSynthesizer.speak(speechUtterance)
         }
     }
 }

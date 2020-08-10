@@ -94,7 +94,7 @@
 		7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7E440FE624B7A5D400E0C0EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7E512E1D24B71F13006573AF /* Curb your Verb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curb your Verb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E512E1D24B71F13006573AF /* Verbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E512E2024B71F13006573AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E512E2224B71F13006573AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7E512E2724B71F13006573AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +169,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E15B12D24E1E802004D8B12 /* Tutorials */ = {
+			isa = PBXGroup;
+			children = (
+				7E6C8DFD24DBFF7B00AD2005 /* TutorialViewLearn */,
+				7E15B12E24E1E811004D8B12 /* TutorialViewTable */,
+			);
+			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		7E15B12E24E1E811004D8B12 /* TutorialViewTable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TutorialViewTable;
+			sourceTree = "<group>";
+		};
 		7E512E1424B71F13006573AF = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +197,7 @@
 		7E512E1E24B71F13006573AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7E512E1D24B71F13006573AF /* Curb your Verb.app */,
+				7E512E1D24B71F13006573AF /* Verbus.app */,
 				7E512E3624B71F16006573AF /* Curb your VerbTests.xctest */,
 			);
 			name = Products;
@@ -309,8 +325,8 @@
 		7E512E8324B74BBC006573AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7E15B12D24E1E802004D8B12 /* Tutorials */,
 				7EB7D41324DC0E0900E839CC /* TabBarViewController */,
-				7E6C8DFD24DBFF7B00AD2005 /* TutorialView */,
 				7E84410D24CB242900237F44 /* VerbCollectionCell */,
 				7E84410A24CB213400237F44 /* VerbTableViewCell */,
 				7E512E8424B74BEA006573AF /* CorrectIndicatorView */,
@@ -334,13 +350,13 @@
 			path = "Daily Update Service";
 			sourceTree = "<group>";
 		};
-		7E6C8DFD24DBFF7B00AD2005 /* TutorialView */ = {
+		7E6C8DFD24DBFF7B00AD2005 /* TutorialViewLearn */ = {
 			isa = PBXGroup;
 			children = (
 				7E6C8DFE24DBFF9F00AD2005 /* TutorialView.xib */,
 				7E6C8E0024DBFFAA00AD2005 /* TutorialView.swift */,
 			);
-			path = TutorialView;
+			path = TutorialViewLearn;
 			sourceTree = "<group>";
 		};
 		7E70059A24D5B08600256089 /* Store Service */ = {
@@ -437,7 +453,7 @@
 			);
 			name = "Curb your Verb";
 			productName = "Curb your Verb";
-			productReference = 7E512E1D24B71F13006573AF /* Curb your Verb.app */;
+			productReference = 7E512E1D24B71F13006573AF /* Verbus.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7E512E3524B71F16006573AF /* Curb your VerbTests */ = {
@@ -618,6 +634,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -664,7 +681,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -678,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -718,7 +736,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -742,8 +760,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Kaviro.Curb-your-Verb";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus;
+				PRODUCT_NAME = Verbus;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -764,8 +782,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Kaviro.Curb-your-Verb";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus;
+				PRODUCT_NAME = Verbus;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
