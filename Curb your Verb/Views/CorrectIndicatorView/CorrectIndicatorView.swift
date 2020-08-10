@@ -12,8 +12,14 @@ protocol CorrectIndicatorViewProtocol: class {
     func changeCells(at index: Int)
 }
 
-class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
+@IBDesignable class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
     private var cells = [UIView]()
+    
+    @IBInspectable var cellCount: Int = 6 {
+        didSet {
+            setupCells()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,21 +37,31 @@ class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
         alignment = Alignment.center
         spacing = 1
         
+        for cell in cells {
+            removeArrangedSubview(cell)
+            cell.removeFromSuperview()
+        }
         
-        
-        for _ in 0...5 {
+        cells.removeAll()
+                
+        for _ in 0..<cellCount {
             let cell = UIView()
-            cell.heightAnchor.constraint(equalToConstant: 10).isActive = true
-            cell.widthAnchor.constraint(equalToConstant: 20).isActive = true
+            
+            let cellSize = CGSize(width: frame.width / CGFloat(cellCount) - 1, height: frame.height)
+
             cell.backgroundColor = Colors.grayIndicator
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.white.cgColor
             
+            cell.translatesAutoresizingMaskIntoConstraints = false
+            cell.heightAnchor.constraint(equalToConstant: cellSize.height).isActive = true
+            cell.widthAnchor.constraint(equalToConstant: cellSize.width).isActive = true
+            
             addArrangedSubview(cell)
             cells.append(cell)
+            
         }
         
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     func changeCells(at index: Int) {

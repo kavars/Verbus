@@ -10,13 +10,9 @@ import Foundation
 
 class SettingsRouter: SettingsRouterProtocol {
     
-    weak var viewController: SettingsViewController!
+    weak var tableViewController: SettingsTableViewController!
     
-    init(viewController: SettingsViewController) {
-        self.viewController = viewController
-    }
-    
-    func openSystemSettings() {
-        viewController.openSystemSettings()
+    init(tableViewController: SettingsTableViewController) {
+        self.tableViewController = tableViewController
     }
 }

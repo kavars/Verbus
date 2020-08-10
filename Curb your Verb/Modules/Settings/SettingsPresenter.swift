@@ -32,21 +32,18 @@ class SettingsPresenter: SettingsPresenterProtocol {
     
     func configureView() {
         view.setVibrationSwitchState(with: isVibration)
+        view.setCellsSettings()
     }
     
     func vibrationSwitchToggled(to state: Bool) {
         isVibration = state
     }
     
-    func resetButtonClicked() {
+    func resetProgressButtonClicked() {
         interactor.resetStatistic()
     }
     
     func resetTutorialButtonClicked() {
         interactor.resetTutorial()
-    }
-    
-    func systemSettingsButtonClicked() {
-        router.openSystemSettings()
     }
 }

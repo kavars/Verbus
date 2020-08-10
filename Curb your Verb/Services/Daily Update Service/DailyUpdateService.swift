@@ -25,9 +25,7 @@ class DailyUpdateService: DailyUpdateServiceProtocol {
             return
         }
         
-        if storeDayService.savedNotifications() {
-            _ = UserNotificationsService()
-        }
+        _ = UserNotificationsService()
         
         storeDayService.saveDay(with: now)
         

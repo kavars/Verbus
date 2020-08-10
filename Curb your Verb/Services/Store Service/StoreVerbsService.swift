@@ -170,7 +170,7 @@ class StoreVerbsService: StoreVerbsServiceProtocol {
         
         
         
-        let topSort = NSSortDescriptor(key: #keyPath(Verb.section), ascending: true)
+        let topSort = NSSortDescriptor(key: #keyPath(Verb.section), ascending: false)
         let nameSort = NSSortDescriptor(key: #keyPath(Verb.infinitive), ascending: true)
         fetchRequest.sortDescriptors = [topSort, nameSort]
         

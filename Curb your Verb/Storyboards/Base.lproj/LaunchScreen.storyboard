@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,18 +15,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curb your Verb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPS-Vl-49a">
-                                <rect key="frame" x="59" y="288" width="256" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curb your Verb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RPS-Vl-49a">
+                                <rect key="frame" x="59.666666666666657" y="387" width="255.99999999999997" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.48900981866962479" green="0.70713039340101524" blue="0.68900543508114542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RPS-Vl-49a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="59" id="Lti-wo-I47"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RPS-Vl-49a" secondAttribute="trailing" constant="60" id="bCa-AQ-RDS"/>
-                            <constraint firstItem="RPS-Vl-49a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="244" id="mEe-Go-F0w"/>
+                            <constraint firstItem="RPS-Vl-49a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2KH-qR-7vg"/>
+                            <constraint firstItem="RPS-Vl-49a" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.0653951" id="iXu-Ya-gFO"/>
+                            <constraint firstItem="RPS-Vl-49a" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.682667" id="nLq-fp-Bsk"/>
+                            <constraint firstItem="RPS-Vl-49a" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="yP1-sn-ELr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
