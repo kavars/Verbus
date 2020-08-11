@@ -11,6 +11,8 @@ import Foundation
 protocol VerbDetailsViewProtocol: class {
     
     func configure(verb: Verb)
+    
+    func setCellsView()
         
     func setInfinitiveForm(with string: String)
     func setPastSimpleForm(with string: String)

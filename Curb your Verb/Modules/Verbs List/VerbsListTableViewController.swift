@@ -63,6 +63,12 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
         
         cell.tintColor = Colors.darkRedColor
         
+        cell.infinitive.layer.masksToBounds = true
+        cell.infinitive.layer.cornerRadius = 5
+        
+        cell.translate.layer.masksToBounds = true
+        cell.translate.layer.cornerRadius = 5
+        
         return cell
     }
     

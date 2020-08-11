@@ -13,7 +13,7 @@ class Colors {
 
     static let borderGreyColor = UIColor(cgColor: CGColor(srgbRed: 0.933, green: 0.933, blue: 0.933, alpha: 1.0))
     
-    static let cellSelectedColor = UIColor(cgColor: CGColor(srgbRed: 0.914, green: 0.902, blue: 0.831, alpha: 1.0))
+    static let cellSelectedColor = Colors.darkSandYellowColor
 
     static let darkRedColor = UIColor(cgColor: CGColor(srgbRed: 0.639, green: 0.212, blue: 0.173, alpha: 1.0))
     

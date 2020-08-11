@@ -27,6 +27,9 @@ extension Verb {
     @NSManaged public var section: String?
     @NSManaged public var translation: String?
     @NSManaged public var variants: NSObject?
+    @NSManaged public var infinitiveIPA: String?
+    @NSManaged public var pastSimpleIPA: String?
+    @NSManaged public var pastParticipleIPA: String?
     @NSManaged public var progress: VerbProgress?
 
 }

@@ -29,6 +29,12 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     @IBOutlet weak var rightAnswersForAllTime: UILabel!
     @IBOutlet weak var wrongAnswersForAllTime: UILabel!
     
+    @IBOutlet weak var rightLabel: UILabel!
+    @IBOutlet weak var wrongLabel: UILabel!
+    
+    @IBOutlet weak var rightView: UIView!
+    @IBOutlet weak var wrongView: UIView!
+    
     
     // MARK: - IBActions
     
@@ -67,6 +73,30 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
     }
     
     // MARK: - VerbDetailsViewProtocol
+    
+    private func setUpCornerRadius(in view: UIView, with radius: CGFloat) {
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = radius
+    }
+    
+    func setCellsView() {
+        let cornerR: CGFloat = 10
+        
+        setUpCornerRadius(in: infinitive, with: cornerR)
+        setUpCornerRadius(in: pastSimple, with: cornerR)
+        setUpCornerRadius(in: pastParticiple, with: cornerR)
+
+        setUpCornerRadius(in: infinitiveTranscription, with: cornerR)
+        setUpCornerRadius(in: pastSimpleTranscription, with: cornerR)
+        setUpCornerRadius(in: pastParticipleTranscription, with: cornerR)
+        
+        setUpCornerRadius(in: translation, with: cornerR)
+        
+        setUpCornerRadius(in: rightLabel, with: cornerR)
+        setUpCornerRadius(in: wrongLabel, with: cornerR)
+        setUpCornerRadius(in: rightView, with: cornerR)
+        setUpCornerRadius(in: wrongView, with: cornerR)
+    }
     
     func setInfinitiveForm(with string: String) {
         DispatchQueue.main.async {

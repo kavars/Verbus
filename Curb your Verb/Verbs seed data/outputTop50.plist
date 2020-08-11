@@ -933,6 +933,12 @@
 		<string>[rɛd]</string>
 		<key>pastParticipleTranscription</key>
 		<string>[rɛd]</string>
+		<key>infinitiveIPA</key>
+		<string>ˈɻid</string>
+		<key>pastSimpleIPA</key>
+		<string>ˈɻɛd</string>
+		<key>pastParticipleIPA</key>
+		<string>ˈɻɛd</string>
 		<key>translation</key>
 		<string>читать</string>
 		<key>variants</key>
@@ -1256,7 +1262,7 @@
 		<key>pastSimpleTranscription</key>
 		<string>[tʊk]</string>
 		<key>pastParticipleTranscription</key>
-		<string>['teɪkən]</string>
+		<string>[&apos;teɪkən]</string>
 		<key>translation</key>
 		<string>брать</string>
 		<key>variants</key>

@@ -123,21 +123,33 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     // MARK: - Speech
     // mem leak?
-    lazy var speechSynthesizer = AVSpeechSynthesizer()
+    var speechSynthesizer = AVSpeechSynthesizer()
     
-    func createSpeechUtterance(string: String) -> AVSpeechUtterance {
-        let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
+    private func createSpeechUtterance(string: NSMutableAttributedString) -> AVSpeechUtterance {
+        let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(attributedString: string)
         speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 3.0
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         
         return speechUtterance
     }
     
+    private func createAttributedStringForUtterance(in form: String, with formIPA: String) -> NSMutableAttributedString {
+        let mutableAttributedString = NSMutableAttributedString(string: form)
+        let range = NSString(string: form).range(of: form)
+        let prononciationKey = NSAttributedString.Key(rawValue: AVSpeechSynthesisIPANotationAttribute)
+        
+        mutableAttributedString.setAttributes([prononciationKey: formIPA], range: range)
+        
+        return mutableAttributedString
+    }
+    
     func activateInfinitiveSpeech() {
-        guard let infinitive = verb.infinitive else {
+        guard let infinitive = verb.infinitive, let infinitiveIPA = verb.infinitiveIPA else {
             return
         }
-        
-        let speechUtterance = createSpeechUtterance(string: infinitive)
+
+        let utterance = createAttributedStringForUtterance(in: infinitive, with: infinitiveIPA)
+        let speechUtterance = createSpeechUtterance(string: utterance)
         
         DispatchQueue.global().async {
             self.speechSynthesizer.speak(speechUtterance)
@@ -145,11 +157,12 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     }
     
     func activatePastSimpleSpeech() {
-        guard let pastSimple = verb.pastSimple else {
+        guard let pastSimple = verb.pastSimple, let pastSimpleIPA = verb.pastSimpleIPA else {
             return
         }
-        
-        let speechUtterance = createSpeechUtterance(string: pastSimple)
+
+        let utterance = createAttributedStringForUtterance(in: pastSimple, with: pastSimpleIPA)
+        let speechUtterance = createSpeechUtterance(string: utterance)
         
         DispatchQueue.global().async {
             self.speechSynthesizer.speak(speechUtterance)
@@ -157,11 +170,12 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     }
     
     func activatePastParticipleSpeech() {
-        guard let pastParticiple = verb.pastParticiple else {
+        guard let pastParticiple = verb.pastParticiple, let pastParticipleIPA = verb.pastParticipleIPA else {
             return
         }
-        
-        let speechUtterance = self.createSpeechUtterance(string: pastParticiple)
+
+        let utterance = createAttributedStringForUtterance(in: pastParticiple, with: pastParticipleIPA)
+        let speechUtterance = createSpeechUtterance(string: utterance)
         
         DispatchQueue.global().async {
             self.speechSynthesizer.speak(speechUtterance)

@@ -33,6 +33,8 @@ class VerbDetailsPresenter: VerbDetailsPresenterProtocol {
         view.setWrongAnswersToday(with: String(interactor.wrongAnswersToday))
         view.setRightAnswersForAllTime(with: String(interactor.rightAnswersForAllTime))
         view.setWrongAnswersForAllTime(with: String(interactor.wrongAnswersForAllTime))
+        
+        view.setCellsView()
     }
     
     func dismissDetailsView() {

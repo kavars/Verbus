@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */; };
-		7E020A1824D6C56D00D120AF /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */; };
 		7E020A1924D6C56D00D120AF /* VerbProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */; };
 		7E020A1A24D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */; };
 		7E440FE724B7A5D400E0C0EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440FE624B7A5D400E0C0EA /* User.swift */; };
@@ -62,6 +60,8 @@
 		7EB0E8E724D706610096DE8E /* Curb_your_Verb.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */; };
 		7EB0E8E824D706640096DE8E /* Curb_your_Verb.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */; };
 		7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */; };
+		7EC1524824E2D99500A9B31C /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */; };
+		7EC1524924E2D99500A9B31C /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */; };
 		7EE9442424DEA3A7001866D4 /* outputTop50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE9442324DEA3A7001866D4 /* outputTop50.plist */; };
 /* End PBXBuildFile section */
 
@@ -89,8 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7E440FE624B7A5D400E0C0EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -148,6 +146,8 @@
 		7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Curb_your_Verb.sqlite; path = ../Curb_your_Verb.sqlite; sourceTree = "<group>"; };
 		7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Curb_your_Verb.sqlite-wal"; sourceTree = "<group>"; };
 		7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationsService.swift; sourceTree = "<group>"; };
+		7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7EE9442324DEA3A7001866D4 /* outputTop50.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = outputTop50.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -427,8 +427,8 @@
 		7EECBDF124D6C3E900E388D1 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */,
-				7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */,
+				7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */,
+				7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */,
 				7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */,
 				7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */,
 			);
@@ -547,6 +547,7 @@
 				7E512E6C24B721FF006573AF /* VerbsListTableViewController.swift in Sources */,
 				7E512E7C24B72280006573AF /* LearnConfigurator.swift in Sources */,
 				7E512E6E24B72208006573AF /* VerbsListPresenter.swift in Sources */,
+				7EC1524824E2D99500A9B31C /* Verb+CoreDataClass.swift in Sources */,
 				7EB0E8E224D700EF0096DE8E /* StoreSettingsService.swift in Sources */,
 				7E512E6824B720EC006573AF /* VerbDetailsProtocols.swift in Sources */,
 				7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */,
@@ -559,6 +560,7 @@
 				7E512E6024B720C7006573AF /* VerbDetailsViewController.swift in Sources */,
 				7E512E5E24B720BA006573AF /* VerbDetailsInteractor.swift in Sources */,
 				7E512E2124B71F13006573AF /* AppDelegate.swift in Sources */,
+				7EC1524924E2D99500A9B31C /* Verb+CoreDataProperties.swift in Sources */,
 				7E512E7224B7223A006573AF /* VerbsListRouter.swift in Sources */,
 				7E512E6224B720D3006573AF /* VerbDetailsPresenter.swift in Sources */,
 				7E6C8DFC24DBFB7600AD2005 /* DailyUpdateService.swift in Sources */,
@@ -568,7 +570,6 @@
 				7E512E7824B72264006573AF /* LearnInteractor.swift in Sources */,
 				7E512E8024B7228E006573AF /* LearnProtocols.swift in Sources */,
 				7E512E5C24B7205B006573AF /* SettingsProtocols.swift in Sources */,
-				7E020A1824D6C56D00D120AF /* Verb+CoreDataProperties.swift in Sources */,
 				7E512E6A24B721EE006573AF /* VerbsListInteractor.swift in Sources */,
 				7E512E5824B7203F006573AF /* SettingsPresenter.swift in Sources */,
 				7E512E7E24B72287006573AF /* LearnRouter.swift in Sources */,
@@ -583,7 +584,6 @@
 				7E512E7A24B72275006573AF /* LearnPresenter.swift in Sources */,
 				7E6C8E0324DC0AAB00AD2005 /* TabBarViewController.swift in Sources */,
 				7E6C8E0124DBFFAA00AD2005 /* TutorialView.swift in Sources */,
-				7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */,
 				7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */,
 				7E512E5A24B7204B006573AF /* SettingsRouter.swift in Sources */,
 				7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */,

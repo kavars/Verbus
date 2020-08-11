@@ -50,6 +50,10 @@ class DataLoader: DataLoaderProtocol {
             verb.pastSimpleTranscription = verbDict["pastSimpleTranscription"] as? String
             verb.pastParticipleTranscription = verbDict["pastParticipleTranscription"] as? String
             
+            verb.infinitiveIPA = verbDict["infinitiveIPA"] as? String
+            verb.pastSimpleIPA = verbDict["pastSimpleIPA"] as? String
+            verb.pastParticipleIPA = verbDict["pastParticipleIPA"] as? String
+            
             verb.translation = verbDict["translation"] as? String
             
             verb.section = verbDict["section"] as? String
