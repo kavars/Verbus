@@ -12,6 +12,7 @@ import CoreData
 protocol SettingsServiceProtocol: class {
     var isVibration: Bool { set get }
     var isTutorial: Bool { set get }
+    var isTutorialTable: Bool { set get }
     
     func resetAllStats()
 }
@@ -37,6 +38,15 @@ class SettingsService: SettingsServiceProtocol {
         }
         get {
             return storeSettingsService.savedTutorial()
+        }
+    }
+    
+    var isTutorialTable: Bool {
+        set {
+            storeSettingsService.saveTutorialTable(with: newValue)
+        }
+        get {
+            return storeSettingsService.savedTutorialTable()
         }
     }
     

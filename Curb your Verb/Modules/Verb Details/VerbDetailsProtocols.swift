@@ -47,9 +47,14 @@ protocol VerbDetailsInteractorProtocol: class {
     var rightAnswersForAllTime: Int32 { get }
     var wrongAnswersForAllTime: Int32 { get }
     
-    func activateInfinitiveSpeech()
-    func activatePastSimpleSpeech()
-    func activatePastParticipleSpeech()
+    /**
+    Activates speech synthesizer for the selected verb form
+
+    - Parameter form: Path to verb form.
+    - Parameter IPA: Path to IPA notation of form.
+
+    */
+    func activateSpeech(form: KeyPath<Verb, String?>, IPA: KeyPath<Verb, String?>)
 }
 
 protocol VerbDetailsPresenterProtocol: class {

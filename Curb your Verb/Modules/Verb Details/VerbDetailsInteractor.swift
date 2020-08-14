@@ -125,8 +125,40 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     // mem leak?
     var speechSynthesizer = AVSpeechSynthesizer()
     
-    private func createSpeechUtterance(string: NSMutableAttributedString) -> AVSpeechUtterance {
-        let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(attributedString: string)
+    func activateSpeech(form: KeyPath<Verb, String?>, IPA: KeyPath<Verb, String?>) {
+        guard let verbForm = verb[keyPath: form] else {
+            return
+        }
+        
+        if let verbIPA = verb[keyPath: IPA] {
+            print(verbIPA)
+            let utterance = createAttributedStringForUtterance(in: verbForm, with: verbIPA)
+            let speechUtterance = createSpeechUtterance(attrString: utterance)
+            
+            DispatchQueue.global().async {
+                self.speechSynthesizer.speak(speechUtterance)
+            }
+        } else {
+            print(verbForm)
+
+            let speechUtterance = createSpeechUtterance(string: verbForm)
+            
+            DispatchQueue.global().async {
+                self.speechSynthesizer.speak(speechUtterance)
+            }
+        }
+    }
+    
+    private func createSpeechUtterance(attrString: NSMutableAttributedString) -> AVSpeechUtterance {
+        let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(attributedString: attrString)
+        speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 3.0
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        
+        return speechUtterance
+    }
+    
+    private func createSpeechUtterance(string: String) -> AVSpeechUtterance {
+        let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
         speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 3.0
         speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         
@@ -142,43 +174,5 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
         
         return mutableAttributedString
     }
-    
-    func activateInfinitiveSpeech() {
-        guard let infinitive = verb.infinitive, let infinitiveIPA = verb.infinitiveIPA else {
-            return
-        }
 
-        let utterance = createAttributedStringForUtterance(in: infinitive, with: infinitiveIPA)
-        let speechUtterance = createSpeechUtterance(string: utterance)
-        
-        DispatchQueue.global().async {
-            self.speechSynthesizer.speak(speechUtterance)
-        }
-    }
-    
-    func activatePastSimpleSpeech() {
-        guard let pastSimple = verb.pastSimple, let pastSimpleIPA = verb.pastSimpleIPA else {
-            return
-        }
-
-        let utterance = createAttributedStringForUtterance(in: pastSimple, with: pastSimpleIPA)
-        let speechUtterance = createSpeechUtterance(string: utterance)
-        
-        DispatchQueue.global().async {
-            self.speechSynthesizer.speak(speechUtterance)
-        }
-    }
-    
-    func activatePastParticipleSpeech() {
-        guard let pastParticiple = verb.pastParticiple, let pastParticipleIPA = verb.pastParticipleIPA else {
-            return
-        }
-
-        let utterance = createAttributedStringForUtterance(in: pastParticiple, with: pastParticipleIPA)
-        let speechUtterance = createSpeechUtterance(string: utterance)
-        
-        DispatchQueue.global().async {
-            self.speechSynthesizer.speak(speechUtterance)
-        }
-    }
 }

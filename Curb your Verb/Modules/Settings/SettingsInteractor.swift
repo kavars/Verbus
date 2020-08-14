@@ -33,5 +33,6 @@ class SettingsInteractor: SettingsInteractorProtocol {
     
     func resetTutorial() {
         settingsService.isTutorial = true
+        settingsService.isTutorialTable = true
     }
 }

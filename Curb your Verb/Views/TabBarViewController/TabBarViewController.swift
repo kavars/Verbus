@@ -22,12 +22,20 @@ class TabBarViewController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if tabBar.items?.first == item {
             launchTutorialView()
+        } else if tabBar.items?[1] == item {
+            launchTutorialViewTable()
         }
     }
     
     private func launchTutorialView() {
         if settingsService.isTutorial {
             view.addSubview(TutorialView(frame: view.frame))
+        }
+    }
+    
+    private func launchTutorialViewTable() {
+        if settingsService.isTutorialTable {
+            view.addSubview(TutorialViewTable(frame: view.frame))
         }
     }
 

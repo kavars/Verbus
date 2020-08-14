@@ -43,14 +43,14 @@ class VerbDetailsPresenter: VerbDetailsPresenterProtocol {
     
     // MARK: - Speech
     func infinitiveSpeechButtonClicked() {
-        interactor.activateInfinitiveSpeech()
+        interactor.activateSpeech(form: \Verb.infinitive, IPA: \Verb.infinitiveIPA)
     }
     
     func pastSimpleSpeechButtonClicked() {
-        interactor.activatePastSimpleSpeech()
+        interactor.activateSpeech(form: \Verb.pastSimple, IPA: \Verb.pastSimpleIPA)
     }
     
     func pastParticipleSpeechButtonClicked() {
-        interactor.activatePastParticipleSpeech()
+        interactor.activateSpeech(form: \Verb.pastParticiple, IPA: \Verb.pastParticipleIPA)
     }
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E020A1924D6C56D00D120AF /* VerbProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */; };
 		7E020A1A24D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */; };
+		7E3DE31924E5BBBF00D1B3DE /* TutorialViewTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DE31824E5BBBF00D1B3DE /* TutorialViewTable.swift */; };
+		7E3DE31B24E5BBD500D1B3DE /* TutorialViewTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3DE31A24E5BBD500D1B3DE /* TutorialViewTable.xib */; };
 		7E440FE724B7A5D400E0C0EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440FE624B7A5D400E0C0EA /* User.swift */; };
 		7E512E2124B71F13006573AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2024B71F13006573AF /* AppDelegate.swift */; };
 		7E512E2324B71F13006573AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2224B71F13006573AF /* SceneDelegate.swift */; };
@@ -91,6 +93,8 @@
 /* Begin PBXFileReference section */
 		7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7E3DE31824E5BBBF00D1B3DE /* TutorialViewTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewTable.swift; sourceTree = "<group>"; };
+		7E3DE31A24E5BBD500D1B3DE /* TutorialViewTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewTable.xib; sourceTree = "<group>"; };
 		7E440FE624B7A5D400E0C0EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7E512E1D24B71F13006573AF /* Verbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E512E2024B71F13006573AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 		7E15B12E24E1E811004D8B12 /* TutorialViewTable */ = {
 			isa = PBXGroup;
 			children = (
+				7E3DE31A24E5BBD500D1B3DE /* TutorialViewTable.xib */,
+				7E3DE31824E5BBBF00D1B3DE /* TutorialViewTable.swift */,
 			);
 			path = TutorialViewTable;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6C8DFF24DBFF9F00AD2005 /* TutorialView.xib in Resources */,
+				7E3DE31B24E5BBD500D1B3DE /* TutorialViewTable.xib in Resources */,
 				7EB0E8E624D7065E0096DE8E /* Curb_your_Verb.sqlite in Resources */,
 				7E512E3024B71F16006573AF /* LaunchScreen.storyboard in Resources */,
 				7EB0E8E824D706640096DE8E /* Curb_your_Verb.sqlite-wal in Resources */,
@@ -587,6 +594,7 @@
 				7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */,
 				7E512E5A24B7204B006573AF /* SettingsRouter.swift in Sources */,
 				7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */,
+				7E3DE31924E5BBBF00D1B3DE /* TutorialViewTable.swift in Sources */,
 				7EB0E8E024D700CF0096DE8E /* StoreStrikeService.swift in Sources */,
 				7E440FE724B7A5D400E0C0EA /* User.swift in Sources */,
 			);
