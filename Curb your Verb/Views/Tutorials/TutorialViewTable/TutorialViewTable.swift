@@ -10,31 +10,60 @@ import UIKit
 
 class TutorialViewTable: UIView {
     
-    let kCONTENT_XIB_NAME = "TutorialViewTable"
     lazy var settingsService: SettingsServiceProtocol = SettingsService()
-    
-    @IBOutlet weak var tapRecognizer: UITapGestureRecognizer!
-    
-    @IBOutlet var contentView: UIView!
 
-    @IBAction func tapped(_ sender: UITapGestureRecognizer) {
+    // MARK: - Label
+
+    let bookInfoLabel: UILabel = {
+        let label = UILabel()
         
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = .white
+        label.textAlignment = .left
+        label.numberOfLines = 3
+        
+        label.text = "Нажми на книгу что бы добавить глаголы на обучение"
+        
+        return label
+    }()
+    
+    // MARK: - Gesture action
+
+    @objc func tapped() {
         settingsService.isTutorialTable = false
         self.removeFromSuperview()
     }
     
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        
+        gesture.numberOfTapsRequired = 1
+        
+        self.addGestureRecognizer(gesture)
+        
+        backgroundColor = UIColor.darkGray.withAlphaComponent(0.85)
+        
+        setupViewLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        setupViewLayout()
     }
     
-    private func commonInit() {
-        Bundle.main.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
-        contentView.fixInView(self)
+    private func setupViewLayout() {
+        addSubview(bookInfoLabel)
+        
+        bookInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            bookInfoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
+            bookInfoLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            bookInfoLabel.widthAnchor.constraint(equalToConstant: 180)
+        ])
     }
 }

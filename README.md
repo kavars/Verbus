@@ -10,10 +10,10 @@ Based on VIPER architecture
     - UITableView & UICollectionView;
     - Custom views.
 * CoreData:
-    - NSFetchedResultsController
-    - NSPredicate & NSSortDescriptor
-    - NSBatchUpdate
+    - NSFetchedResultsController;
+    - NSPredicate & NSSortDescriptor;
+    - NSBatchUpdate.
 * AVFoundation:
-    - AVSpeechSynthesizer
+    - AVSpeechSynthesizer.
 * UserNotifications.
 

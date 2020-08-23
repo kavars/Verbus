@@ -131,7 +131,6 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
         }
         
         if let verbIPA = verb[keyPath: IPA] {
-            print(verbIPA)
             let utterance = createAttributedStringForUtterance(in: verbForm, with: verbIPA)
             let speechUtterance = createSpeechUtterance(attrString: utterance)
             
@@ -139,8 +138,6 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
                 self.speechSynthesizer.speak(speechUtterance)
             }
         } else {
-            print(verbForm)
-
             let speechUtterance = createSpeechUtterance(string: verbForm)
             
             DispatchQueue.global().async {

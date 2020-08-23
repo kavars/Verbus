@@ -45,7 +45,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = Colors.darkSandYellowColor
+        view.tintColor = UIColor(named: "darkSandYellowColor") // Colors.darkSandYellowColor
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,10 +58,10 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
         cell.configureCellView(infinitive: verb.infinitive, translate: verb.translation)
         
         let bgColorView = UIView()
-        bgColorView.backgroundColor = Colors.cellSelectedColor
+        bgColorView.backgroundColor = UIColor(named: "cellSelectedColor") //Colors.cellSelectedColor
         cell.selectedBackgroundView = bgColorView
         
-        cell.tintColor = Colors.darkRedColor
+        cell.tintColor = UIColor(named: "darkRedColor") // Colors.darkRedColor
         
         cell.infinitive.layer.masksToBounds = true
         cell.infinitive.layer.cornerRadius = 5
@@ -109,7 +109,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             self.searchController.searchBar.sizeToFit()
             
             self.searchController.searchBar.searchBarStyle = .minimal
-            self.searchController.searchBar.tintColor = Colors.darkRedColor
+            self.searchController.searchBar.tintColor = UIColor(named: "darkRedColor") // Colors.darkRedColor
             self.searchController.searchBar.placeholder = "Поиск"
             
             self.searchController.searchBar.keyboardAppearance = .dark

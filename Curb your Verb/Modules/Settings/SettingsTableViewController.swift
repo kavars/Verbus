@@ -72,10 +72,10 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     private func configureAlert(for action: String, with message: String, okStyle: UIAlertAction.Style, handler: @escaping () -> Void) -> UIAlertController {
         let alert = UIAlertController(title: action, message: message, preferredStyle: .alert)
         
-        alert.view.layer.backgroundColor = Colors.sandYellowColor.cgColor
+        alert.view.layer.backgroundColor = UIColor(named: "sandYellowColor")?.cgColor // Colors.sandYellowColor.cgColor
         alert.view.layer.cornerRadius = 10
         alert.view.layer.masksToBounds = true
-        alert.view.tintColor = Colors.darkRedColor
+        alert.view.tintColor = UIColor(named: "darkRedColor") // Colors.darkRedColor
         
         let actionOK = UIAlertAction(title: "ОК", style: okStyle) { action in
             handler()
@@ -90,5 +90,12 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     
     func setCellsSettings() {
         vibrationOnMistakesCell.selectionStyle = .none
+        
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(named: "cellSelectedColor") // Colors.cellSelectedColor
+        resetTutorialCell.selectedBackgroundView = bgColorView
+        resetProgressCell.selectedBackgroundView = bgColorView
+
+        
     }
 }

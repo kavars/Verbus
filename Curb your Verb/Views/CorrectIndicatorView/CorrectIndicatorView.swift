@@ -49,7 +49,7 @@ protocol CorrectIndicatorViewProtocol: class {
             
             cell.backgroundColor = .white
             cell.layer.borderWidth = 1
-            cell.layer.borderColor = Colors.borderGreyColor.cgColor
+            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor // Colors.borderGreyColor.cgColor
             
             cell.layer.masksToBounds = true
             cell.layer.cornerRadius = 3
@@ -68,14 +68,14 @@ protocol CorrectIndicatorViewProtocol: class {
     func changeCells(at index: Int) {
         for cell in cells {
             cell.backgroundColor = .white
-            cell.layer.borderColor = Colors.borderGreyColor.cgColor
+            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor //Colors.borderGreyColor.cgColor
         }
         
         for i in 0..<index {
             let cell = cells[i]
 
-            cell.backgroundColor = Colors.darkRedColor
-            cell.layer.borderColor = Colors.darkRedColor.cgColor
+            cell.backgroundColor = UIColor(named: "darkRedColor") // Colors.darkRedColor
+            cell.layer.borderColor = UIColor(named: "darkRedColor")?.cgColor // Colors.darkRedColor.cgColor
         }
     }
 }
