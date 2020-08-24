@@ -14,17 +14,24 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     let configurator: SettingsConfiguratorProtocol = SettingsConfigurator()
     
     // MARK: - Vibrate section
-    @IBOutlet weak var vibrationOnMistakesCell: UITableViewCell!
+    var vibrationOnMistakesCell: UITableViewCell = UITableViewCell()
     
-    @IBOutlet weak var vibrateOnMistakesSwitch: UISwitch!
+    var vibrateOnMistakesSwitch: UISwitch = {
+        let vibrationSwitch = UISwitch()
+        vibrationSwitch.onTintColor = UIColor(named: "darkRedColor")
+        
+        vibrationSwitch.addTarget(self, action: #selector(vibrateOnMistakesSwitched), for: .valueChanged)
+        
+        return vibrationSwitch
+    }()
     
-    @IBAction func vibrateOnMistakesSwitched(_ sender: UISwitch) {
-        presenter.vibrationSwitchToggled(to: sender.isOn)
+    @objc func vibrateOnMistakesSwitched() {
+        presenter.vibrationSwitchToggled(to: vibrateOnMistakesSwitch.isOn)
     }
     
     // MARK: - Reset section
-    @IBOutlet weak var resetTutorialCell: UITableViewCell!
-    @IBOutlet weak var resetProgressCell: UITableViewCell!
+    var resetTutorialCell: UITableViewCell = UITableViewCell()
+    var resetProgressCell: UITableViewCell = UITableViewCell()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -35,6 +42,56 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 2
+        default:
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                return vibrationOnMistakesCell
+            default:
+                fatalError()
+            }
+        case 1:
+            switch indexPath.row {
+            case 0:
+                return resetTutorialCell
+            case 1:
+                return resetProgressCell
+            default:
+                fatalError()
+            }
+        default:
+            fatalError()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Вибрация"
+        case 1:
+            return "Сброс"
+        default:
+            return nil
+        }
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else {
@@ -89,13 +146,42 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     }
     
     func setCellsSettings() {
-        vibrationOnMistakesCell.selectionStyle = .none
-        
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor(named: "cellSelectedColor") // Colors.cellSelectedColor
-        resetTutorialCell.selectedBackgroundView = bgColorView
-        resetProgressCell.selectedBackgroundView = bgColorView
+        DispatchQueue.main.async {
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor(named: "cellSelectedColor")
+            
+            
+            self.vibrationOnMistakesCell.textLabel?.text = "Вибрация при ошибке"
+            self.vibrationOnMistakesCell.textLabel?.textColor = UIColor(named: "darkGreyColor")
+            self.vibrationOnMistakesCell.selectionStyle = .none
+            
+            self.vibrationOnMistakesCell.addSubview(self.vibrateOnMistakesSwitch)
+            
+            self.vibrateOnMistakesSwitch.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                self.vibrateOnMistakesSwitch.centerYAnchor.constraint(equalTo: self.vibrationOnMistakesCell.centerYAnchor),
+                self.vibrateOnMistakesSwitch.trailingAnchor.constraint(equalTo:
+                    self.vibrationOnMistakesCell.trailingAnchor, constant: -16)
+            ])
 
-        
+            self.resetTutorialCell.textLabel?.text = "Сброс обучения"
+            self.resetTutorialCell.textLabel?.textColor = UIColor(named: "darkRedColor")
+            self.resetTutorialCell.selectedBackgroundView = bgColorView
+            
+            self.resetProgressCell.textLabel?.text = "Сброс прогресса"
+            self.resetProgressCell.textLabel?.textColor = .red
+            self.resetProgressCell.selectedBackgroundView = bgColorView
+        }
+
+    }
+    
+    func setTableViewSettings() {
+        DispatchQueue.main.async {
+            self.navigationItem.title = "Настройки"
+            
+            self.tableView.separatorColor = UIColor(named: "darkRedColor")
+            self.tableView.rowHeight = 44
+        }
     }
 }

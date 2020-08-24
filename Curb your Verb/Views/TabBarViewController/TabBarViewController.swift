@@ -10,13 +10,18 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
+    let storyboardName = "Main"
+    
     lazy var settingsService: SettingsServiceProtocol = SettingsService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         launchTutorialView()
-
+                
+        addLearnView()
+        addVerbsListView()
+        addSettingsView()
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -37,6 +42,40 @@ class TabBarViewController: UITabBarController {
         if settingsService.isTutorialTable {
             view.addSubview(TutorialViewTable(frame: view.frame))
         }
+    }
+    
+    private func addLearnView() {
+        let viewControllerStoryboardId = "learnVC"
+        
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let learnVC = storyboard.instantiateViewController(withIdentifier: viewControllerStoryboardId) as! LearnViewController
+        
+        learnVC.tabBarItem = UITabBarItem(title: "Изучение", image: UIImage(systemName: "book"), tag: 0)
+                
+        viewControllers = [learnVC]
+    }
+    
+    private func addVerbsListView() {
+        let viewControllerStoryboardId = "verbsListVC"
+        
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let verbsListVC = storyboard.instantiateViewController(withIdentifier: viewControllerStoryboardId) as! VerbsListTableViewController
+        
+        verbsListVC.tabBarItem = UITabBarItem(title: "Таблица глаголов", image: UIImage(systemName: "table"), tag: 1)
+        
+        let nav = UINavigationController(rootViewController: verbsListVC)
+        
+        viewControllers?.append(nav)
+    }
+    
+    private func addSettingsView() {        
+        let settingsVC = SettingsTableViewController(style: .grouped)
+        
+        settingsVC.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: "gear"), tag: 2)
+        
+        let nav = UINavigationController(rootViewController: settingsVC)
+        
+        viewControllers?.append(nav)
     }
 
 }

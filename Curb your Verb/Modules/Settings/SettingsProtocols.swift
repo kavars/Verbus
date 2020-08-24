@@ -12,6 +12,7 @@ protocol SettingsViewProtocol: class {
     func setVibrationSwitchState(with state: Bool)
     
     func setCellsSettings()
+    func setTableViewSettings()
 }
 
 protocol SettingsInteractorProtocol: class {

@@ -33,6 +33,7 @@ class SettingsPresenter: SettingsPresenterProtocol {
     func configureView() {
         view.setVibrationSwitchState(with: isVibration)
         view.setCellsSettings()
+        view.setTableViewSettings()
     }
     
     func vibrationSwitchToggled(to state: Bool) {
