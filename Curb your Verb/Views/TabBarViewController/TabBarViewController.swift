@@ -56,16 +56,13 @@ class TabBarViewController: UITabBarController {
     }
     
     private func addVerbsListView() {
-        let viewControllerStoryboardId = "verbsListVC"
         
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let verbsListVC = storyboard.instantiateViewController(withIdentifier: viewControllerStoryboardId) as! VerbsListTableViewController
+        let verbsListVC = VerbsListTableViewController()
+        let navVerbsListVC = UINavigationController(rootViewController: verbsListVC)
+
+        navVerbsListVC.tabBarItem = UITabBarItem(title: "Таблица глаголов", image: UIImage(systemName: "table"), tag: 1)
         
-        verbsListVC.tabBarItem = UITabBarItem(title: "Таблица глаголов", image: UIImage(systemName: "table"), tag: 1)
-        
-        let nav = UINavigationController(rootViewController: verbsListVC)
-        
-        viewControllers?.append(nav)
+        viewControllers?.append(navVerbsListVC)
     }
     
     private func addSettingsView() {        

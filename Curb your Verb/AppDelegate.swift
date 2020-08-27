@@ -46,6 +46,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITableView.appearance().backgroundColor = UIColor(named: "sandYellowColor")
         UITableViewCell.appearance().backgroundColor = UIColor(named: "sandYellowColor")
-//        UITableViewCell.appearance()
     }
 }

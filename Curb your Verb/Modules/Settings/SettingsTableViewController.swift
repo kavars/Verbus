@@ -44,59 +44,124 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
+        let deviceType = UIDevice.current.userInterfaceIdiom
+        
+        switch deviceType {
+        case .phone:
             return 2
+        case .pad:
+            return 1
         default:
-            return 0
+            fatalError()
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        switch indexPath.section {
-        case 0:
-            switch indexPath.row {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let deviceType = UIDevice.current.userInterfaceIdiom
+        
+        switch deviceType {
+        case .phone:
+            switch section {
             case 0:
-                return vibrationOnMistakesCell
+                return 1
+            case 1:
+                return 2
+            default:
+                return 0
+            }
+        case .pad:
+            switch section {
+            case 0:
+                return 2
+            default:
+                return 0
+            }
+        default:
+            fatalError()
+        }
+        
+
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let deviceType = UIDevice.current.userInterfaceIdiom
+        
+        switch deviceType {
+        case .phone:
+            switch indexPath.section {
+            case 0:
+                switch indexPath.row {
+                case 0:
+                    return vibrationOnMistakesCell
+                default:
+                    fatalError()
+                }
+            case 1:
+                switch indexPath.row {
+                case 0:
+                    return resetTutorialCell
+                case 1:
+                    return resetProgressCell
+                default:
+                    fatalError()
+                }
             default:
                 fatalError()
             }
-        case 1:
-            switch indexPath.row {
+        case .pad:
+            switch indexPath.section {
             case 0:
-                return resetTutorialCell
-            case 1:
-                return resetProgressCell
+                switch indexPath.row {
+                case 0:
+                    return resetTutorialCell
+                case 1:
+                    return resetProgressCell
+                default:
+                    fatalError()
+                }
             default:
                 fatalError()
             }
         default:
             fatalError()
         }
+        
+
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Вибрация"
-        case 1:
-            return "Сброс"
+        let deviceType = UIDevice.current.userInterfaceIdiom
+        
+        switch deviceType {
+        case .phone:
+            switch section {
+            case 0:
+                return "Вибрация"
+            case 1:
+                return "Сброс"
+            default:
+                return nil
+            }
+        case .pad:
+            switch section {
+            case 0:
+                return "Сброс"
+            default:
+                return nil
+            }
         default:
-            return nil
+            fatalError()
         }
+
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else {
             return
         }
+                
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         
         switch cell {
         case resetTutorialCell:
@@ -105,14 +170,12 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
             }
             
             present(alert, animated: true, completion: nil)
-            resetTutorialCell.isSelected = false
         case resetProgressCell:
             let alert = configureAlert(for: "Сброс прогресса", with: "Вы уверены?", okStyle: .destructive) {
                 self.presenter.resetProgressButtonClicked()
             }
             
             present(alert, animated: true, completion: nil)
-            resetProgressCell.isSelected = false
         default:
             break
         }
@@ -129,10 +192,10 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     private func configureAlert(for action: String, with message: String, okStyle: UIAlertAction.Style, handler: @escaping () -> Void) -> UIAlertController {
         let alert = UIAlertController(title: action, message: message, preferredStyle: .alert)
         
-        alert.view.layer.backgroundColor = UIColor(named: "sandYellowColor")?.cgColor // Colors.sandYellowColor.cgColor
+        alert.view.layer.backgroundColor = UIColor(named: "sandYellowColor")?.cgColor
         alert.view.layer.cornerRadius = 10
         alert.view.layer.masksToBounds = true
-        alert.view.tintColor = UIColor(named: "darkRedColor") // Colors.darkRedColor
+        alert.view.tintColor = UIColor(named: "darkRedColor")
         
         let actionOK = UIAlertAction(title: "ОК", style: okStyle) { action in
             handler()
@@ -147,23 +210,29 @@ class SettingsTableViewController: UITableViewController, SettingsViewProtocol {
     
     func setCellsSettings() {
         DispatchQueue.main.async {
+            let deviceType = UIDevice.current.userInterfaceIdiom
+            
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor(named: "cellSelectedColor")
             
-            
-            self.vibrationOnMistakesCell.textLabel?.text = "Вибрация при ошибке"
-            self.vibrationOnMistakesCell.textLabel?.textColor = UIColor(named: "darkGreyColor")
-            self.vibrationOnMistakesCell.selectionStyle = .none
-            
-            self.vibrationOnMistakesCell.addSubview(self.vibrateOnMistakesSwitch)
-            
-            self.vibrateOnMistakesSwitch.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                self.vibrateOnMistakesSwitch.centerYAnchor.constraint(equalTo: self.vibrationOnMistakesCell.centerYAnchor),
-                self.vibrateOnMistakesSwitch.trailingAnchor.constraint(equalTo:
-                    self.vibrationOnMistakesCell.trailingAnchor, constant: -16)
-            ])
+            switch deviceType {
+            case .phone:
+                self.vibrationOnMistakesCell.textLabel?.text = "Вибрация при ошибке"
+                self.vibrationOnMistakesCell.textLabel?.textColor = UIColor(named: "darkGreyColor")
+                self.vibrationOnMistakesCell.selectionStyle = .none
+                
+                self.vibrationOnMistakesCell.addSubview(self.vibrateOnMistakesSwitch)
+                
+                self.vibrateOnMistakesSwitch.translatesAutoresizingMaskIntoConstraints = false
+                
+                NSLayoutConstraint.activate([
+                    self.vibrateOnMistakesSwitch.centerYAnchor.constraint(equalTo: self.vibrationOnMistakesCell.centerYAnchor),
+                    self.vibrateOnMistakesSwitch.trailingAnchor.constraint(equalTo:
+                        self.vibrationOnMistakesCell.trailingAnchor, constant: -16)
+                ])
+            default:
+                break
+            }
 
             self.resetTutorialCell.textLabel?.text = "Сброс обучения"
             self.resetTutorialCell.textLabel?.textColor = UIColor(named: "darkRedColor")
