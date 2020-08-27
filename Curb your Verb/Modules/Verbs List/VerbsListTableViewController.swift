@@ -15,6 +15,8 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     
     var searchController: UISearchController!
     
+    let kCellIdentifier = "VerbCell"
+    
     // MARK: - View Life cycle
     
     override func viewDidLoad() {
@@ -50,7 +52,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VerbCell", for: indexPath) as? VerbTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as? VerbTableViewCell else {
             fatalError()
         }
         
@@ -114,7 +116,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     
     func setUpTableView() {
         // register cell
-        self.tableView.register(VerbTableViewCell.self, forCellReuseIdentifier: "VerbCell")
+        self.tableView.register(VerbTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
 
         DispatchQueue.main.async {
             // search part
@@ -128,6 +130,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             
             self.navigationItem.leftBarButtonItem = editButton
             self.title = "Таблица глаголов"
+            self.tableView.rowHeight = 44
         }
     }
     

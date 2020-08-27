@@ -72,7 +72,7 @@ class VerbTableViewCell: UITableViewCell, VerbTableViewCellProtocol {
             
             NSLayoutConstraint.activate([
                 self.infinitive.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 5),
-                self.infinitive.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                self.infinitive.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
                 self.infinitive.heightAnchor.constraint(equalToConstant: 35),
                 self.infinitive.widthAnchor.constraint(equalToConstant: 110),
                 
