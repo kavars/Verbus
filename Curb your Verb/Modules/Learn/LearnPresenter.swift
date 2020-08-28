@@ -65,7 +65,7 @@ class LearnPresenter: LearnPresenterProtocol {
     
     func pastSimpleCellSelected(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath) {
         if let cell = cell {
-            cell.bgColor = Colors.yellowVariant
+            cell.bgColor = Colors.darkSandYellowColor
             cell.isPressed = true
             pastSimpleIndex = indexPath
             
@@ -78,7 +78,7 @@ class LearnPresenter: LearnPresenterProtocol {
     
     func pastParticipleCellSetected(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath) {
         if let cell = cell {
-            cell.bgColor = Colors.yellowVariant
+            cell.bgColor = Colors.darkSandYellowColor
             cell.isPressed = true
             pastParticipleIndex = indexPath
             
@@ -91,7 +91,7 @@ class LearnPresenter: LearnPresenterProtocol {
     
     func selectedPressedCell(_ cell: VerbCollectionCellProtocol?, at indexPath: IndexPath) {
         if let cell = cell {
-            cell.bgColor = Colors.grayVariant
+            cell.bgColor = .white
             cell.isPressed = false
             
             if indexPath == pastSimpleIndex {
@@ -160,12 +160,12 @@ class LearnPresenter: LearnPresenterProtocol {
         pastParticipleCheck = true
         
         if let cellPS = view.getCell(at: pastSimpleIndex) {
-            cellPS.bgColor = Colors.grayVariant
+            cellPS.bgColor = .white
             cellPS.isPressed = false
         }
         
         if let cellPP = view.getCell(at: pastParticipleIndex) {
-            cellPP.bgColor = Colors.grayVariant
+            cellPP.bgColor = .white
             cellPP.isPressed = false
         }
         

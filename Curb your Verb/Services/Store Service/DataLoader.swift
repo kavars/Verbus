@@ -11,6 +11,7 @@ import CoreData
 
 
 protocol DataLoaderProtocol: class {
+    func insertSampleData(to managedContext: NSManagedObjectContext)
     func seedCoreDataContainerIfFirstLaunch(to modelName: String)
 }
 
@@ -27,7 +28,7 @@ class DataLoader: DataLoaderProtocol {
             return
         }
         
-        let path = Bundle.main.path(forResource: "SampleData", ofType: "plist")
+        let path = Bundle.main.path(forResource: "outputTop50", ofType: "plist")
         let dataArra = NSArray(contentsOfFile: path!)
         
         let dataArray = dataArra!
@@ -48,6 +49,10 @@ class DataLoader: DataLoaderProtocol {
             verb.infinitiveTranscription = verbDict["infinitiveTranscription"] as? String
             verb.pastSimpleTranscription = verbDict["pastSimpleTranscription"] as? String
             verb.pastParticipleTranscription = verbDict["pastParticipleTranscription"] as? String
+            
+            verb.infinitiveIPA = verbDict["infinitiveIPA"] as? String
+            verb.pastSimpleIPA = verbDict["pastSimpleIPA"] as? String
+            verb.pastParticipleIPA = verbDict["pastParticipleIPA"] as? String
             
             verb.translation = verbDict["translation"] as? String
             

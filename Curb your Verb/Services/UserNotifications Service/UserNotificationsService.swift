@@ -14,7 +14,6 @@ protocol UserNotificationsProtocol: class {
 }
 
 class UserNotificationsService: NSObject, UserNotificationsProtocol {
-    lazy var storeSettingsService: StoreServiceSettingsProtocol = StoreSettingsService()
     lazy var storeVerbsService: StoreVerbsServiceProtocol = StoreVerbsService(modelName: "Curb_your_Verb")
     
     override init() {
@@ -27,8 +26,6 @@ class UserNotificationsService: NSObject, UserNotificationsProtocol {
     
     func registerForPushNotification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
-            self.storeSettingsService.saveNotifications(with: granted)
-            
             if granted {
                 self.scheduleNotification()
             }

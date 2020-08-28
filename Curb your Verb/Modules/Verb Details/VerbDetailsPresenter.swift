@@ -33,10 +33,27 @@ class VerbDetailsPresenter: VerbDetailsPresenterProtocol {
         view.setWrongAnswersToday(with: String(interactor.wrongAnswersToday))
         view.setRightAnswersForAllTime(with: String(interactor.rightAnswersForAllTime))
         view.setWrongAnswersForAllTime(with: String(interactor.wrongAnswersForAllTime))
+        
+        view.setView()
+                
+        view.addElementsOnViewController()
+        view.buildConstraints()
     }
     
     func dismissDetailsView() {
         router.closeCurrentViewController()
     }
     
+    // MARK: - Speech
+    func infinitiveSpeechButtonClicked() {
+        interactor.activateSpeech(form: \Verb.infinitive, IPA: \Verb.infinitiveIPA)
+    }
+    
+    func pastSimpleSpeechButtonClicked() {
+        interactor.activateSpeech(form: \Verb.pastSimple, IPA: \Verb.pastSimpleIPA)
+    }
+    
+    func pastParticipleSpeechButtonClicked() {
+        interactor.activateSpeech(form: \Verb.pastParticiple, IPA: \Verb.pastParticipleIPA)
+    }
 }

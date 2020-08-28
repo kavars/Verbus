@@ -15,6 +15,8 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     
     var searchController: UISearchController!
     
+    let kCellIdentifier = "VerbCell"
+    
     // MARK: - View Life cycle
     
     override func viewDidLoad() {
@@ -43,10 +45,14 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return presenter.titleForHeader(in: section)
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(named: "darkSandYellowColor")
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VerbCell", for: indexPath) as? VerbTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as? VerbTableViewCell else {
             fatalError()
         }
         
@@ -56,8 +62,16 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
         return cell
     }
     
+    // MARK: - Navigation
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !tableView.isEditing {
+            tableView.deselectRow(at: indexPath, animated: true)
+            self.presenter.router.pushDetailView(at: indexPath)
+        }
+    }
+    
     // MARK: - Actions
-    @IBAction func selectToLearn(_ sender: UIBarButtonItem) {
+    @objc func selectToLearn() {
         presenter.selectToLearnClicked()
     }
     
@@ -91,10 +105,19 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             
             self.searchController.obscuresBackgroundDuringPresentation = false
             self.searchController.searchBar.sizeToFit()
+            
+            self.searchController.searchBar.searchBarStyle = .minimal
+            self.searchController.searchBar.tintColor = UIColor(named: "darkRedColor")
+            self.searchController.searchBar.placeholder = "Поиск"
+            
+            self.searchController.searchBar.keyboardAppearance = .dark
         }
     }
     
     func setUpTableView() {
+        // register cell
+        self.tableView.register(VerbTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
+
         DispatchQueue.main.async {
             // search part
             self.tableView.tableHeaderView = self.searchController.searchBar
@@ -102,13 +125,20 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             
             // allow check verbs to learning list
             self.tableView.allowsMultipleSelectionDuringEditing = true
+            
+            let editButton = UIBarButtonItem(image: UIImage(systemName: "book"), style: .plain, target: self, action: #selector(self.selectToLearn))
+            
+            self.navigationItem.leftBarButtonItem = editButton
+            self.title = "Таблица глаголов"
+            self.tableView.rowHeight = 44
         }
     }
     
     func startEditing() {
         DispatchQueue.main.async {
             self.tableView.setEditing(true, animated: true)
-            self.navigationItem.leftBarButtonItem?.title = "Done"
+            self.navigationItem.leftBarButtonItem?.title = "Готово"
+            self.navigationItem.leftBarButtonItem?.image = nil
         }
     }
     
@@ -121,7 +151,8 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     func endEditing() {
         DispatchQueue.main.async {
             self.tableView.setEditing(false, animated: true)
-            self.navigationItem.leftBarButtonItem?.title = "Select To Learn"
+            self.navigationItem.leftBarButtonItem?.title = nil
+            self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: "book")
         }
     }
     
@@ -131,19 +162,6 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
         }
     }
 
-
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            super.prepare(for: segue, sender: sender)
-            presenter.router.prepare(for: segue, sender: sender)
-    }
-    
-    // restrict segue when editing
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return !tableView.isEditing
-    }
 }
 
 // MARK: - UISearchResultsUpdating

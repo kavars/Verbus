@@ -16,25 +16,13 @@ class VerbsListRouter: VerbsListRouterProtocol {
         self.tableViewController = tableViewController
     }
     
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier ?? "" {
-        case "ShowDetail":
-            guard let verbDetailsViewController = segue.destination as? VerbDetailsViewProtocol else {
-                fatalError()
-            }
-            
-            guard let selectedVerbCell = sender as? VerbTableViewCell else {
-                fatalError()
-            }
-            
-            guard let indexPath = tableViewController.tableView.indexPath(for: selectedVerbCell) else {
-                fatalError()
-            }
-            
-            let selectedVerb = tableViewController.presenter.getVerb(at: indexPath)
-            verbDetailsViewController.configure(verb: selectedVerb)
-        default:
-            fatalError()
-        }
+    func pushDetailView(at indexPath: IndexPath) {
+        
+        let verbDetailVC = VerbDetailsViewController()
+        
+        let selectedVerb = self.tableViewController.presenter.getVerb(at: indexPath)
+        verbDetailVC.configure(verb: selectedVerb)
+        
+        self.tableViewController.navigationController?.pushViewController(verbDetailVC, animated: true)
     }
 }

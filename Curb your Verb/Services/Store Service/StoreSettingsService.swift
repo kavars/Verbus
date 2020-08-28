@@ -19,6 +19,9 @@ protocol StoreServiceSettingsProtocol {
     func savedTutorial() -> Bool
     func saveTutorial(with value: Bool)
     
+    func savedTutorialTable() -> Bool
+    func saveTutorialTable(with value: Bool)
+    
     func savedNotifications() -> Bool
     func saveNotifications(with value: Bool)
 }
@@ -28,6 +31,7 @@ class StoreSettingsService: StoreServiceSettingsProtocol {
     private let kSavedVibrationState = "CurbYourVerb.savedVibrationState"
     private let kSavedDay = "CurbYourVerb.savedDay"
     private let kSavedTutorial = "CurbYourVerb.savedTutorial"
+    private let kSavedTutorialTable = "CurbYourVerb.savedTutorialTable"
     private let kSavedNotifications = "CurbYourVerb.savedNotifications"
     
     func savedVibration() -> Bool {
@@ -63,6 +67,18 @@ class StoreSettingsService: StoreServiceSettingsProtocol {
     
     func saveTutorial(with value: Bool) {
         UserDefaults.standard.set(value, forKey: kSavedTutorial)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func savedTutorialTable() -> Bool {
+        if UserDefaults.standard.object(forKey: kSavedTutorialTable) != nil {
+            return UserDefaults.standard.bool(forKey: kSavedTutorialTable)
+        }
+        return true
+    }
+    
+    func saveTutorialTable(with value: Bool) {
+        UserDefaults.standard.set(value, forKey: kSavedTutorialTable)
         UserDefaults.standard.synchronize()
     }
     

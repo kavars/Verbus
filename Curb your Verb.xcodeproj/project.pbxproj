@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */; };
-		7E020A1824D6C56D00D120AF /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */; };
 		7E020A1924D6C56D00D120AF /* VerbProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */; };
 		7E020A1A24D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */; };
+		7E3DE31924E5BBBF00D1B3DE /* TutorialViewTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DE31824E5BBBF00D1B3DE /* TutorialViewTable.swift */; };
 		7E440FE724B7A5D400E0C0EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440FE624B7A5D400E0C0EA /* User.swift */; };
 		7E512E2124B71F13006573AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2024B71F13006573AF /* AppDelegate.swift */; };
 		7E512E2324B71F13006573AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2224B71F13006573AF /* SceneDelegate.swift */; };
@@ -21,7 +20,6 @@
 		7E512E3B24B71F16006573AF /* Curb_your_VerbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E3A24B71F16006573AF /* Curb_your_VerbTests.swift */; };
 		7E512E4C24B71F9B006573AF /* StoreVerbsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E4B24B71F9B006573AF /* StoreVerbsService.swift */; };
 		7E512E5224B72018006573AF /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5124B72018006573AF /* SettingsConfigurator.swift */; };
-		7E512E5424B72025006573AF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5324B72025006573AF /* SettingsViewController.swift */; };
 		7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5524B7202F006573AF /* SettingsInteractor.swift */; };
 		7E512E5824B7203F006573AF /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5724B7203F006573AF /* SettingsPresenter.swift */; };
 		7E512E5A24B7204B006573AF /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E5924B7204B006573AF /* SettingsRouter.swift */; };
@@ -47,8 +45,8 @@
 		7E512E8224B72DCD006573AF /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8124B72DCD006573AF /* SettingsService.swift */; };
 		7E512E8624B74C10006573AF /* CorrectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */; };
 		7E512E8824B77E4C006573AF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E8724B77E4C006573AF /* Colors.swift */; };
+		7E62FD7224E13BE60073EF7E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E62FD7124E13BE60073EF7E /* SettingsTableViewController.swift */; };
 		7E6C8DFC24DBFB7600AD2005 /* DailyUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C8DFB24DBFB7600AD2005 /* DailyUpdateService.swift */; };
-		7E6C8DFF24DBFF9F00AD2005 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6C8DFE24DBFF9F00AD2005 /* TutorialView.xib */; };
 		7E6C8E0124DBFFAA00AD2005 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C8E0024DBFFAA00AD2005 /* TutorialView.swift */; };
 		7E6C8E0324DC0AAB00AD2005 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C8E0224DC0AAB00AD2005 /* TabBarViewController.swift */; };
 		7E70059924D5A87700256089 /* FetchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059824D5A87700256089 /* FetchType.swift */; };
@@ -62,6 +60,9 @@
 		7EB0E8E724D706610096DE8E /* Curb_your_Verb.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */; };
 		7EB0E8E824D706640096DE8E /* Curb_your_Verb.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */; };
 		7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */; };
+		7EC1524824E2D99500A9B31C /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */; };
+		7EC1524924E2D99500A9B31C /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */; };
+		7EE9442424DEA3A7001866D4 /* outputTop50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE9442324DEA3A7001866D4 /* outputTop50.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,12 +89,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerbProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7E3DE31824E5BBBF00D1B3DE /* TutorialViewTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewTable.swift; sourceTree = "<group>"; };
 		7E440FE624B7A5D400E0C0EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7E512E1D24B71F13006573AF /* Curb your Verb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curb your Verb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E512E1D24B71F13006573AF /* Verbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E512E2024B71F13006573AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E512E2224B71F13006573AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7E512E2724B71F13006573AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,7 +106,6 @@
 		7E512E3C24B71F16006573AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E512E4B24B71F9B006573AF /* StoreVerbsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVerbsService.swift; sourceTree = "<group>"; };
 		7E512E5124B72018006573AF /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
-		7E512E5324B72025006573AF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E512E5524B7202F006573AF /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		7E512E5724B7203F006573AF /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		7E512E5924B7204B006573AF /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
@@ -132,8 +131,8 @@
 		7E512E8124B72DCD006573AF /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		7E512E8524B74C10006573AF /* CorrectIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectIndicatorView.swift; sourceTree = "<group>"; };
 		7E512E8724B77E4C006573AF /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7E62FD7124E13BE60073EF7E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7E6C8DFB24DBFB7600AD2005 /* DailyUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUpdateService.swift; sourceTree = "<group>"; };
-		7E6C8DFE24DBFF9F00AD2005 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		7E6C8E0024DBFFAA00AD2005 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		7E6C8E0224DC0AAB00AD2005 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7E70059824D5A87700256089 /* FetchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchType.swift; sourceTree = "<group>"; };
@@ -147,6 +146,9 @@
 		7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Curb_your_Verb.sqlite; path = ../Curb_your_Verb.sqlite; sourceTree = "<group>"; };
 		7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Curb_your_Verb.sqlite-wal"; sourceTree = "<group>"; };
 		7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationsService.swift; sourceTree = "<group>"; };
+		7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7EE9442324DEA3A7001866D4 /* outputTop50.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = outputTop50.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E15B12D24E1E802004D8B12 /* Tutorials */ = {
+			isa = PBXGroup;
+			children = (
+				7E6C8DFD24DBFF7B00AD2005 /* TutorialViewLearn */,
+				7E15B12E24E1E811004D8B12 /* TutorialViewTable */,
+			);
+			path = Tutorials;
+			sourceTree = "<group>";
+		};
+		7E15B12E24E1E811004D8B12 /* TutorialViewTable */ = {
+			isa = PBXGroup;
+			children = (
+				7E3DE31824E5BBBF00D1B3DE /* TutorialViewTable.swift */,
+			);
+			path = TutorialViewTable;
+			sourceTree = "<group>";
+		};
 		7E512E1424B71F13006573AF = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +198,7 @@
 		7E512E1E24B71F13006573AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7E512E1D24B71F13006573AF /* Curb your Verb.app */,
+				7E512E1D24B71F13006573AF /* Verbus.app */,
 				7E512E3624B71F16006573AF /* Curb your VerbTests.xctest */,
 			);
 			name = Products;
@@ -264,7 +283,7 @@
 		7E512E4924B71F51006573AF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7E512E5324B72025006573AF /* SettingsViewController.swift */,
+				7E62FD7124E13BE60073EF7E /* SettingsTableViewController.swift */,
 				7E512E5524B7202F006573AF /* SettingsInteractor.swift */,
 				7E512E5724B7203F006573AF /* SettingsPresenter.swift */,
 				7E512E5124B72018006573AF /* SettingsConfigurator.swift */,
@@ -307,8 +326,8 @@
 		7E512E8324B74BBC006573AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7E15B12D24E1E802004D8B12 /* Tutorials */,
 				7EB7D41324DC0E0900E839CC /* TabBarViewController */,
-				7E6C8DFD24DBFF7B00AD2005 /* TutorialView */,
 				7E84410D24CB242900237F44 /* VerbCollectionCell */,
 				7E84410A24CB213400237F44 /* VerbTableViewCell */,
 				7E512E8424B74BEA006573AF /* CorrectIndicatorView */,
@@ -332,13 +351,12 @@
 			path = "Daily Update Service";
 			sourceTree = "<group>";
 		};
-		7E6C8DFD24DBFF7B00AD2005 /* TutorialView */ = {
+		7E6C8DFD24DBFF7B00AD2005 /* TutorialViewLearn */ = {
 			isa = PBXGroup;
 			children = (
-				7E6C8DFE24DBFF9F00AD2005 /* TutorialView.xib */,
 				7E6C8E0024DBFFAA00AD2005 /* TutorialView.swift */,
 			);
-			path = TutorialView;
+			path = TutorialViewLearn;
 			sourceTree = "<group>";
 		};
 		7E70059A24D5B08600256089 /* Store Service */ = {
@@ -376,6 +394,7 @@
 				7EB0E8E424D705580096DE8E /* Curb_your_Verb.sqlite */,
 				7EB0E8E324D705580096DE8E /* Curb_your_Verb.sqlite-shm */,
 				7EB0E8E524D705580096DE8E /* Curb_your_Verb.sqlite-wal */,
+				7EE9442324DEA3A7001866D4 /* outputTop50.plist */,
 				7E750E8124BF9791006CA440 /* SampleData.plist */,
 			);
 			path = "Verbs seed data";
@@ -408,8 +427,8 @@
 		7EECBDF124D6C3E900E388D1 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				7E020A1324D6C56D00D120AF /* Verb+CoreDataClass.swift */,
-				7E020A1424D6C56D00D120AF /* Verb+CoreDataProperties.swift */,
+				7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */,
+				7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */,
 				7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */,
 				7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */,
 			);
@@ -434,7 +453,7 @@
 			);
 			name = "Curb your Verb";
 			productName = "Curb your Verb";
-			productReference = 7E512E1D24B71F13006573AF /* Curb your Verb.app */;
+			productReference = 7E512E1D24B71F13006573AF /* Verbus.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7E512E3524B71F16006573AF /* Curb your VerbTests */ = {
@@ -498,11 +517,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E6C8DFF24DBFF9F00AD2005 /* TutorialView.xib in Resources */,
 				7EB0E8E624D7065E0096DE8E /* Curb_your_Verb.sqlite in Resources */,
 				7E512E3024B71F16006573AF /* LaunchScreen.storyboard in Resources */,
 				7EB0E8E824D706640096DE8E /* Curb_your_Verb.sqlite-wal in Resources */,
 				7E512E2D24B71F16006573AF /* Assets.xcassets in Resources */,
+				7EE9442424DEA3A7001866D4 /* outputTop50.plist in Resources */,
 				7E750E8224BF9791006CA440 /* SampleData.plist in Resources */,
 				7EB0E8E724D706610096DE8E /* Curb_your_Verb.sqlite-shm in Resources */,
 				7E512E2824B71F13006573AF /* Main.storyboard in Resources */,
@@ -527,18 +546,20 @@
 				7E512E6C24B721FF006573AF /* VerbsListTableViewController.swift in Sources */,
 				7E512E7C24B72280006573AF /* LearnConfigurator.swift in Sources */,
 				7E512E6E24B72208006573AF /* VerbsListPresenter.swift in Sources */,
+				7EC1524824E2D99500A9B31C /* Verb+CoreDataClass.swift in Sources */,
 				7EB0E8E224D700EF0096DE8E /* StoreSettingsService.swift in Sources */,
 				7E512E6824B720EC006573AF /* VerbDetailsProtocols.swift in Sources */,
 				7E84410C24CB215600237F44 /* VerbTableViewCell.swift in Sources */,
 				7E70059C24D5B0E100256089 /* DataLoader.swift in Sources */,
 				7E84410F24CB243100237F44 /* VerbCollectionCell.swift in Sources */,
+				7E62FD7224E13BE60073EF7E /* SettingsTableViewController.swift in Sources */,
 				7E512E4C24B71F9B006573AF /* StoreVerbsService.swift in Sources */,
 				7E020A1924D6C56D00D120AF /* VerbProgress+CoreDataClass.swift in Sources */,
 				7E512E7624B72257006573AF /* LearnViewController.swift in Sources */,
 				7E512E6024B720C7006573AF /* VerbDetailsViewController.swift in Sources */,
 				7E512E5E24B720BA006573AF /* VerbDetailsInteractor.swift in Sources */,
-				7E512E5424B72025006573AF /* SettingsViewController.swift in Sources */,
 				7E512E2124B71F13006573AF /* AppDelegate.swift in Sources */,
+				7EC1524924E2D99500A9B31C /* Verb+CoreDataProperties.swift in Sources */,
 				7E512E7224B7223A006573AF /* VerbsListRouter.swift in Sources */,
 				7E512E6224B720D3006573AF /* VerbDetailsPresenter.swift in Sources */,
 				7E6C8DFC24DBFB7600AD2005 /* DailyUpdateService.swift in Sources */,
@@ -548,7 +569,6 @@
 				7E512E7824B72264006573AF /* LearnInteractor.swift in Sources */,
 				7E512E8024B7228E006573AF /* LearnProtocols.swift in Sources */,
 				7E512E5C24B7205B006573AF /* SettingsProtocols.swift in Sources */,
-				7E020A1824D6C56D00D120AF /* Verb+CoreDataProperties.swift in Sources */,
 				7E512E6A24B721EE006573AF /* VerbsListInteractor.swift in Sources */,
 				7E512E5824B7203F006573AF /* SettingsPresenter.swift in Sources */,
 				7E512E7E24B72287006573AF /* LearnRouter.swift in Sources */,
@@ -563,10 +583,10 @@
 				7E512E7A24B72275006573AF /* LearnPresenter.swift in Sources */,
 				7E6C8E0324DC0AAB00AD2005 /* TabBarViewController.swift in Sources */,
 				7E6C8E0124DBFFAA00AD2005 /* TutorialView.swift in Sources */,
-				7E020A1724D6C56D00D120AF /* Verb+CoreDataClass.swift in Sources */,
 				7E512E5624B7202F006573AF /* SettingsInteractor.swift in Sources */,
 				7E512E5A24B7204B006573AF /* SettingsRouter.swift in Sources */,
 				7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */,
+				7E3DE31924E5BBBF00D1B3DE /* TutorialViewTable.swift in Sources */,
 				7EB0E8E024D700CF0096DE8E /* StoreStrikeService.swift in Sources */,
 				7E440FE724B7A5D400E0C0EA /* User.swift in Sources */,
 			);
@@ -614,6 +634,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -660,7 +681,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -674,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -714,7 +736,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -729,7 +751,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 82CJ7XMF7V;
 				INFOPLIST_FILE = "Curb your Verb/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -737,10 +761,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Kaviro.Curb-your-Verb";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus;
+				PRODUCT_NAME = Verbus;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -749,7 +775,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 82CJ7XMF7V;
 				INFOPLIST_FILE = "Curb your Verb/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -757,10 +785,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Kaviro.Curb-your-Verb";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus;
+				PRODUCT_NAME = Verbus;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

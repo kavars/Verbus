@@ -11,7 +11,9 @@ import Foundation
 protocol VerbDetailsViewProtocol: class {
     
     func configure(verb: Verb)
-        
+    
+    func setView()
+            
     func setInfinitiveForm(with string: String)
     func setPastSimpleForm(with string: String)
     func setPastParticipleForm(with string: String)
@@ -26,6 +28,9 @@ protocol VerbDetailsViewProtocol: class {
     func setWrongAnswersToday(with string: String)
     func setRightAnswersForAllTime(with string: String)
     func setWrongAnswersForAllTime(with string: String)
+    
+    func buildConstraints()
+    func addElementsOnViewController()
 }
 
 protocol VerbDetailsInteractorProtocol: class {
@@ -45,6 +50,14 @@ protocol VerbDetailsInteractorProtocol: class {
     var rightAnswersForAllTime: Int32 { get }
     var wrongAnswersForAllTime: Int32 { get }
     
+    /**
+    Activates speech synthesizer for the selected verb form
+
+    - Parameter form: Path to verb form.
+    - Parameter IPA: Path to IPA notation of form.
+
+    */
+    func activateSpeech(form: KeyPath<Verb, String?>, IPA: KeyPath<Verb, String?>)
 }
 
 protocol VerbDetailsPresenterProtocol: class {
@@ -53,6 +66,11 @@ protocol VerbDetailsPresenterProtocol: class {
     func configureView()
     
     func dismissDetailsView()
+    
+    func infinitiveSpeechButtonClicked()
+    func pastSimpleSpeechButtonClicked()
+    func pastParticipleSpeechButtonClicked()
+
 }
 
 protocol VerbDetailsConfiguratorProtocol: class {

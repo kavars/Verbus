@@ -9,12 +9,12 @@
 import Foundation
 
 class SettingsConfigurator: SettingsConfiguratorProtocol {
-    func configure(with viewController: SettingsViewController) {
-        let presenter = SettingsPresenter(view: viewController)
+    func configure(with tableViewController: SettingsTableViewController) {
+        let presenter = SettingsPresenter(view: tableViewController)
         let interactor = SettingsInteractor(presenter: presenter)
-        let router = SettingsRouter(viewController: viewController)
+        let router = SettingsRouter(tableViewController: tableViewController)
         
-        viewController.presenter = presenter
+        tableViewController.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
     }

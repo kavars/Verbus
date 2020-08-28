@@ -12,8 +12,14 @@ protocol CorrectIndicatorViewProtocol: class {
     func changeCells(at index: Int)
 }
 
-class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
+@IBDesignable class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
     private var cells = [UIView]()
+    
+    @IBInspectable var cellCount: Int = 6 {
+        didSet {
+            setupCells()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,32 +37,45 @@ class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
         alignment = Alignment.center
         spacing = 1
         
-        
-        
-        for _ in 0...5 {
-            let cell = UIView()
-            cell.heightAnchor.constraint(equalToConstant: 10).isActive = true
-            cell.widthAnchor.constraint(equalToConstant: 20).isActive = true
-            cell.backgroundColor = Colors.grayIndicator
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.white.cgColor
-            
-            addArrangedSubview(cell)
-            cells.append(cell)
+        for cell in cells {
+            removeArrangedSubview(cell)
+            cell.removeFromSuperview()
         }
         
-        translatesAutoresizingMaskIntoConstraints = false
+        cells.removeAll()
+                
+        for _ in 0..<cellCount {
+            let cell = UIView()
+            
+            cell.backgroundColor = .white
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor // Colors.borderGreyColor.cgColor
+            
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 3
+            
+            cell.translatesAutoresizingMaskIntoConstraints = false
+            cell.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
+            
+            addArrangedSubview(cell)
+            
+            cells.append(cell)
+            
+        }
+        
     }
     
     func changeCells(at index: Int) {
         for cell in cells {
-            cell.backgroundColor = Colors.grayIndicator
+            cell.backgroundColor = .white
+            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor //Colors.borderGreyColor.cgColor
         }
         
         for i in 0..<index {
             let cell = cells[i]
 
-            cell.backgroundColor = Colors.greenIndicator
+            cell.backgroundColor = UIColor(named: "darkRedColor") // Colors.darkRedColor
+            cell.layer.borderColor = UIColor(named: "darkRedColor")?.cgColor // Colors.darkRedColor.cgColor
         }
     }
 }

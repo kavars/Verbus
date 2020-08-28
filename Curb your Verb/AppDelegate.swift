@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         dailyUpdateService.dailyUpdater()
         
+        activateUIAppearance()
+        
         return true
     }
 
@@ -35,4 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    private func activateUIAppearance() {
+        UINavigationBar.appearance().barTintColor = UIColor(named: "darkSandYellowColor")
+        UINavigationBar.appearance().tintColor = UIColor(named: "darkRedColor")
+        
+        UITabBar.appearance().tintColor = UIColor(named: "darkRedColor")
+        UITabBar.appearance().barTintColor = UIColor(named: "darkSandYellowColor")
+        
+        UITableView.appearance().backgroundColor = UIColor(named: "sandYellowColor")
+        UITableViewCell.appearance().backgroundColor = UIColor(named: "sandYellowColor")
+    }
 }

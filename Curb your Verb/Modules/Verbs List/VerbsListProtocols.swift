@@ -71,5 +71,5 @@ protocol VerbsListConfiguratorProtocol: class {
 }
 
 protocol VerbsListRouterProtocol: class {
-    func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    func pushDetailView(at indexPath: IndexPath)
 }

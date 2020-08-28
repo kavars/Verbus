@@ -2,11 +2,14 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Verb" representedClassName="Verb" syncable="YES">
         <attribute name="infinitive" optional="YES" attributeType="String"/>
+        <attribute name="infinitiveIPA" optional="YES" attributeType="String"/>
         <attribute name="infinitiveTranscription" optional="YES" attributeType="String"/>
         <attribute name="isLearn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="pastParticiple" optional="YES" attributeType="String"/>
+        <attribute name="pastParticipleIPA" optional="YES" attributeType="String"/>
         <attribute name="pastParticipleTranscription" optional="YES" attributeType="String"/>
         <attribute name="pastSimple" optional="YES" attributeType="String"/>
+        <attribute name="pastSimpleIPA" optional="YES" attributeType="String"/>
         <attribute name="pastSimpleTranscription" optional="YES" attributeType="String"/>
         <attribute name="section" optional="YES" attributeType="String"/>
         <attribute name="translation" optional="YES" attributeType="String"/>
@@ -21,7 +24,7 @@
         <relationship name="verb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Verb" inverseName="progress" inverseEntity="Verb"/>
     </entity>
     <elements>
-        <element name="Verb" positionX="-161.40625" positionY="97.390625" width="170.51171875" height="208"/>
+        <element name="Verb" positionX="-161.40625" positionY="97.390625" width="170.51171875" height="253"/>
         <element name="VerbProgress" positionX="166.8203125" positionY="157.39453125" width="150.83203125" height="118"/>
     </elements>
 </model>

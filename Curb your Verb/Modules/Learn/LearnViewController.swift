@@ -82,6 +82,16 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     func setCheckButton() {
         DispatchQueue.main.async {
             self.checkButton.layer.cornerRadius = 10
+            
+            self.infinitiveLabel.layer.masksToBounds = true
+            self.pastSimpleLabel.layer.masksToBounds = true
+            self.pastParticipateLabel.layer.masksToBounds = true
+            
+            self.infinitiveLabel.layer.cornerRadius = 10
+            self.pastSimpleLabel.layer.cornerRadius = 10
+            self.pastParticipateLabel.layer.cornerRadius = 10
+            
+            
         }
     }
     
@@ -151,6 +161,9 @@ extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "verbCell", for: indexPath) as! VerbCollectionCell
+                
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 10
         
         cell.variant.lineBreakMode = .byWordWrapping
         cell.variant.numberOfLines = 0
