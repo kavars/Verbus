@@ -44,11 +44,8 @@ class TabBarViewController: UITabBarController {
         }
     }
     
-    private func addLearnView() {
-        let viewControllerStoryboardId = "learnVC"
-        
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let learnVC = storyboard.instantiateViewController(withIdentifier: viewControllerStoryboardId) as! LearnViewController
+    private func addLearnView() {        
+        let learnVC = LearnViewController()
         
         learnVC.tabBarItem = UITabBarItem(title: "Изучение", image: UIImage(systemName: "book"), tag: 0)
                 

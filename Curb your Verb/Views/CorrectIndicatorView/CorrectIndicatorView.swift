@@ -12,10 +12,10 @@ protocol CorrectIndicatorViewProtocol: class {
     func changeCells(at index: Int)
 }
 
-@IBDesignable class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
+class CorrectIndicatorView: UIStackView, CorrectIndicatorViewProtocol {
     private var cells = [UIView]()
     
-    @IBInspectable var cellCount: Int = 6 {
+    var cellCount: Int = 6 {
         didSet {
             setupCells()
         }
@@ -33,8 +33,8 @@ protocol CorrectIndicatorViewProtocol: class {
     
     private func setupCells() {
         axis = .horizontal
-        distribution = Distribution.fillProportionally
-        alignment = Alignment.center
+        distribution = .fillEqually
+        alignment = .fill
         spacing = 1
         
         for cell in cells {
@@ -49,14 +49,11 @@ protocol CorrectIndicatorViewProtocol: class {
             
             cell.backgroundColor = .white
             cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor // Colors.borderGreyColor.cgColor
+            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor
             
             cell.layer.masksToBounds = true
             cell.layer.cornerRadius = 3
-            
-            cell.translatesAutoresizingMaskIntoConstraints = false
-            cell.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
-            
+                        
             addArrangedSubview(cell)
             
             cells.append(cell)
@@ -68,14 +65,14 @@ protocol CorrectIndicatorViewProtocol: class {
     func changeCells(at index: Int) {
         for cell in cells {
             cell.backgroundColor = .white
-            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor //Colors.borderGreyColor.cgColor
+            cell.layer.borderColor = UIColor(named: "borderGreyColor")?.cgColor
         }
         
         for i in 0..<index {
             let cell = cells[i]
 
-            cell.backgroundColor = UIColor(named: "darkRedColor") // Colors.darkRedColor
-            cell.layer.borderColor = UIColor(named: "darkRedColor")?.cgColor // Colors.darkRedColor.cgColor
+            cell.backgroundColor = UIColor(named: "darkRedColor")
+            cell.layer.borderColor = UIColor(named: "darkRedColor")?.cgColor
         }
     }
 }
