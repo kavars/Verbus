@@ -34,8 +34,8 @@ class VerbDetailsPresenter: VerbDetailsPresenterProtocol {
         view.setRightAnswersForAllTime(with: String(interactor.rightAnswersForAllTime))
         view.setWrongAnswersForAllTime(with: String(interactor.wrongAnswersForAllTime))
         
-        view.setCellsView()
-        
+        view.setView()
+                
         view.addElementsOnViewController()
         view.buildConstraints()
     }

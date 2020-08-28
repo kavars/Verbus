@@ -12,8 +12,8 @@ protocol VerbDetailsViewProtocol: class {
     
     func configure(verb: Verb)
     
-    func setCellsView()
-        
+    func setView()
+            
     func setInfinitiveForm(with string: String)
     func setPastSimpleForm(with string: String)
     func setPastParticipleForm(with string: String)

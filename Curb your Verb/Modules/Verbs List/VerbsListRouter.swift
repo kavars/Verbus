@@ -23,9 +23,6 @@ class VerbsListRouter: VerbsListRouterProtocol {
         let selectedVerb = self.tableViewController.presenter.getVerb(at: indexPath)
         verbDetailVC.configure(verb: selectedVerb)
         
-        verbDetailVC.view.backgroundColor = UIColor(named: "sandYellowColor")
-
-        
         self.tableViewController.navigationController?.pushViewController(verbDetailVC, animated: true)
     }
 }
