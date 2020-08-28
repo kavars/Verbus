@@ -42,6 +42,9 @@ class LearnPresenter: LearnPresenterProtocol {
         view.setSwipeRecognizerDirection()
         view.setCheckButton()
         view.setCollectionViewDelegate()
+        
+        view.addElementsOnView()
+        view.addConstraints()
     }
     
     // Work with cells

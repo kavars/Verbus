@@ -10,11 +10,73 @@ import UIKit
 
 class LearnViewController: UIViewController, LearnViewProtocol {
 
-    @IBOutlet weak var infinitiveLabel: UILabel!
-    @IBOutlet weak var pastSimpleLabel: UILabel!
-    @IBOutlet weak var pastParticipateLabel: UILabel!
+    let infinitiveLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = .systemFont(ofSize: 38)
+        label.textAlignment = .center
+        label.textColor = UIColor(named: "darkGreyColor")
+        
+        label.backgroundColor = .white
+        
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 10
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
-    @IBOutlet weak var correctIndicatorView: CorrectIndicatorView!
+    let pastSimpleLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = .systemFont(ofSize: 17)
+        label.textAlignment = .center
+        label.textColor = UIColor(named: "darkGreyColor")
+        
+        label.backgroundColor = .white
+        
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 10
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let pastParticipateLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = .systemFont(ofSize: 17)
+        label.textAlignment = .center
+        label.textColor = UIColor(named: "darkGreyColor")
+        
+        label.backgroundColor = .white
+        
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 10
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let answerHUIStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        
+        stackView.spacing = 30
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }()
+    
+    
+    let correctIndicatorView: CorrectIndicatorView = CorrectIndicatorView()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var checkButton: UIButton!
@@ -90,8 +152,6 @@ class LearnViewController: UIViewController, LearnViewProtocol {
             self.infinitiveLabel.layer.cornerRadius = 10
             self.pastSimpleLabel.layer.cornerRadius = 10
             self.pastParticipateLabel.layer.cornerRadius = 10
-            
-            
         }
     }
     
@@ -128,7 +188,46 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         return collectionView.visibleCells as? [VerbCollectionCellProtocol]
     }
     
-
+    func addElementsOnView() {
+        DispatchQueue.main.async {
+            self.correctIndicatorView.cellCount = 6
+            self.correctIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.view.addSubview(self.correctIndicatorView)
+            
+            self.view.addSubview(self.infinitiveLabel)
+            
+            self.answerHUIStackView.addArrangedSubview(self.pastSimpleLabel)
+            self.answerHUIStackView.addArrangedSubview(self.pastParticipateLabel)
+            
+            self.view.addSubview(self.answerHUIStackView)
+        }
+    }
+    
+    func addConstraints() {
+        DispatchQueue.main.async {
+            NSLayoutConstraint.activate([
+                self.correctIndicatorView.widthAnchor.constraint(equalToConstant: 219),
+                self.correctIndicatorView.heightAnchor.constraint(equalToConstant: 10),
+                self.correctIndicatorView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 25),
+                self.correctIndicatorView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                
+                self.infinitiveLabel.topAnchor.constraint(equalTo: self.correctIndicatorView.bottomAnchor, constant: 68), // less or equal
+                self.infinitiveLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 22),
+                self.infinitiveLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -22),
+                self.infinitiveLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.14532),
+                self.infinitiveLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                
+                self.answerHUIStackView.heightAnchor.constraint(equalTo: self.infinitiveLabel.heightAnchor, multiplier: 0.5),
+                self.answerHUIStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                self.answerHUIStackView.topAnchor.constraint(equalTo: self.infinitiveLabel.bottomAnchor, constant: 23),
+                self.answerHUIStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 22),
+                self.answerHUIStackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -22),
+                
+                self.pastSimpleLabel.widthAnchor.constraint(equalTo: self.pastParticipateLabel.widthAnchor)
+            ])
+        }
+    }
     
     // MARK: - Animation
     

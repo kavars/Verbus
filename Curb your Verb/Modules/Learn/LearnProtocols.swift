@@ -25,6 +25,9 @@ protocol LearnViewProtocol: class {
     func setSwipeRecognizerDirection()
     func setCheckButton()
     func setCollectionViewDelegate()
+    
+    func addElementsOnView()
+    func addConstraints()
 }
 
 protocol LearnInteractorProtocol: class {
