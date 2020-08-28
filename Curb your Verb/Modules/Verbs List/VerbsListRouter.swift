@@ -17,12 +17,14 @@ class VerbsListRouter: VerbsListRouterProtocol {
     }
     
     func pushDetailView(at indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let verbDetailVCStoryboardId = "verbDetailVC"
-        let verbDetailVC = storyboard.instantiateViewController(withIdentifier: verbDetailVCStoryboardId) as! VerbDetailsViewController
+        
+        let verbDetailVC = VerbDetailsViewController()
         
         let selectedVerb = self.tableViewController.presenter.getVerb(at: indexPath)
         verbDetailVC.configure(verb: selectedVerb)
+        
+        verbDetailVC.view.backgroundColor = UIColor(named: "sandYellowColor")
+
         
         self.tableViewController.navigationController?.pushViewController(verbDetailVC, animated: true)
     }

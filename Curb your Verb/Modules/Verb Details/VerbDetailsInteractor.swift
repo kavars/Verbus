@@ -123,7 +123,7 @@ class VerbDetailsInteractor: VerbDetailsInteractorProtocol {
     
     // MARK: - Speech
     // mem leak?
-    var speechSynthesizer = AVSpeechSynthesizer()
+    let speechSynthesizer = AVSpeechSynthesizer()
     
     func activateSpeech(form: KeyPath<Verb, String?>, IPA: KeyPath<Verb, String?>) {
         guard let verbForm = verb[keyPath: form] else {

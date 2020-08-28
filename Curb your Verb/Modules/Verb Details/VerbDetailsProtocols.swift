@@ -28,6 +28,9 @@ protocol VerbDetailsViewProtocol: class {
     func setWrongAnswersToday(with string: String)
     func setRightAnswersForAllTime(with string: String)
     func setWrongAnswersForAllTime(with string: String)
+    
+    func buildConstraints()
+    func addElementsOnViewController()
 }
 
 protocol VerbDetailsInteractorProtocol: class {

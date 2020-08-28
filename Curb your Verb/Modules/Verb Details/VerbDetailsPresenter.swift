@@ -35,6 +35,9 @@ class VerbDetailsPresenter: VerbDetailsPresenterProtocol {
         view.setWrongAnswersForAllTime(with: String(interactor.wrongAnswersForAllTime))
         
         view.setCellsView()
+        
+        view.addElementsOnViewController()
+        view.buildConstraints()
     }
     
     func dismissDetailsView() {
