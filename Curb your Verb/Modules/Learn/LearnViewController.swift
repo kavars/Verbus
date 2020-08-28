@@ -79,9 +79,31 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var checkButton: UIButton!
+    let checkButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.backgroundColor = UIColor(named: "darkRedColor")
+        
+        button.setTitle("Проверить", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+
+        button.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
+        
+        return button
+    }()
     
-    @IBOutlet weak var gestureRecognizer: UISwipeGestureRecognizer!
+    let gestureRecognizer: UISwipeGestureRecognizer = {
+        let gestureRecognizer = UISwipeGestureRecognizer()
+                
+        gestureRecognizer.direction = .left
+                
+        return gestureRecognizer
+    }()
     
     var presenter: LearnPresenterProtocol!
     let configurator: LearnConfiguratorProtocol = LearnConfigurator()
@@ -99,19 +121,19 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     // MARK: - IBAction
     
-    @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
-        let startPoint = sender.location(in: view)
+    @objc func swiped() {
+        let startPoint = self.gestureRecognizer.location(in: view)
         
         let width = view.frame.width / 3
         
-        if (startPoint.x > view.frame.width - width) && sender.direction == .left {
-            if sender.state == .ended {
+        if (startPoint.x > view.frame.width - width) && self.gestureRecognizer.direction == .left {
+            if self.gestureRecognizer.state == .ended {
                 presenter.skipVerb()
             }
         }
     }
     
-    @IBAction func checkButtonClicked(_ sender: UIButton) {
+    @objc func checkButtonClicked() {
         presenter.checkButtonClicked()
     }
     
@@ -135,23 +157,11 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         }
     }
     
-    func setSwipeRecognizerDirection() {
+    func setSwipeRecognizer() {
         DispatchQueue.main.async {
-            self.gestureRecognizer.direction = .left
-        }
-    }
-    
-    func setCheckButton() {
-        DispatchQueue.main.async {
-            self.checkButton.layer.cornerRadius = 10
-            
-            self.infinitiveLabel.layer.masksToBounds = true
-            self.pastSimpleLabel.layer.masksToBounds = true
-            self.pastParticipateLabel.layer.masksToBounds = true
-            
-            self.infinitiveLabel.layer.cornerRadius = 10
-            self.pastSimpleLabel.layer.cornerRadius = 10
-            self.pastParticipateLabel.layer.cornerRadius = 10
+            self.gestureRecognizer.addTarget(self, action: #selector(self.swiped))
+
+            self.view.addGestureRecognizer(self.gestureRecognizer)
         }
     }
     
@@ -201,30 +211,49 @@ class LearnViewController: UIViewController, LearnViewProtocol {
             self.answerHUIStackView.addArrangedSubview(self.pastParticipateLabel)
             
             self.view.addSubview(self.answerHUIStackView)
+            
+            self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.view.addSubview(self.checkButton)
         }
     }
     
     func addConstraints() {
         DispatchQueue.main.async {
             NSLayoutConstraint.activate([
+                // Correct indicator
                 self.correctIndicatorView.widthAnchor.constraint(equalToConstant: 219),
                 self.correctIndicatorView.heightAnchor.constraint(equalToConstant: 10),
                 self.correctIndicatorView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 25),
                 self.correctIndicatorView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                 
+                // Infinitive
                 self.infinitiveLabel.topAnchor.constraint(equalTo: self.correctIndicatorView.bottomAnchor, constant: 68), // less or equal
                 self.infinitiveLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 22),
                 self.infinitiveLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -22),
                 self.infinitiveLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.14532),
                 self.infinitiveLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                 
+                // Past forms
                 self.answerHUIStackView.heightAnchor.constraint(equalTo: self.infinitiveLabel.heightAnchor, multiplier: 0.5),
                 self.answerHUIStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                 self.answerHUIStackView.topAnchor.constraint(equalTo: self.infinitiveLabel.bottomAnchor, constant: 23),
                 self.answerHUIStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 22),
                 self.answerHUIStackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -22),
                 
-                self.pastSimpleLabel.widthAnchor.constraint(equalTo: self.pastParticipateLabel.widthAnchor)
+                self.pastSimpleLabel.widthAnchor.constraint(equalTo: self.pastParticipateLabel.widthAnchor),
+                
+                // Answers
+                self.collectionView.bottomAnchor.constraint(equalTo: self.checkButton.topAnchor, constant: -32),
+                self.collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                self.collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.258621),
+                self.collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.88),
+                
+                // Button
+                self.checkButton.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.0406404),
+                self.checkButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.352),
+                self.checkButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -39),
+                self.checkButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             ])
         }
     }

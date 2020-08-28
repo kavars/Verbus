@@ -39,8 +39,7 @@ class LearnPresenter: LearnPresenterProtocol {
         
         changeCorrectIndicator(to: interactor.correctIndex) // ?
         
-        view.setSwipeRecognizerDirection()
-        view.setCheckButton()
+        view.setSwipeRecognizer()
         view.setCollectionViewDelegate()
         
         view.addElementsOnView()

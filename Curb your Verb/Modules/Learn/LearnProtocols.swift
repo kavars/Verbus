@@ -22,8 +22,7 @@ protocol LearnViewProtocol: class {
     
     func getVisibleCells() -> [VerbCollectionCellProtocol]?
     
-    func setSwipeRecognizerDirection()
-    func setCheckButton()
+    func setSwipeRecognizer()
     func setCollectionViewDelegate()
     
     func addElementsOnView()

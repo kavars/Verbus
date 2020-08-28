@@ -17,8 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U2b-df-MXb">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U2b-df-MXb">
                                 <rect key="frame" x="22.666666666666657" y="464" width="330" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="sandYellowColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gmv-N1-rBR">
                                     <size key="itemSize" width="100" height="100"/>
@@ -54,49 +55,17 @@
                                     <outlet property="dataSource" destination="ABm-mD-O09" id="cw4-P3-m73"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reD-Gk-3BI">
-                                <rect key="frame" x="121.66666666666669" y="706" width="132" height="33"/>
-                                <color key="backgroundColor" red="0.63921568627450975" green="0.21176470588235294" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" red="0.63921568630000003" green="0.21176470589999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Проверить">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkButtonClicked:" destination="ABm-mD-O09" eventType="touchUpInside" id="bTL-k0-cAx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95299999999999996" green="0.89800000000000002" blue="0.68200000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="reD-Gk-3BI" firstAttribute="height" secondItem="rrP-44-qe2" secondAttribute="height" multiplier="0.0406404" id="8cX-sd-dmw"/>
-                            <constraint firstItem="reD-Gk-3BI" firstAttribute="top" secondItem="U2b-df-MXb" secondAttribute="bottom" constant="32" id="Cjw-0C-5hw"/>
-                            <constraint firstItem="mlB-eI-SyB" firstAttribute="bottom" secondItem="reD-Gk-3BI" secondAttribute="bottom" constant="39" id="LYy-s4-VVa"/>
-                            <constraint firstItem="reD-Gk-3BI" firstAttribute="width" secondItem="rrP-44-qe2" secondAttribute="width" multiplier="0.352" id="T0s-Wb-Ech"/>
-                            <constraint firstItem="U2b-df-MXb" firstAttribute="height" secondItem="rrP-44-qe2" secondAttribute="height" multiplier="0.258621" id="dFF-tp-AW1"/>
-                            <constraint firstItem="U2b-df-MXb" firstAttribute="width" secondItem="rrP-44-qe2" secondAttribute="width" multiplier="0.88" id="imM-tu-vOL"/>
-                            <constraint firstItem="U2b-df-MXb" firstAttribute="centerX" secondItem="mlB-eI-SyB" secondAttribute="centerX" id="kJg-0M-jW7"/>
-                            <constraint firstItem="reD-Gk-3BI" firstAttribute="centerX" secondItem="mlB-eI-SyB" secondAttribute="centerX" id="xju-kk-oar"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mlB-eI-SyB"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="Vav-9N-JxO" appends="YES" id="mgl-nU-ku5"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Изучение" image="book" catalog="system" id="Jb1-Qd-y2s"/>
                     <connections>
-                        <outlet property="checkButton" destination="reD-Gk-3BI" id="BiB-H6-S7a"/>
                         <outlet property="collectionView" destination="U2b-df-MXb" id="myT-th-K6Z"/>
-                        <outlet property="gestureRecognizer" destination="Vav-9N-JxO" id="VAd-IL-xyI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHu-7y-8al" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="Vav-9N-JxO">
-                    <connections>
-                        <action selector="swiped:" destination="ABm-mD-O09" id="uie-hm-CoU"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2402" y="293"/>
         </scene>
