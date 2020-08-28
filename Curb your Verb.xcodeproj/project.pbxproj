@@ -13,7 +13,6 @@
 		7E440FE724B7A5D400E0C0EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440FE624B7A5D400E0C0EA /* User.swift */; };
 		7E512E2124B71F13006573AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2024B71F13006573AF /* AppDelegate.swift */; };
 		7E512E2324B71F13006573AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2224B71F13006573AF /* SceneDelegate.swift */; };
-		7E512E2824B71F13006573AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E512E2624B71F13006573AF /* Main.storyboard */; };
 		7E512E2B24B71F13006573AF /* Curb_your_Verb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */; };
 		7E512E2D24B71F16006573AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E512E2C24B71F16006573AF /* Assets.xcassets */; };
 		7E512E3024B71F16006573AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E512E2E24B71F16006573AF /* LaunchScreen.storyboard */; };
@@ -96,7 +95,6 @@
 		7E512E1D24B71F13006573AF /* Verbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E512E2024B71F13006573AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E512E2224B71F13006573AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7E512E2724B71F13006573AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E512E2A24B71F13006573AF /* Curb_your_Verb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Curb_your_Verb.xcdatamodel; sourceTree = "<group>"; };
 		7E512E2C24B71F16006573AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E512E2F24B71F16006573AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 		7E512E5024B71FCD006573AF /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				7E512E2624B71F13006573AF /* Main.storyboard */,
 				7E512E2E24B71F16006573AF /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -524,7 +521,6 @@
 				7EE9442424DEA3A7001866D4 /* outputTop50.plist in Resources */,
 				7E750E8224BF9791006CA440 /* SampleData.plist in Resources */,
 				7EB0E8E724D706610096DE8E /* Curb_your_Verb.sqlite-shm in Resources */,
-				7E512E2824B71F13006573AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,14 +607,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7E512E2624B71F13006573AF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7E512E2724B71F13006573AF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7E512E2E24B71F16006573AF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

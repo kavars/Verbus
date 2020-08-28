@@ -15,7 +15,34 @@ protocol VerbCollectionCellProtocol: class {
 }
 
 class VerbCollectionCell: UICollectionViewCell, VerbCollectionCellProtocol {
-    @IBOutlet weak var variant: UILabel!
+    let variant: UILabel = {
+        let label = UILabel()
+        
+        label.font = .systemFont(ofSize: 17)
+        label.textColor = UIColor(named: "darkGreyColor")
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        backgroundColor = .white
+        
+        addSubview(variant)
+        
+        NSLayoutConstraint.activate([
+            self.variant.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.variant.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        fatalError()
+    }
     
     var isPressed = false
     

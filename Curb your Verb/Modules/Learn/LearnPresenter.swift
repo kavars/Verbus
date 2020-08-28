@@ -36,14 +36,14 @@ class LearnPresenter: LearnPresenterProtocol {
     
     func configureView() {
         view.setInfinitiveForm(with: interactor.infinitiveForm)
-        
-        changeCorrectIndicator(to: interactor.correctIndex) // ?
-        
+                
+        view.setView()
         view.setSwipeRecognizer()
-        view.setCollectionViewDelegate()
         
         view.addElementsOnView()
         view.addConstraints()
+        
+        view.setCorrectIndicator(to: interactor.correctIndex)
     }
     
     // Work with cells

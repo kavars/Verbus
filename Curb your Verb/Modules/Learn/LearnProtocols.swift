@@ -9,6 +9,8 @@
 import Foundation
 
 protocol LearnViewProtocol: class {
+    func setView()
+    
     func setInfinitiveForm(with string: String)
     func setPastSimpleForm(with string: String)
     func setPastParticipateForm(with string: String)
@@ -23,10 +25,11 @@ protocol LearnViewProtocol: class {
     func getVisibleCells() -> [VerbCollectionCellProtocol]?
     
     func setSwipeRecognizer()
-    func setCollectionViewDelegate()
     
     func addElementsOnView()
     func addConstraints()
+    
+    func setCorrectIndicator(to: Int)
 }
 
 protocol LearnInteractorProtocol: class {

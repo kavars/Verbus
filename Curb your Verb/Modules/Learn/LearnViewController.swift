@@ -77,7 +77,30 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     let correctIndicatorView: CorrectIndicatorView = CorrectIndicatorView()
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    let cellIdentifier = "verbCell"
+    
+    lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        
+        collectionView.register(VerbCollectionCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        
+        collectionView.isScrollEnabled = false
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        collectionView.backgroundColor = nil
+        
+        return collectionView
+    }()
+    
+    lazy var flowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+                
+        return flowLayout
+    }()
     
     let checkButton: UIButton = {
         let button = UIButton(type: .system)
@@ -139,6 +162,10 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     // MARK: - LearnViewDelegate methods
     
+    func setView() {
+        self.view.backgroundColor = UIColor(named: "sandYellowColor")
+    }
+    
     func setInfinitiveForm(with string: String) {
         DispatchQueue.main.async {
             self.infinitiveLabel.text = string
@@ -164,10 +191,10 @@ class LearnViewController: UIViewController, LearnViewProtocol {
             self.view.addGestureRecognizer(self.gestureRecognizer)
         }
     }
-    
-    func setCollectionViewDelegate() {
+        
+    func setCorrectIndicator(to: Int) {
         DispatchQueue.main.async {
-            self.collectionView.delegate = self
+            self.correctIndicatorView.changeCells(at: to)
         }
     }
     
@@ -211,8 +238,8 @@ class LearnViewController: UIViewController, LearnViewProtocol {
             self.answerHUIStackView.addArrangedSubview(self.pastParticipateLabel)
             
             self.view.addSubview(self.answerHUIStackView)
-            
-            self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+            self.view.addSubview(self.collectionView)
             
             self.view.addSubview(self.checkButton)
         }
@@ -228,7 +255,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
                 self.correctIndicatorView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                 
                 // Infinitive
-                self.infinitiveLabel.topAnchor.constraint(equalTo: self.correctIndicatorView.bottomAnchor, constant: 68), // less or equal
+                self.infinitiveLabel.topAnchor.constraint(lessThanOrEqualTo: self.correctIndicatorView.bottomAnchor, constant: 68), // less or equal
                 self.infinitiveLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 22),
                 self.infinitiveLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -22),
                 self.infinitiveLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.14532),
@@ -244,9 +271,10 @@ class LearnViewController: UIViewController, LearnViewProtocol {
                 self.pastSimpleLabel.widthAnchor.constraint(equalTo: self.pastParticipateLabel.widthAnchor),
                 
                 // Answers
+                self.collectionView.topAnchor.constraint(greaterThanOrEqualTo: self.answerHUIStackView.bottomAnchor, constant: 20),
                 self.collectionView.bottomAnchor.constraint(equalTo: self.checkButton.topAnchor, constant: -32),
                 self.collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                self.collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.258621),
+                self.collectionView.heightAnchor.constraint(equalTo: self.collectionView.widthAnchor, multiplier: 2/3),
                 self.collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.88),
                 
                 // Button
@@ -280,7 +308,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
-extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.variantsCount
@@ -288,7 +316,7 @@ extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "verbCell", for: indexPath) as! VerbCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! VerbCollectionCell
                 
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 10
@@ -315,5 +343,13 @@ extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 presenter.selectedPressedCell(cell, at: indexPath)
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = collectionView.frame.width / 3 - 7
+        let height = width
+        
+        return CGSize(width: width, height: height)
     }
 }
