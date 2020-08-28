@@ -54,7 +54,7 @@ class StoreVerbsService: StoreVerbsServiceProtocol {
     
     private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
-//        self.dataLoader.seedCoreDataContainerIfFirstLaunch(to: self.modelName) // seed by sqlite
+        self.dataLoader.seedCoreDataContainerIfFirstLaunch(to: self.modelName) // seed by sqlite
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -84,7 +84,7 @@ class StoreVerbsService: StoreVerbsServiceProtocol {
     
     func verbsFetch(of type: FetchType) -> [Verb]? {
         
-        dataLoader.insertSampleData(to: self.managedContext)
+//        dataLoader.insertSampleData(to: self.managedContext)
         
         var verbs: [Verb] = []
         

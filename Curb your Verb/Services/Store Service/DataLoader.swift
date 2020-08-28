@@ -28,7 +28,7 @@ class DataLoader: DataLoaderProtocol {
             return
         }
         
-        let path = Bundle.main.path(forResource: "outputTop50", ofType: "plist")
+        let path = Bundle.main.path(forResource: "SampleData", ofType: "plist")
         let dataArra = NSArray(contentsOfFile: path!)
         
         let dataArray = dataArra!
@@ -62,7 +62,11 @@ class DataLoader: DataLoaderProtocol {
             
             verb.variants = variants as NSObject?
             
-            verb.isLearn = true
+            if verb.section == "Top 50" {
+                verb.isLearn = true
+            } else {
+                verb.isLearn = false
+            }
             
             verb.progress?.rightAnswersToday = 0
             verb.progress?.wrongAnswersToday = 0

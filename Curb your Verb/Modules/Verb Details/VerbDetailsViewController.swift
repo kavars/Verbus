@@ -73,6 +73,8 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
         label.textAlignment = .left
         label.text = "Сегодня"
         
+        label.numberOfLines = 1
+        
         return label
     }()
     
@@ -90,6 +92,8 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
         
         label.textAlignment = .left
         label.text = "Сегодня"
+        
+        label.numberOfLines = 1
         
         return label
     }()
@@ -286,9 +290,8 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
                 self.translation.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.538667),
                 
                 // Block with stats
-                self.todayRightLabel.widthAnchor.constraint(equalTo: self.allRightLabel.widthAnchor),
-                self.todayWrongLabel.widthAnchor.constraint(equalTo: self.allWrongLabel.widthAnchor),
-                self.todayRightLabel.widthAnchor.constraint(equalTo: self.todayWrongLabel.widthAnchor),
+                self.todayRightLabel.widthAnchor.constraint(equalToConstant: 70),
+                self.todayWrongLabel.widthAnchor.constraint(equalToConstant: 70),
                 
                 self.vRightAnswerView.topAnchor.constraint(equalTo: self.rightView.topAnchor, constant: 8),
                 self.vRightAnswerView.leadingAnchor.constraint(equalTo: self.rightView.leadingAnchor, constant: 8),
@@ -409,6 +412,8 @@ extension VerbDetailsViewController {
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 10
         
+        label.numberOfLines = 2
+                
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
