@@ -13,7 +13,7 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     var presenter: VerbsListPresenterProtocol!
     let configurator: VerbsListConfiguratorProtocol = VerbsListConfigurator()
     
-    var searchController: UISearchController!
+    let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     let kCellIdentifier = "VerbCell"
     
@@ -90,48 +90,45 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
     
     func toggleSearchController() {
         DispatchQueue.main.async {
-            if self.tableView.tableHeaderView == nil {
-                self.tableView.tableHeaderView = self.searchController.searchBar
+            if self.navigationItem.searchController == nil {
+                self.navigationItem.searchController = self.searchController
+                self.navigationController?.view.setNeedsLayout()
+                self.navigationController?.view.layoutIfNeeded()
             } else {
-                self.tableView.tableHeaderView = nil
+                self.navigationItem.searchController = nil
+                self.navigationController?.view.setNeedsLayout()
+                self.navigationController?.view.layoutIfNeeded()
             }
         }
     }
     
     func setUpSearchController() {
-        DispatchQueue.main.async {
-            self.searchController = UISearchController(searchResultsController: nil)
-            self.searchController.searchResultsUpdater = self
-            
-            self.searchController.obscuresBackgroundDuringPresentation = false
-            self.searchController.searchBar.sizeToFit()
-            
-            self.searchController.searchBar.searchBarStyle = .minimal
-            self.searchController.searchBar.tintColor = UIColor(named: "darkRedColor")
-            self.searchController.searchBar.placeholder = "Поиск"
-            
-            self.searchController.searchBar.keyboardAppearance = .dark
-        }
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Поиск"
+        
+        self.navigationItem.searchController?.isEditing = true
+        self.searchController.searchBar.keyboardAppearance = .dark
+
     }
     
     func setUpTableView() {
         // register cell
         self.tableView.register(VerbTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
-
-        DispatchQueue.main.async {
-            // search part
-            self.tableView.tableHeaderView = self.searchController.searchBar
-            self.definesPresentationContext = true
-            
-            // allow check verbs to learning list
-            self.tableView.allowsMultipleSelectionDuringEditing = true
-            
-            let editButton = UIBarButtonItem(image: UIImage(systemName: "book"), style: .plain, target: self, action: #selector(self.selectToLearn))
-            
-            self.navigationItem.leftBarButtonItem = editButton
-            self.title = "Таблица глаголов"
-            self.tableView.rowHeight = 44
-        }
+        
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        self.definesPresentationContext = true
+        
+        // allow check verbs to learning list
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        
+        let editButton = UIBarButtonItem(image: UIImage(systemName: "book"), style: .plain, target: self, action: #selector(self.selectToLearn))
+        
+        self.navigationItem.leftBarButtonItem = editButton
+        self.title = "Таблица глаголов"
+        self.tableView.rowHeight = 44
     }
     
     func startEditing() {
