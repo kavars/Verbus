@@ -30,6 +30,10 @@ protocol LearnViewProtocol: class {
     func addConstraints()
     
     func setCorrectIndicator(to: Int)
+    
+    var isCheckButtonHidden: Bool { set get }
+    
+    func reloadCollectionView()
 }
 
 protocol LearnInteractorProtocol: class {
@@ -93,6 +97,8 @@ protocol LearnPresenterProtocol: class {
     func updateStogeContext()
     
     func skipVerb()
+    
+    func updateView()
 }
 
 protocol LearnConfiguratorProtocol: class {

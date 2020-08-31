@@ -13,7 +13,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     let infinitiveLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 38)
+        label.font = .systemFont(ofSize: 36)
         label.textAlignment = .center
         label.textColor = UIColor(named: "darkGreyColor")
         
@@ -23,6 +23,8 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         label.layer.cornerRadius = 10
         
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.numberOfLines = 2
         
         return label
     }()
@@ -140,6 +142,7 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.updateStogeContext()
+        presenter.updateView()
     }
     
     // MARK: - IBAction
@@ -161,6 +164,19 @@ class LearnViewController: UIViewController, LearnViewProtocol {
     }
     
     // MARK: - LearnViewDelegate methods
+    
+    var isCheckButtonHidden: Bool {
+        set {
+            checkButton.isHidden = newValue
+        }
+        get {
+            return checkButton.isHidden
+        }
+    }
+    
+    func reloadCollectionView() {
+        self.collectionView.reloadData()
+    }
     
     func setView() {
         self.view.backgroundColor = UIColor(named: "sandYellowColor")

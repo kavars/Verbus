@@ -21,6 +21,7 @@ import Foundation
     func configureView() {
         tableView.setUpSearchController()
         tableView.setUpTableView()
+        tableView.setUpToolBar()
     }
     
     func getVerbsCount(in section: Int) -> Int {
@@ -52,11 +53,11 @@ import Foundation
         } else {
             if let selectedIndexes = tableView.indexPathsForSelectedRows {
                 interactor.applySelectedToLearn(selectedIndexes)
-                
-                interactor.updateVerbs()
-                
-                tableView.updateList()
+            } else {
+                interactor.applySelectedToLearn([])
             }
+            interactor.updateVerbs()
+            tableView.updateList()
             
             tableView.toggleSearchController()
             tableView.endEditing()

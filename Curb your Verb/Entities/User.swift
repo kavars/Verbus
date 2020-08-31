@@ -22,6 +22,8 @@ protocol UserProtocol: class {
     func getIndicatorCount() -> Int
     
     func updateStogeContext()
+    
+    var isLearning: Bool { get }
 }
 
 class User: UserProtocol {
@@ -35,6 +37,8 @@ class User: UserProtocol {
     
     private var variants: [String] = []
     
+    var isLearning: Bool = true
+    
     func nextVerb() {
         if !arrayWithVerbs.isEmpty {
             currentVerb = arrayWithVerbs[Int.random(in: 0..<arrayWithVerbs.count)]
@@ -44,10 +48,9 @@ class User: UserProtocol {
             }
             
             self.variants = variants
+            isLearning = true
         } else {
-            // ?
-            currentVerb = Verb(context: storeVerbsService.managedContext)
-            currentVerb?.infinitive = "Нет выбранного глагола"
+            isLearning = false
         }
     }
     

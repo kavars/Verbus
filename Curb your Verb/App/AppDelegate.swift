@@ -46,5 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITableView.appearance().backgroundColor = UIColor(named: "sandYellowColor")
         UITableViewCell.appearance().backgroundColor = UIColor(named: "sandYellowColor")
+        
+        UIToolbar.appearance().barTintColor = UIColor(named: "darkSandYellowColor")
+        UIToolbar.appearance().tintColor = UIColor(named: "darkRedColor")
     }
 }
