@@ -22,19 +22,31 @@ class LearnInteractor: LearnInteractorProtocol {
     
     var variantsCount: Int {
         get {
-            return user.getVariantsCount()
+            if user.isLearning {
+                return user.getVariantsCount()
+            } else {
+                return 0
+            }
         }
     }
     
     var variants: [String] {
         get {
-            return user.getVariants()
+            if user.isLearning {
+                return user.getVariants()
+            } else {
+                return []
+            }
         }
     }
     
     var infinitiveForm: String {
         get {
-            return user.getInfinitive()
+            if user.isLearning {
+                return user.getInfinitive()
+            } else {
+                return "Добавьте глаголы на обучение"
+            }
         }
     }
     

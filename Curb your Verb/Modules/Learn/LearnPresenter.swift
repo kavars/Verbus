@@ -46,6 +46,11 @@ class LearnPresenter: LearnPresenterProtocol {
         view.setCorrectIndicator(to: interactor.correctIndex)
     }
     
+    func updateView() {
+        view.setInfinitiveForm(with: interactor.infinitiveForm)
+        view.reloadCollectionView()
+    }
+    
     // Work with cells
     var pastSimpleCheck: Bool {
         set {
@@ -151,6 +156,14 @@ class LearnPresenter: LearnPresenterProtocol {
     }
     
     func resetView() {
+        if interactor.variants.isEmpty {
+            view.isCheckButtonHidden = true
+            
+            return
+        }
+        
+        view.isCheckButtonHidden = false
+        
         view.setInfinitiveForm(with: interactor.infinitiveForm)
         view.setPastSimpleForm(with: "__________")
         view.setPastParticipateForm(with: "__________")

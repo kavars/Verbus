@@ -27,6 +27,7 @@ protocol VerbsListTableViewProtocol: class {
     var searchText: String? { get }
     
     func toggleSearchController()
+    func setUpToolBar()
 }
 
 protocol VerbsListInteractorProtocol: class {

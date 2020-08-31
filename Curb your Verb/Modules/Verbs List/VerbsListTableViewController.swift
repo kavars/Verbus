@@ -112,6 +112,44 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
 
     }
     
+    // TODO: Add icons
+    func setUpToolBar() {
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        
+        let addAllVerbsButton = UIBarButtonItem(title: "50", style: .plain, target: self, action: #selector(selectAll50))
+        let removeAllVerbsButton = UIBarButtonItem(title: "0", style: .plain, target: self, action: #selector(deselectAll))
+        
+        let addAllVerbsButton200 = UIBarButtonItem(title: "200", style: .plain, target: self, action: #selector(selectAll200))
+        
+        setToolbarItems([removeAllVerbsButton, spacer, addAllVerbsButton, addAllVerbsButton200], animated: false)
+    }
+    
+    @objc func selectAll50() {
+        let rowsCount50 = tableView.numberOfRows(inSection: 0)
+        for i in 0..<rowsCount50 {
+            self.tableView.selectRow(at: IndexPath(row: i, section: 0), animated: true, scrollPosition: .none)
+        }
+    }
+    
+    @objc func selectAll200() {
+        let rowsCount200 = tableView.numberOfRows(inSection: 1)
+        for i in 0..<rowsCount200 {
+            self.tableView.selectRow(at: IndexPath(row: i, section: 1), animated: true, scrollPosition: .none)
+        }
+    }
+    
+    @objc func deselectAll() {
+        let rowsCount50 = tableView.numberOfRows(inSection: 0)
+        for i in 0..<rowsCount50 {
+            self.tableView.deselectRow(at: IndexPath(row: i, section: 0), animated: true)
+        }
+        
+        let rowsCount200 = tableView.numberOfRows(inSection: 1)
+        for i in 0..<rowsCount200 {
+            self.tableView.deselectRow(at: IndexPath(row: i, section: 1), animated: true)
+        }
+    }
+    
     func setUpTableView() {
         // register cell
         self.tableView.register(VerbTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
@@ -136,6 +174,8 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             self.tableView.setEditing(true, animated: true)
             self.navigationItem.leftBarButtonItem?.title = "Готово"
             self.navigationItem.leftBarButtonItem?.image = nil
+            
+            self.navigationController?.setToolbarHidden(false, animated: true)
         }
     }
     
@@ -150,6 +190,8 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
             self.tableView.setEditing(false, animated: true)
             self.navigationItem.leftBarButtonItem?.title = nil
             self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: "book")
+            
+            self.navigationController?.setToolbarHidden(true, animated: true)
         }
     }
     

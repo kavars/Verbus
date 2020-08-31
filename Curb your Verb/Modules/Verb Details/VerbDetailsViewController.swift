@@ -84,6 +84,8 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
         label.textAlignment = .left
         label.text = "Всего"
         
+        label.numberOfLines = 1
+        
         return label
     }()
     
@@ -103,6 +105,8 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
         
         label.textAlignment = .left
         label.text = "Всего"
+        
+        label.numberOfLines = 1
         
         return label
     }()
@@ -292,6 +296,8 @@ class VerbDetailsViewController: UIViewController, VerbDetailsViewProtocol {
                 // Block with stats
                 self.todayRightLabel.widthAnchor.constraint(equalToConstant: 70),
                 self.todayWrongLabel.widthAnchor.constraint(equalToConstant: 70),
+                self.allRightLabel.widthAnchor.constraint(equalToConstant: 70),
+                self.allWrongLabel.widthAnchor.constraint(equalToConstant: 70),
                 
                 self.vRightAnswerView.topAnchor.constraint(equalTo: self.rightView.topAnchor, constant: 8),
                 self.vRightAnswerView.leadingAnchor.constraint(equalTo: self.rightView.leadingAnchor, constant: 8),
