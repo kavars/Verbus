@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+## Verbus
+Приложение для изучения неправильных глаголов
 
-You can use the [editor on GitHub](https://github.com/kavars/Verbus/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Экран "Изучение"
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+На данном экране проводится изучение глаголов.
 
-```markdown
-Syntax highlighted code block
+В самом верху экрана находится ежедневный индикатор ответов.
 
-# Header 1
-## Header 2
-### Header 3
+Для того что бы пройти глагол, выберите past simple и past participle формы глагола и нажмите "Проверить".
 
-- Bulleted
-- List
+Что бы пропустить глагол, сделайте свайп с право на лево.
 
-1. Numbered
-2. List
+### Экран "Таблица глаголов"
 
-**Bold** and _Italic_ and `Code` text
+На данном экране можно посмотреть информацию о глаголах, а так же добавить или убрать глаголы на изучение.
 
-[Link](url) and ![Image](src)
-```
+Так же тут есть поиск по infinitive форме глагола.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Экран "Настройки"
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kavars/Verbus/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+На данном экране можно сбросить статистику и вводный гайд по первым двум экранам, а так же управлять вибрацией в приложении.
