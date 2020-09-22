@@ -21,6 +21,9 @@ class VerbCollectionCell: UICollectionViewCell, VerbCollectionCellProtocol {
         label.font = .systemFont(ofSize: 17)
         label.textColor = UIColor(named: "darkGreyColor")
         
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label

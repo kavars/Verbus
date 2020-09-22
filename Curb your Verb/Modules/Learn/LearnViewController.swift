@@ -22,6 +22,9 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 10
         
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         label.numberOfLines = 2
@@ -41,6 +44,9 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 10
         
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -57,6 +63,9 @@ class LearnViewController: UIViewController, LearnViewProtocol {
         
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 10
+        
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         
         label.translatesAutoresizingMaskIntoConstraints = false
         

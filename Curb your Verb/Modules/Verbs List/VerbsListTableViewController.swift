@@ -112,29 +112,20 @@ class VerbsListTableViewController: UITableViewController, VerbsListTableViewPro
 
     }
     
-    // TODO: Add icons
     func setUpToolBar() {
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         
-        let addAllVerbsButton = UIBarButtonItem(title: "50", style: .plain, target: self, action: #selector(selectAll50))
-        let removeAllVerbsButton = UIBarButtonItem(title: "0", style: .plain, target: self, action: #selector(deselectAll))
+        let addAll50VerbsButton = UIBarButtonItem(title: "Выделить Топ 50", style: .plain, target: self, action: #selector(selectAll50))
+        let removeAllVerbsButton = UIBarButtonItem(title: "Снять всё выделение", style: .plain, target: self, action: #selector(deselectAll))
         
-        let addAllVerbsButton200 = UIBarButtonItem(title: "200", style: .plain, target: self, action: #selector(selectAll200))
-        
-        setToolbarItems([removeAllVerbsButton, spacer, addAllVerbsButton, addAllVerbsButton200], animated: false)
+        setToolbarItems([removeAllVerbsButton, spacer, addAll50VerbsButton], animated: false)
+
     }
     
     @objc func selectAll50() {
         let rowsCount50 = tableView.numberOfRows(inSection: 0)
         for i in 0..<rowsCount50 {
             self.tableView.selectRow(at: IndexPath(row: i, section: 0), animated: true, scrollPosition: .none)
-        }
-    }
-    
-    @objc func selectAll200() {
-        let rowsCount200 = tableView.numberOfRows(inSection: 1)
-        for i in 0..<rowsCount200 {
-            self.tableView.selectRow(at: IndexPath(row: i, section: 1), animated: true, scrollPosition: .none)
         }
     }
     

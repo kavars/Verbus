@@ -22,7 +22,19 @@ class TutorialViewTable: UIView {
         label.textAlignment = .left
         label.numberOfLines = 3
         
-        label.text = "Нажми на книгу что бы добавить глаголы на обучение"
+        label.text = "Нажми на книгу чтобы добавить глаголы на обучение"
+        
+        return label
+    }()
+    
+    let tapToContinueInfoLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = .white
+        label.textAlignment = .center
+        
+        label.text = "Нажать для продолжения"
         
         return label
     }()
@@ -57,13 +69,19 @@ class TutorialViewTable: UIView {
     
     private func setupViewLayout() {
         addSubview(bookInfoLabel)
+        addSubview(tapToContinueInfoLabel)
         
         bookInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        tapToContinueInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             bookInfoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
             bookInfoLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            bookInfoLabel.widthAnchor.constraint(equalToConstant: 180)
+            bookInfoLabel.widthAnchor.constraint(equalToConstant: 180),
+            
+            tapToContinueInfoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            tapToContinueInfoLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -120),
+            tapToContinueInfoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7)
         ])
     }
 }

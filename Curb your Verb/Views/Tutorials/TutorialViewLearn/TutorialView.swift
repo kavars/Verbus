@@ -34,7 +34,7 @@ final class TutorialView: UIView {
         label.textAlignment = .left
         label.numberOfLines = 2
         
-        label.text = "Свайп, что бы пропустить слово"
+        label.text = "Свайп, чтобы пропустить слово"
         
         return label
     }()
