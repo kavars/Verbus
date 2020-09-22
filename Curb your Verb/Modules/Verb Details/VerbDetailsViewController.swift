@@ -419,6 +419,9 @@ extension VerbDetailsViewController {
         label.layer.cornerRadius = 10
         
         label.numberOfLines = 2
+        
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
                 
         label.translatesAutoresizingMaskIntoConstraints = false
         

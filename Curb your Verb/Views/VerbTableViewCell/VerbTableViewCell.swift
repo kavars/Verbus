@@ -25,6 +25,7 @@ class VerbTableViewCell: UITableViewCell, VerbTableViewCellProtocol {
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
         
+        label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
                 
         return label
@@ -41,6 +42,7 @@ class VerbTableViewCell: UITableViewCell, VerbTableViewCellProtocol {
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
         
+        label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         
         return label
