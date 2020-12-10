@@ -37,6 +37,12 @@ protocol StoreVerbsServiceVerbsFetchedResultsControllerProtocol: class {
 
 class StoreVerbsService: StoreVerbsServiceProtocol {
     
+    lazy var applicationDocumentsDirectory: URL = {
+        // The directory the applicationn uses to store the Core Data store file.
+        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.Kaviro.Verbus")!
+        return containerURL
+    }()
+    
     // MARK: - Core Data Stack
     private let modelName: String
     

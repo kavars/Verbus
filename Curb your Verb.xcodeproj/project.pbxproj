@@ -57,6 +57,25 @@
 		7EB0E8ED24D7117D0096DE8E /* UserNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */; };
 		7EC1524824E2D99500A9B31C /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */; };
 		7EC1524924E2D99500A9B31C /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */; };
+		7ECC93FC258156D000021292 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC93FB258156D000021292 /* WidgetKit.framework */; };
+		7ECC93FE258156D000021292 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC93FD258156D000021292 /* SwiftUI.framework */; };
+		7ECC9401258156D000021292 /* VerbWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC9400258156D000021292 /* VerbWidget.swift */; };
+		7ECC9403258156D100021292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ECC9402258156D100021292 /* Assets.xcassets */; };
+		7ECC9407258156D100021292 /* VerbWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ECC93F9258156D000021292 /* VerbWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7ECC940F258157AF00021292 /* StoreVerbsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E4B24B71F9B006573AF /* StoreVerbsService.swift */; };
+		7ECC9413258157BB00021292 /* Curb_your_Verb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */; };
+		7ECC9417258157BE00021292 /* FetchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059824D5A87700256089 /* FetchType.swift */; };
+		7ECC941B258157C100021292 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70059B24D5B0E100256089 /* DataLoader.swift */; };
+		7ECC941F258157C300021292 /* StoreStrikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8DF24D700CF0096DE8E /* StoreStrikeService.swift */; };
+		7ECC9423258157C600021292 /* StoreSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB0E8E124D700EF0096DE8E /* StoreSettingsService.swift */; };
+		7ECC9427258157CF00021292 /* Curb_your_Verb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5708324F97F6900BE01ED /* Curb_your_Verb.sqlite */; };
+		7ECC942B258157D100021292 /* Curb_your_Verb.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5708424F97F6900BE01ED /* Curb_your_Verb.sqlite-shm */; };
+		7ECC942F258157D400021292 /* Curb_your_Verb.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5708224F97F6900BE01ED /* Curb_your_Verb.sqlite-wal */; };
+		7ECC9433258157DF00021292 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5708024F9791B00BE01ED /* SampleData.plist */; };
+		7ECC944225815B6600021292 /* Verb+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */; };
+		7ECC944625815B6800021292 /* Verb+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */; };
+		7ECC944A25815B6A00021292 /* VerbProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1524D6C56D00D120AF /* VerbProgress+CoreDataClass.swift */; };
+		7ECC944E25815B6C00021292 /* VerbProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020A1624D6C56D00D120AF /* VerbProgress+CoreDataProperties.swift */; };
 		7EE5708124F9791B00BE01ED /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5708024F9791B00BE01ED /* SampleData.plist */; };
 		7EE5708524F97F6900BE01ED /* Curb_your_Verb.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5708224F97F6900BE01ED /* Curb_your_Verb.sqlite-wal */; };
 		7EE5708624F97F6900BE01ED /* Curb_your_Verb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5708324F97F6900BE01ED /* Curb_your_Verb.sqlite */; };
@@ -71,6 +90,13 @@
 			remoteGlobalIDString = 7E512E1C24B71F13006573AF;
 			remoteInfo = "Curb your Verb";
 		};
+		7ECC9405258156D100021292 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E512E1524B71F13006573AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7ECC93F8258156D000021292;
+			remoteInfo = VerbWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +106,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				7ECC9407258156D100021292 /* VerbWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +168,14 @@
 		7EB0E8EC24D7117D0096DE8E /* UserNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationsService.swift; sourceTree = "<group>"; };
 		7EC1524624E2D99500A9B31C /* Verb+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7EC1524724E2D99500A9B31C /* Verb+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Verb+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7ECC93F9258156D000021292 /* VerbWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VerbWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ECC93FB258156D000021292 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7ECC93FD258156D000021292 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		7ECC9400258156D000021292 /* VerbWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbWidget.swift; sourceTree = "<group>"; };
+		7ECC9402258156D100021292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7ECC9404258156D100021292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ECC9437258159F500021292 /* Verbus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Verbus.entitlements; sourceTree = "<group>"; };
+		7ECC943825815A0D00021292 /* VerbWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VerbWidgetExtension.entitlements; sourceTree = "<group>"; };
 		7EE5708024F9791B00BE01ED /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		7EE5708224F97F6900BE01ED /* Curb_your_Verb.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Curb_your_Verb.sqlite-wal"; sourceTree = "<group>"; };
 		7EE5708324F97F6900BE01ED /* Curb_your_Verb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Curb_your_Verb.sqlite; sourceTree = "<group>"; };
@@ -159,6 +194,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ECC93F6258156D000021292 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECC93FE258156D000021292 /* SwiftUI.framework in Frameworks */,
+				7ECC93FC258156D000021292 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,8 +229,12 @@
 		7E512E1424B71F13006573AF = {
 			isa = PBXGroup;
 			children = (
+				7ECC943825815A0D00021292 /* VerbWidgetExtension.entitlements */,
+				7ECC940E2581576D00021292 /* Shared */,
 				7E512E1F24B71F13006573AF /* Curb your Verb */,
 				7E512E3924B71F16006573AF /* Curb your VerbTests */,
+				7ECC93FF258156D000021292 /* VerbWidget */,
+				7ECC93FA258156D000021292 /* Frameworks */,
 				7E512E1E24B71F13006573AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -196,6 +244,7 @@
 			children = (
 				7E512E1D24B71F13006573AF /* Verbus.app */,
 				7E512E3624B71F16006573AF /* Curb your VerbTests.xctest */,
+				7ECC93F9258156D000021292 /* VerbWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,11 +252,12 @@
 		7E512E1F24B71F13006573AF /* Curb your Verb */ = {
 			isa = PBXGroup;
 			children = (
+				7ECC9437258159F500021292 /* Verbus.entitlements */,
 				7EE5707624F95F3300BE01ED /* App */,
 				7E512E8324B74BBC006573AF /* Views */,
 				7E512E4D24B71FA0006573AF /* Entities */,
-				7E512E4A24B71F5B006573AF /* Services */,
 				7E512E4524B71F24006573AF /* Modules */,
+				7E512E4A24B71F5B006573AF /* Services */,
 				7EE5707524F95F2500BE01ED /* Resources */,
 				7E512E3124B71F16006573AF /* Info.plist */,
 			);
@@ -292,7 +342,6 @@
 				7E6C8DFA24DBFB5F00AD2005 /* Daily Update Service */,
 				7EB0E8EB24D710FD0096DE8E /* UserNotifications Service */,
 				7EB0E8EA24D710F20096DE8E /* Setting Service */,
-				7E70059A24D5B08600256089 /* Store Service */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -300,7 +349,6 @@
 		7E512E4D24B71FA0006573AF /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7EECBDF124D6C3E900E388D1 /* NSManagedObjects */,
 				7E440FE624B7A5D400E0C0EA /* User.swift */,
 				7E512E8724B77E4C006573AF /* Colors.swift */,
 			);
@@ -354,6 +402,8 @@
 		7E70059A24D5B08600256089 /* Store Service */ = {
 			isa = PBXGroup;
 			children = (
+				7EECBDF124D6C3E900E388D1 /* NSManagedObjects */,
+				7EB0E8E924D709360096DE8E /* Verbs seed data */,
 				7E512E4B24B71F9B006573AF /* StoreVerbsService.swift */,
 				7E512E2924B71F13006573AF /* Curb_your_Verb.xcdatamodeld */,
 				7E70059824D5A87700256089 /* FetchType.swift */,
@@ -415,11 +465,37 @@
 			path = TabBarViewController;
 			sourceTree = "<group>";
 		};
+		7ECC93FA258156D000021292 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC93FB258156D000021292 /* WidgetKit.framework */,
+				7ECC93FD258156D000021292 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7ECC93FF258156D000021292 /* VerbWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC9400258156D000021292 /* VerbWidget.swift */,
+				7ECC9402258156D100021292 /* Assets.xcassets */,
+				7ECC9404258156D100021292 /* Info.plist */,
+			);
+			path = VerbWidget;
+			sourceTree = "<group>";
+		};
+		7ECC940E2581576D00021292 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7E70059A24D5B08600256089 /* Store Service */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		7EE5707524F95F2500BE01ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				7E512E5024B71FCD006573AF /* Storyboards */,
-				7EB0E8E924D709360096DE8E /* Verbs seed data */,
 				7E512E2C24B71F16006573AF /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -460,6 +536,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7ECC9406258156D100021292 /* PBXTargetDependency */,
 			);
 			name = "Curb your Verb";
 			productName = "Curb your Verb";
@@ -484,13 +561,30 @@
 			productReference = 7E512E3624B71F16006573AF /* Curb your VerbTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7ECC93F8258156D000021292 /* VerbWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7ECC9408258156D100021292 /* Build configuration list for PBXNativeTarget "VerbWidgetExtension" */;
+			buildPhases = (
+				7ECC93F5258156D000021292 /* Sources */,
+				7ECC93F6258156D000021292 /* Frameworks */,
+				7ECC93F7258156D000021292 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VerbWidgetExtension;
+			productName = VerbWidgetExtension;
+			productReference = 7ECC93F9258156D000021292 /* VerbWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		7E512E1524B71F13006573AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Kirill Varshamov";
 				TargetAttributes = {
@@ -500,6 +594,9 @@
 					7E512E3524B71F16006573AF = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 7E512E1C24B71F13006573AF;
+					};
+					7ECC93F8258156D000021292 = {
+						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
@@ -518,6 +615,7 @@
 			targets = (
 				7E512E1C24B71F13006573AF /* Curb your Verb */,
 				7E512E3524B71F16006573AF /* Curb your VerbTests */,
+				7ECC93F8258156D000021292 /* VerbWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -540,6 +638,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ECC93F7258156D000021292 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECC9403258156D100021292 /* Assets.xcassets in Resources */,
+				7ECC942B258157D100021292 /* Curb_your_Verb.sqlite-shm in Resources */,
+				7ECC942F258157D400021292 /* Curb_your_Verb.sqlite-wal in Resources */,
+				7ECC9427258157CF00021292 /* Curb_your_Verb.sqlite in Resources */,
+				7ECC9433258157DF00021292 /* SampleData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +718,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7ECC93F5258156D000021292 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECC944A25815B6A00021292 /* VerbProgress+CoreDataClass.swift in Sources */,
+				7ECC941B258157C100021292 /* DataLoader.swift in Sources */,
+				7ECC941F258157C300021292 /* StoreStrikeService.swift in Sources */,
+				7ECC944E25815B6C00021292 /* VerbProgress+CoreDataProperties.swift in Sources */,
+				7ECC9413258157BB00021292 /* Curb_your_Verb.xcdatamodeld in Sources */,
+				7ECC944625815B6800021292 /* Verb+CoreDataProperties.swift in Sources */,
+				7ECC940F258157AF00021292 /* StoreVerbsService.swift in Sources */,
+				7ECC9423258157C600021292 /* StoreSettingsService.swift in Sources */,
+				7ECC9417258157BE00021292 /* FetchType.swift in Sources */,
+				7ECC944225815B6600021292 /* Verb+CoreDataClass.swift in Sources */,
+				7ECC9401258156D000021292 /* VerbWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -615,6 +743,11 @@
 			isa = PBXTargetDependency;
 			target = 7E512E1C24B71F13006573AF /* Curb your Verb */;
 			targetProxy = 7E512E3724B71F16006573AF /* PBXContainerItemProxy */;
+		};
+		7ECC9406258156D100021292 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7ECC93F8258156D000021292 /* VerbWidgetExtension */;
+			targetProxy = 7ECC9405258156D100021292 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -753,9 +886,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Curb your Verb/Verbus.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 82CJ7XMF7V;
 				INFOPLIST_FILE = "Curb your Verb/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -763,7 +897,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus;
 				PRODUCT_NAME = Verbus;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -777,9 +911,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Curb your Verb/Verbus.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 82CJ7XMF7V;
 				INFOPLIST_FILE = "Curb your Verb/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -787,7 +922,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus;
 				PRODUCT_NAME = Verbus;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -840,6 +975,58 @@
 			};
 			name = Release;
 		};
+		7ECC9409258156D100021292 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = VerbWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 82CJ7XMF7V;
+				INFOPLIST_FILE = VerbWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus.VerbWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7ECC940A258156D100021292 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = VerbWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 82CJ7XMF7V;
+				INFOPLIST_FILE = VerbWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = Kaviro.Verbus.VerbWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -866,6 +1053,15 @@
 			buildConfigurations = (
 				7E512E4324B71F16006573AF /* Debug */,
 				7E512E4424B71F16006573AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7ECC9408258156D100021292 /* Build configuration list for PBXNativeTarget "VerbWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7ECC9409258156D100021292 /* Debug */,
+				7ECC940A258156D100021292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
